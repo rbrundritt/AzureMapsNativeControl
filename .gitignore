@@ -398,3 +398,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Samples/AzureMapsMauiSamples/MauiProgram.cs
+Samples/AzureMapsWinUISamples/App.xaml.cs
+Samples/AzureMapsWPFSamples/App.xaml.cs
