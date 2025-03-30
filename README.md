@@ -31,6 +31,9 @@ Well over 95% of the core Azure Maps capabilities and many modules are exposed i
 > [!NOTE]
 > If developing a .NET Maui Blazor app, consider using the [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) project.
 
+> [!NOTE]
+> If you are migrating from Bing Maps WPF to Azure Maps and don't want to rewrite your app, take a look at [this project](https://github.com/rbrundritt/AzureMapsWPFControl) where I have created a simple solution that redirects the Bing Maps requests to Azure Maps.
+
 ## Primary Dependancies
 
 - Azure.Core.GeoJson - Wrapped for easier integration with Azure Maps REST clients.
@@ -49,10 +52,6 @@ Well over 95% of the core Azure Maps capabilities and many modules are exposed i
 - Port rest of samples to WinUI (WPF to WinUI is the easiest path).
 - See [Features & Modules under consideration](Docs/APICoverage.md#features--modules-under-consideration).
 - Create and publish NuGet packages once project is stable.
-
-## Bing Maps WPF Migration Tip
-
-If you are migrating from Bing Maps WPF to Azure Maps and don't want to rewrite your app, take a look at [this project](https://github.com/rbrundritt/AzureMapsWPFControl) where I have created a simple solution that redirects the Bing Maps requests to Azure Maps.
 
 ## Contributing
 
