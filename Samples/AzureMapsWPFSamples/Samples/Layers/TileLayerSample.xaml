@@ -1,0 +1,80 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.TileLayerSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+      xmlns:atlasControls="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Tile Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Tile Source"/>
+                <ComboBox x:Name="TileSourcePicker" Width="210"
+                    SelectionChanged="TileSourcePicker_SelectedIndexChanged">
+                    <ComboBoxItem>XYZ_tile_layer</ComboBoxItem>
+                    <ComboBoxItem>XYZ_with_subdomains</ComboBoxItem>
+                    <ComboBoxItem>WMTS_tile_layer</ComboBoxItem>
+                    <ComboBoxItem>WMS_tile_layer</ComboBoxItem>
+                    <ComboBoxItem>Azure_Maps_Weather_Tiles</ComboBoxItem>
+                    <ComboBoxItem>local_MBTile_file</ComboBoxItem>
+                    <ComboBoxItem>local_tile_zip_file</ComboBoxItem>
+                    <ComboBoxItem>local_tile_zip_file_folders</ComboBoxItem>
+                    <ComboBoxItem>proxy_tile_requests</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Width="110" Margin="10,0,0,0">
+                <TextBlock x:Name="OpacityLabel" Text="Opacity: 1"/>
+                <Slider Maximum="1" Value="1" Width="100" HorizontalAlignment="Left" ValueChanged="OpacitySlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Width="110">
+                <TextBlock x:Name="HueRotationLabel" Text="Hue Rotation: 0"/>
+                <Slider Maximum="360" Value="0" Width="100" ValueChanged="HueRotationSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Width="110">
+                <TextBlock x:Name="ContrastLabel" Text="Contrast: 0"/>
+                <Slider Maximum="1" Minimum="-1" Value="0" Width="100" HorizontalAlignment="Left" ValueChanged="ContrastSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Width="110">
+                <TextBlock x:Name="SaturationLabel" Text="Saturation: 0"/>
+                <Slider Maximum="1" Minimum="-1" Value="0" Width="100" HorizontalAlignment="Left" ValueChanged="SaturationSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Before layer"/>
+                <ComboBox SelectionChanged="BeforeLayerPicker_SelectedIndexChanged">
+                    <ComboBoxItem IsSelected="True">undefined</ComboBoxItem>
+                    <ComboBoxItem>labels</ComboBoxItem>
+                    <ComboBoxItem>roads</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                Style="GrayscaleLight"
+                Bounds="-122.707051,47.511497,-122.15086,47.702461" />
+            </atlas:Map.Settings>
+
+            <atlas:Map.Controls>
+                <atlasControls:StyleControl Position="TopRight" />
+                <atlasControls:ZoomControl Position="TopRight" />
+                <atlasControls:ScaleControl Position="BottomRight" />
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</Page>

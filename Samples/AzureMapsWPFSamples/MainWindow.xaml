@@ -1,0 +1,91 @@
+﻿<Window x:Class="AzureMapsWPFSamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AzureMapsWPFSamples"
+        mc:Ignorable="d"
+        Title="Azure Maps WPF Samples" Height="700" Width="1200">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Getting Started">
+                    <MenuItem Header="Welcome" Tag="Welcome" Click="NavigateToSample" />
+                    <MenuItem Header="Basic Map in XAML" Tag="BasicMapInXaml" Click="NavigateToSample" />
+                    <MenuItem Header="Popups" Tag="PopupsSample" Click="NavigateToSample" />
+                    <MenuItem Header="HTML Markers" Tag="HtmlMarkerSample" Click="NavigateToSample" />
+                    <MenuItem Header="Swipe Map" Tag="SwipeMapSample" Click="NavigateToSample" />
+                    <MenuItem Header="Synchronize Maps" Tag="SynchronizeMapsSample" Click="NavigateToSample" />
+                    <MenuItem Header="MVVM Map" Tag="MapMVVMSample" Click="NavigateToSample" />
+                </MenuItem>
+
+                <MenuItem Header="Sources">
+                    <MenuItem Header="Data Source GeoJson Import" Tag="DataSourceImportSample" Click="NavigateToSample" />
+                    <MenuItem Header="Data Source Lite GeoJson Import" Tag="DataSourceLiteSample" Click="NavigateToSample" />
+                    <MenuItem Header="Vector Tile Source Integration" Tag="VectorTileSourceSample" Click="NavigateToSample" />
+                    <MenuItem Header="PM Tile Source Integration" Tag="PMTileSourceSample" Click="NavigateToSample" />
+                    <MenuItem Header="3D terrian - Elevation Tile Source" Tag="ElevationTileSourceSample" Click="NavigateToSample" />
+                    <MenuItem Header="Extruded Gridded Data Source" Tag="ExtrudedGriddedDataSourceSample" Click="NavigateToSample" />
+                </MenuItem>
+
+                <MenuItem Header="Layers">
+                    <MenuItem Header="Bubble Layer" Tag="BubbleLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Heat Map Layer" Tag="HeatMapLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Image Layer" Tag="ImageLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Line Layer" Tag="LineLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Polygon Layer" Tag="PolygonLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Polygon Extrusion Layer" Tag="PolygonExtrusionLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Symbol Layer" Tag="SymbolLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Tile Layer" Tag="TileLayerSample" Click="NavigateToSample"/>
+                    <MenuItem Header="Clustering - Points in Data Source" Tag="ClusteredLayer" Click="NavigateToSample"/>
+                    <MenuItem Header="Cluster Aggregates" Tag="ClusterAggregates" Click="NavigateToSample"/>
+                    <MenuItem Header="Animated Tile Layer" Tag="AnimatedTileLayerSample" Click="NavigateToSample"/>
+                </MenuItem>
+
+                <MenuItem Header="Controls">
+                    <MenuItem Header="Bring Data Into View control" Tag="BringDataIntoViewControlSample" Click="NavigateToSample" />
+                    <MenuItem Header="Layer control" Tag="LayerControlSample" Click="NavigateToSample" />
+                    <MenuItem Header="Legend control" Tag="LegendControlSample" Click="NavigateToSample" />
+                    <MenuItem Header="Overview Map control" Tag="OverviewMapControlSample" Click="NavigateToSample" />
+                </MenuItem>
+
+                <MenuItem Header="Drawing tools">
+                    <MenuItem Header="Drawing tools - Getting started" Tag="DrawingToolsSample" Click="NavigateToSample" />
+                    <MenuItem Header="Drawing manager - Options" Tag="DrawingManagerOptionsSample" Click="NavigateToSample" />
+                    <MenuItem Header="Drawing tools - Data access" Tag="DrawingToolsDataAccessSample" Click="NavigateToSample" />
+                    <MenuItem Header="Measuring tool" Tag="MeasuringToolSample" Click="NavigateToSample" />
+                    <MenuItem Header="Snapping grid" Tag="SnappingGridSample" Click="NavigateToSample" />
+                </MenuItem>
+
+                <MenuItem Header="Animations">
+                    <MenuItem Header="Animate new Point Position" Tag="AnimateNewPointPositionSample" Click="NavigateToSample" />
+                    <MenuItem Header="Animate Multiple Points" Tag="AnimateMultiplePointsSample" Click="NavigateToSample" />
+                    <MenuItem Header="Drop animations" Tag="DropAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="Simple Point animations" Tag="SimplePointAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="Simple Line animation" Tag="SimpleLineAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="Snakeline animation" Tag="SnakelineAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="HTML Marker Pulse Animation" Tag="HtmlMarkerPulseAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="Bubble Layer Pulse Animation" Tag="BubbleLayerPulseAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="Animate Point Along Path" Tag="AnimatePointAlongPathSample" Click="NavigateToSample" />
+                    <MenuItem Header="Animate Point Along Route" Tag="AnimatePointAlongRouteSample" Click="NavigateToSample" />
+                    <MenuItem Header="Animate GPS Trace" Tag="AnimateGPSTraceSample" Click="NavigateToSample" />
+                    <MenuItem Header="Flowing Dashed Line Animation" Tag="FlowingDashedLineAnimationSample" Click="NavigateToSample" />
+                    <MenuItem Header="Animate Traffic Flow" Tag="AnimateTrafficFlowSample" Click="NavigateToSample" />
+                    <MenuItem Header="Animate Choropleth Map" Tag="AnimateChoroplethMapSample" Click="NavigateToSample" />
+                    <MenuItem Header="Moprh Shape Animation" Tag="MorphShapeAnimationSample" Click="NavigateToSample" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <TextBlock x:Name="SampleTitle" Grid.Row="1" FontSize="22" FontWeight="Medium" Padding="5"/>
+        
+        <Frame x:Name="MainFrame" Grid.Row="2" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

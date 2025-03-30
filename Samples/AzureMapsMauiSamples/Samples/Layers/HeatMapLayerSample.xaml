@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.HeatMapLayerSample"
+             Title="Heat Map Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+
+            <Picker x:Name="HeatGradientPicker" Title="Heat gradient" SelectedIndexChanged="HeatGradientPicker_SelectedIndexChanged" 
+                 Margin="10,0" VerticalOptions="Center" WidthRequest="200">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>default</x:String>
+                        <x:String>default_with_mask</x:String>
+                        <x:String>color_spectrum</x:String>
+                        <x:String>incandescent</x:String>
+                        <x:String>heated_metal</x:String>
+                        <x:String>fire</x:String>
+                        <x:String>sunrise</x:String>
+                        <x:String>light_blue_to_red</x:String>
+                        <x:String>gray_to_aqua_green</x:String>
+                        <x:String>purple_pink_light_blue</x:String>
+                        <x:String>stepped_colors_ngyr</x:String>
+                        <x:String>stepped_colors_wpp</x:String>
+                        <x:String>stepped_colors_tr</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="140">
+                <Label x:Name="RadiusLabel" Text="Radius: 10" VerticalOptions="Center"/>
+                <Slider x:Name="RadiusSlider" Minimum="1" Maximum="100" Value="10" WidthRequest="100" VerticalOptions="Center" ValueChanged="RadiusSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="OpacityLabel" Text="Opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="1" WidthRequest="100" VerticalOptions="Center" ValueChanged="OpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="IntensityLabel" Text="Intensity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="5" Value="1" WidthRequest="100" VerticalOptions="Center" ValueChanged="IntensitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Weight (mag property)" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="WeightedCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Zoom scaled radius" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ZoomScaledRadiusCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Picker Title="Before layer" SelectedIndexChanged="BeforeLayerPicker_SelectedIndexChanged" VerticalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>labels</x:String>
+                        <x:String>roads</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                 Style="GrayscaleDark"
+                 Center="-120, 40"
+                 Zoom="1" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl" 
+             x:Class="AzureMapsMauiSamples.Samples.AnimatedTileLayerSample"
+             Title="Animated Tile Layer">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Label Text="Weather overlay:" VerticalOptions="Center"/>
+
+            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="Scenario" Margin="5,0">
+                <RadioButton x:Name="RadarWeatherBtn" Content="Radar" CheckedChanged="OnCheckedChanged"/>
+                <RadioButton Content="Infrared" CheckedChanged="OnCheckedChanged"/>
+            </StackLayout>
+
+            <Button Text="Play" VerticalOptions="Center" Clicked="PlayButton_Clicked"/>
+            <Button Text="Stop" VerticalOptions="Center" Clicked="StopButton_Clicked" Margin="5,0"/>
+            
+            <Label x:Name="AnimationFrameInfo" VerticalOptions="Center"/>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady"/>
+    </Grid>
+</ContentPage>

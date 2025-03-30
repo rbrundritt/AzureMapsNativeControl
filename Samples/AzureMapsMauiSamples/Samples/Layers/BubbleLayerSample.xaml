@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.BubbleLayerSample"
+             Title="Bubble Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="ColorPicker" Title="Color" VerticalOptions="Center" WidthRequest="210"
+                    SelectedIndexChanged="ColorPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>data_driven_style</x:String>
+                        <x:String>#1E90FF</x:String>
+                        <x:String>#00ff0080</x:String>
+                        <x:String>DeepPink</x:String>
+                        <x:String>rgb(255, 165, 0)</x:String>
+                        <x:String>rgba(128, 0, 128, 0.8)</x:String>
+                        <x:String>hsl(300, 76%, 72%)</x:String>
+                        <x:String>hsla(248, 53%, 58%, 0.8)</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                    <Label Text="Data Driven Radius" VerticalOptions="Center"/>
+                    <CheckBox x:Name="DataDrivenRadiusCheckBox" IsChecked="True" CheckedChanged="UpdateRadius" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout VerticalOptions="Center" Margin="10,0" WidthRequest="180">
+                    <Label Text="Radius:" VerticalOptions="Center"/>
+                    <Slider x:Name="RadiusSlider" IsEnabled="False" Margin="5,0" Minimum="1" Maximum="50" Value="10" WidthRequest="100" VerticalOptions="Center" ValueChanged="UpdateRadius" />
+                    <Label x:Name="RadiusLabel" Text="10" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="OpacityLabel" Text="Opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="0.75" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="OpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="StrokeWidthLabel" Text="Stroke Width: 10" VerticalOptions="Center"/>
+                <Slider x:Name="StrokeWidthSlider" Minimum="1" Maximum="10" Value="2" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="StrokeWidthSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="140">
+                <Label x:Name="StrokeOpacityLabel" Text="Stroke Opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="1" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="StrokeOpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <Picker Title="Pitch Alignment" VerticalOptions="Center"
+                    SelectedIndexChanged="PitchAlignmentPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Auto</x:String>
+                        <x:String>Map</x:String>
+                        <x:String>Viewport</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-180,0"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

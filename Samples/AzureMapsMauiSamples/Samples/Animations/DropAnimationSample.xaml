@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl" 
+             x:Class="AzureMapsMauiSamples.Samples.DropAnimationSample"
+             Title="Drop Animations">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="AnimationScenarioPicker" Title="Animation scenario" VerticalOptions="Center" WidthRequest="260"
+                SelectedIndexChanged="AnimationScenarioPicker_SelectedIndexChanged" Margin="0,0,10,0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Drop Point Geometry</x:String>
+                        <x:String>Drop Point Feature</x:String>
+                        <x:String>Drop HTML Marker</x:String>
+                        <x:String>Drop Multiple Points</x:String>
+                        <x:String>Drop Multiple HTML Markers</x:String>
+                        <x:String>Drop Multiple Points on Interval</x:String>
+                        <x:String>Drop Multiple HTML Markers on Interval</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="Play" VerticalOptions="Center" Clicked="PlayButton_Clicked"/>
+            <Button Text="Stop" VerticalOptions="Center" Clicked="StopButton_Clicked" Margin="5,0"/>
+            <Button Text="Reset" VerticalOptions="Center" Clicked="ResetButton_Clicked"/>
+
+            <Label x:Name="ProgressLabel" Margin="5,0" VerticalTextAlignment="Center"/>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.33825,47.53945" Zoom="7"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

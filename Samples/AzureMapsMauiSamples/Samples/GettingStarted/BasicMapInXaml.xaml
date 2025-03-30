@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"             
+             xmlns:atlasControl="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.BasicMapInXaml"
+             Title="Basic Map in Xaml">
+ 
+    <!-- Create a map instance. -->
+    <atlas:Map x:Name="MyMap">
+        <!-- Pass in some settings for the map to use when loading. -->
+        <atlas:Map.Settings>
+            <atlas:MapLoadOptions 
+                Style="Night" 
+                Center="-110,45"
+                Zoom="5" 
+                View="Auto" 
+                Language="en-US" 
+                ShowFeedbackLink="False" 
+                ShowLogo="False"/>
+        </atlas:Map.Settings>
+        
+        <!-- Optionally add some controls to the map. -->
+        <atlas:Map.Controls>
+            <atlasControl:StyleControl Position="TopRight" />
+            <atlasControl:ZoomControl Position="TopRight" />
+            <atlasControl:CompassControl Position="TopRight" />
+            <atlasControl:PitchControl Position="TopRight" />
+            <atlasControl:TrafficControl Position="TopRight" />
+            <atlasControl:ScaleControl Position="BottomRight" />
+            <atlasControl:TrafficLegendControl Position="BottomLeft" />
+        </atlas:Map.Controls>
+    </atlas:Map>
+</ContentPage>

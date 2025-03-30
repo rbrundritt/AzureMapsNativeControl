@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.SymbolLayerSample"
+             Title="Symbol Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="IconPicker" Title="Icon image" VerticalOptions="Center" WidthRequest="210"
+                SelectedIndexChanged="IconPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>built_in_marker-yellow</x:String>
+                        <x:String>built_in_pin-darkblue</x:String>
+                        <x:String>built_in_pin-red</x:String>
+                        <x:String>template_marker_arrow</x:String>
+                        <x:String>template_built_in_marker_purple</x:String>
+                        <x:String>custom_template</x:String>
+                        <x:String>png_asset_url</x:String>
+                        <x:String>svg_asset_url</x:String>
+                        <x:String>image_from_stream</x:String>
+                        <x:String>inline_svg_string</x:String>
+                        <x:String>image_data_uri</x:String>
+                        <x:String>image_from_web</x:String>
+                        <x:String>image_from_web_no_cors</x:String>
+                        <x:String>data_driven_style</x:String>
+                        <x:String>none</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120" Margin="10,0,0,0">
+                <Label x:Name="IconOpacityLabel" Text="Icon Opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="1" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="IconOpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Label Text="Icon size" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout VerticalOptions="Center" Margin="10,0" WidthRequest="130">
+                    <Slider x:Name="IconSizeSlider" Margin="5,0" Minimum="0" Maximum="2" Value="1" WidthRequest="100" VerticalOptions="Center" ValueChanged="IconSizeSlider_ValueChanged" />
+                    <Label x:Name="IconSizeLabel" Text="10" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <Label Text="Icon rotation" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout VerticalOptions="Center" Margin="10,0" WidthRequest="130">
+                    <Slider x:Name="IconRotationSlider" Margin="5,0" Minimum="0" Maximum="359" Value="0" WidthRequest="100" VerticalOptions="Center" ValueChanged="IconRotationSlider_ValueChanged" />
+                    <Label x:Name="IconRotationLabel" Text="0" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Show text labels" VerticalOptions="Center"/>
+                <CheckBox IsChecked="True" CheckedChanged="ShowTextCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Picker x:Name="TextColorPicker" Title="Text color" SelectedIndexChanged="TextColorPicker_SelectedIndexChanged" 
+                VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>#1E90FF</x:String>
+                        <x:String>#00ff0080</x:String>
+                        <x:String>DeepPink</x:String>
+                        <x:String>rgb(255, 165, 0)</x:String>
+                        <x:String>rgba(128, 0, 128, 0.8)</x:String>
+                        <x:String>hsl(300, 76%, 72%)</x:String>
+                        <x:String>hsla(248, 53%, 58%, 0.8)</x:String>
+                        <x:String>data_driven_style</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center">
+                <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                    <Label Text="Text size" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout VerticalOptions="Center" Margin="10,0" WidthRequest="180">
+                    <Slider x:Name="TextSizeSlider" Margin="5,0" Minimum="8" Maximum="25" Value="16" WidthRequest="100" VerticalOptions="Center" ValueChanged="TextSizeSlider_ValueChanged" />
+                    <Label x:Name="TextSizeLabel" Text="16" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                    Style="GrayscaleLight"
+                    Bounds="-105.2463,40.4935,-104.9084,40.7234" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

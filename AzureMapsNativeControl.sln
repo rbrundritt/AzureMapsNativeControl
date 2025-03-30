@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMapsNativeControl.WinUI", "Source\AzureMapsNativeControl.WinUI\AzureMapsNativeControl.WinUI.csproj", "{C99780AA-DCF0-1566-B1BA-81C794DF3564}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMapsNativeControl.WPF", "Source\AzureMapsNativeControl.WPF\AzureMapsNativeControl.WPF.csproj", "{C91A1F59-9746-3C0C-96C9-9E2D2C11C8AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{88C23D7D-3780-4285-A83B-C95D3C083769}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{44B3E7AA-6E9B-4C17-B21A-022FDC00367E}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\APICoverage.md = Docs\APICoverage.md
+		Docs\README.md = Docs\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMapsMauiSamples", "Samples\AzureMapsMauiSamples\AzureMapsMauiSamples.csproj", "{4769C150-9CDD-C4F1-CF41-3D50E0F40614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMapsNativeControl.Maui", "Source\AzureMapsNativeControl.Maui\AzureMapsNativeControl.Maui.csproj", "{25D70D75-E652-46E6-AA08-451E24353EFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMapsWPFSamples", "Samples\AzureMapsWPFSamples\AzureMapsWPFSamples.csproj", "{2DB76701-4A2E-4AC8-B3CB-6DFF66E16E8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureMapsWinUISamples", "Samples\AzureMapsWinUISamples\AzureMapsWinUISamples.csproj", "{1C84761C-BD78-4599-9436-1BA1355609EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{8574126C-DB39-4DA3-A426-8070AE682A13}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Screenshots\AzureMapsNativeControlScreenshot.png = Docs\Screenshots\AzureMapsNativeControlScreenshot.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C99780AA-DCF0-1566-B1BA-81C794DF3564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C99780AA-DCF0-1566-B1BA-81C794DF3564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C99780AA-DCF0-1566-B1BA-81C794DF3564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C99780AA-DCF0-1566-B1BA-81C794DF3564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C91A1F59-9746-3C0C-96C9-9E2D2C11C8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C91A1F59-9746-3C0C-96C9-9E2D2C11C8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C91A1F59-9746-3C0C-96C9-9E2D2C11C8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C91A1F59-9746-3C0C-96C9-9E2D2C11C8AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{25D70D75-E652-46E6-AA08-451E24353EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D70D75-E652-46E6-AA08-451E24353EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D70D75-E652-46E6-AA08-451E24353EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D70D75-E652-46E6-AA08-451E24353EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB76701-4A2E-4AC8-B3CB-6DFF66E16E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB76701-4A2E-4AC8-B3CB-6DFF66E16E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB76701-4A2E-4AC8-B3CB-6DFF66E16E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB76701-4A2E-4AC8-B3CB-6DFF66E16E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C84761C-BD78-4599-9436-1BA1355609EB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{1C84761C-BD78-4599-9436-1BA1355609EB}.Debug|Any CPU.Build.0 = Debug|x64
+		{1C84761C-BD78-4599-9436-1BA1355609EB}.Debug|Any CPU.Deploy.0 = Debug|x64
+		{1C84761C-BD78-4599-9436-1BA1355609EB}.Release|Any CPU.ActiveCfg = Release|x64
+		{1C84761C-BD78-4599-9436-1BA1355609EB}.Release|Any CPU.Build.0 = Release|x64
+		{1C84761C-BD78-4599-9436-1BA1355609EB}.Release|Any CPU.Deploy.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C99780AA-DCF0-1566-B1BA-81C794DF3564} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C91A1F59-9746-3C0C-96C9-9E2D2C11C8AE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{44B3E7AA-6E9B-4C17-B21A-022FDC00367E} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+		{4769C150-9CDD-C4F1-CF41-3D50E0F40614} = {88C23D7D-3780-4285-A83B-C95D3C083769}
+		{25D70D75-E652-46E6-AA08-451E24353EFB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2DB76701-4A2E-4AC8-B3CB-6DFF66E16E8C} = {88C23D7D-3780-4285-A83B-C95D3C083769}
+		{1C84761C-BD78-4599-9436-1BA1355609EB} = {88C23D7D-3780-4285-A83B-C95D3C083769}
+		{8574126C-DB39-4DA3-A426-8070AE682A13} = {44B3E7AA-6E9B-4C17-B21A-022FDC00367E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B54D4008-1A2B-470E-ADB8-4524A092E82F}
+	EndGlobalSection
+EndGlobal

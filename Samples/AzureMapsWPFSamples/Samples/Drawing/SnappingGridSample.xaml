@@ -1,0 +1,59 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.SnappingGridSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Snapping Grid">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+
+            <TextBlock Text="Enabled"/>
+            <CheckBox IsChecked="True" Checked="EnabledCheckBox_CheckedChanged" Unchecked="EnabledCheckBox_CheckedChanged" Margin="3,0,10,0" />
+
+            <TextBlock Text="Remove Duplicates"/>
+            <CheckBox IsChecked="True" Checked="RemoveDuplicatesCheckBox_CheckedChanged" Unchecked="RemoveDuplicatesCheckBox_CheckedChanged" Margin="3,0,10,0" />
+
+            <StackPanel>
+                <TextBlock x:Name="Resolution" Text="Resolution: 15"/>
+                <Slider Maximum="100" Minimum="1" Value="15" Width="100" ValueChanged="ResolutionSlider_ValueChanged" />
+            </StackPanel>
+
+            <TextBlock Text="Show grid"/>
+            <CheckBox IsChecked="True" Checked="ShowGridCheckBox_CheckedChanged" Unchecked="ShowGridCheckBox_CheckedChanged" Margin="3,0,10,0" />
+
+            <TextBlock Text="Simplify"/>
+            <CheckBox IsChecked="True" Checked="SimplifyCheckBox_CheckedChanged" Unchecked="SimplifyCheckBox_CheckedChanged" Margin="3,0,10,0" />
+
+            <StackPanel>
+                <TextBlock  Text="Grid color"/>
+                <ComboBox SelectionChanged="GridColorPicker_SelectedIndexChanged" Width="210">
+                    <ComboBoxItem>#1E90FF</ComboBoxItem>
+                    <ComboBoxItem>#cccccc80</ComboBoxItem>
+                    <ComboBoxItem>DeepPink</ComboBoxItem>
+                    <ComboBoxItem>rgb(255, 165, 0)</ComboBoxItem>
+                    <ComboBoxItem>rgba(128, 0, 128, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>hsl(300, 76%, 72%)</ComboBoxItem>
+                    <ComboBoxItem>hsla(248, 53%, 58%, 0.8)</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <TextBlock Text="Drag the marker or draw a shape" Margin="5" />
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.33, 47.6" Zoom="12"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

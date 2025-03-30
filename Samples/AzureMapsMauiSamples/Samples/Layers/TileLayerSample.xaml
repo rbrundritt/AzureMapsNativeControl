@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             xmlns:atlasControls="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.TileLayerSample"
+             Title="Tile Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="TileSourcePicker" Title="Tile Source" VerticalOptions="Center" WidthRequest="210"
+                    SelectedIndexChanged="TileSourcePicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>XYZ_tile_layer</x:String>
+                        <x:String>XYZ_with_subdomains</x:String>
+                        <x:String>WMTS_tile_layer</x:String>
+                        <x:String>WMS_tile_layer</x:String>
+                        <x:String>Azure_Maps_Weather_Tiles</x:String>
+                        <x:String>local_MBTile_file</x:String>
+                        <x:String>local_tile_zip_file</x:String>
+                        <x:String>local_tile_zip_file_folders</x:String>
+                        <x:String>proxy_tile_requests</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120" Margin="10,0,0,0">
+                <Label x:Name="OpacityLabel" Text="Opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="1" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="OpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="150">
+                <Label x:Name="HueRotationLabel" Text="Hue Rotation: 0" VerticalOptions="Center"/>
+                <Slider Maximum="360" Value="0" WidthRequest="100" VerticalOptions="Center" ValueChanged="HueRotationSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="ContrastLabel" Text="Contrast: 0" VerticalOptions="Center"/>
+                <Slider Maximum="1" Minimum="-1" Value="0" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="ContrastSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="SaturationLabel" Text="Saturation: 0" VerticalOptions="Center"/>
+                <Slider Maximum="1" Minimum="-1" Value="0" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="SaturationSlider_ValueChanged" />
+            </VerticalStackLayout>
+            
+            <Picker Title="Before layer" SelectedIndexChanged="BeforeLayerPicker_SelectedIndexChanged" VerticalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>labels</x:String>
+                        <x:String>roads</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                    Style="GrayscaleLight"
+                    Bounds="-122.707051,47.511497,-122.15086,47.702461" />
+            </atlas:Map.Settings>
+
+            <atlas:Map.Controls>
+                <atlasControls:StyleControl Position="TopRight" />
+                <atlasControls:ZoomControl Position="TopRight" />
+                <atlasControls:ScaleControl Position="BottomRight" />
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

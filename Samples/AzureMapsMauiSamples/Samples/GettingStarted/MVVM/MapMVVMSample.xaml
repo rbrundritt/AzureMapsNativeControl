@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.MapMVVMSample"
+             xmlns:mvvm="clr-namespace:AzureMapsMauiSamples.Samples.GettingStarted.MVVM"
+             Title="MVVM Map">
+
+    <ContentPage.BindingContext>
+        <mvvm:MyMapViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+
+            <!-- Add a labels that Bind the values set in our view model. -->
+            <HorizontalStackLayout>
+                <Label Text="Center:" VerticalOptions="Center" Margin="10,0" />
+                <Entry Text="{Binding MapCenter, Mode=TwoWay}" WidthRequest="300" />
+            </HorizontalStackLayout>
+                        
+            <HorizontalStackLayout>
+                <Label Text="Zoom:" VerticalOptions="Center" Margin="10,0" />
+                <Entry Text="{Binding MapZoom, Mode=TwoWay}" WidthRequest="100" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Pitch:" VerticalOptions="Center" Margin="10,0"/>
+                <Entry Text="{Binding MapPitch, Mode=TwoWay}" WidthRequest="100" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Bearing:" VerticalOptions="Center" Margin="10,0"/>
+                <Entry Text="{Binding MapBearing, Mode=TwoWay}" WidthRequest="100" />
+            </HorizontalStackLayout>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" >
+            <!-- Bind the maps OnReady event. -->
+            <atlas:Map.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    x:TypeArguments="atlas:MapEventArgs"
+                    EventName="OnReady"
+                    Command="{Binding OnMapReadyCommand}" />
+            </atlas:Map.Behaviors>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

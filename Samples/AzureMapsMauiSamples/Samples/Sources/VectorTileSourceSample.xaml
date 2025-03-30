@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"             
+             x:Class="AzureMapsMauiSamples.Samples.VectorTileSourceSample"
+             Title="Vector Tile Source Integration">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="DisplayAsPicker" Title="Display Vector Tile Traffic Data as" VerticalOptions="Center" WidthRequest="220"
+                SelectedIndexChanged="DisplayAsPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Bubble Layer</x:String>
+                        <x:String>Line Layer</x:String>
+                        <x:String>Heat Map</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+        
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                Style="GrayscaleDark" 
+                Center="-74, 40.723"
+                Zoom="12" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

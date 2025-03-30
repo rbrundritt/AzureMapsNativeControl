@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl" 
+             x:Class="AzureMapsMauiSamples.Samples.SnakelineAnimationSample"
+             Title="Snakeline Animation Sample">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Animate map" VerticalOptions="Center"/>
+                <CheckBox x:Name="AnimateMapCbx" CheckedChanged="AnimateMap_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button Text="Play" VerticalOptions="Center" Clicked="PlayButton_Clicked"/>
+            <Button Text="Pause" VerticalOptions="Center" Clicked="Pause_Clicked" Margin="5,0"/>
+            <Button Text="Stop" VerticalOptions="Center" Clicked="StopButton_Clicked"/>
+            <Button Text="Reset" VerticalOptions="Center" Clicked="ResetButton_Clicked" Margin="5,0"/>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-121.69281, 47.019588" Zoom="7" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

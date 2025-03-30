@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="AzureMapsWinUISamples.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"
+    xmlns:atlasControl="using:AzureMapsNativeControl.Control"
+    mc:Ignorable="d"
+    Title="Azure Maps WinUI Samples">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <MenuBar>
+            <MenuBarItem Title="Getting Started">
+                <MenuFlyoutItem Text="Welcome" Tag="Welcome" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Basic Map in XAML" Tag="BasicMapInXaml" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Popups" Tag="PopupsSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="HTML Markers" Tag="HtmlMarkerSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Swipe Map" Tag="SwipeMapSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Synchronize Maps" Tag="SynchronizeMapsSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="MVVM Map" Tag="MapMVVMSample" Click="NavigateToSample" />
+            </MenuBarItem>
+
+            <MenuBarItem Title="Sources">
+                <MenuFlyoutItem Text="Data Source GeoJson Import" Tag="DataSourceImportSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Data Source Lite GeoJson Import" Tag="DataSourceLiteSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Vector Tile Source Integration" Tag="VectorTileSourceSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="PM Tile Source Integration" Tag="PMTileSourceSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="3D terrian - Elevation Tile Source" Tag="ElevationTileSourceSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Extruded Gridded Data Source" Tag="ExtrudedGriddedDataSourceSample" Click="NavigateToSample" />
+            </MenuBarItem>
+
+            <MenuBarItem Title="Layers">
+                <MenuFlyoutItem Text="Bubble Layer" Tag="BubbleLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Heat Map Layer" Tag="HeatMapLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Image Layer" Tag="ImageLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Line Layer" Tag="LineLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Polygon Layer" Tag="PolygonLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Polygon Extrusion Layer" Tag="PolygonExtrusionLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Symbol Layer" Tag="SymbolLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Tile Layer" Tag="TileLayerSample" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Clustering - Points in Data Source" Tag="ClusteredLayer" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Cluster Aggregates" Tag="ClusterAggregates" Click="NavigateToSample"/>
+                <MenuFlyoutItem Text="Animated Tile Layer" Tag="AnimatedTileLayerSample" Click="NavigateToSample"/>
+            </MenuBarItem>
+
+            <MenuBarItem Title="Controls">
+                <MenuFlyoutItem Text="Bring Data Into View control" Tag="BringDataIntoViewControlSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Layer control" Tag="LayerControlSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Legend control" Tag="LegendControlSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Overview Map control" Tag="OverviewMapControlSample" Click="NavigateToSample" />
+            </MenuBarItem>
+
+            <MenuBarItem Title="Drawing tools">
+                <MenuFlyoutItem Text="Drawing tools - Getting started" Tag="DrawingToolsSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Drawing manager - Options" Tag="DrawingManagerOptionsSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Drawing tools - Data access" Tag="DrawingToolsDataAccessSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Measuring tool" Tag="MeasuringToolSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Snapping grid" Tag="SnappingGridSample" Click="NavigateToSample" />
+            </MenuBarItem>
+
+            <MenuBarItem Title="Animations">
+                <MenuFlyoutItem Text="Animate new Point Position" Tag="AnimateNewPointPositionSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Animate Multiple Points" Tag="AnimateMultiplePointsSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Drop animations" Tag="DropAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Simple Point animations" Tag="SimplePointAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Simple Line animation" Tag="SimpleLineAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Snakeline animation" Tag="SnakelineAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="HTML Marker Pulse Animation" Tag="HtmlMarkerPulseAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Bubble Layer Pulse Animation" Tag="BubbleLayerPulseAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Animate Point Along Path" Tag="AnimatePointAlongPathSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Animate Point Along Route" Tag="AnimatePointAlongRouteSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Animate GPS Trace" Tag="AnimateGPSTraceSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Flowing Dashed Line Animation" Tag="FlowingDashedLineAnimationSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Animate Traffic Flow" Tag="AnimateTrafficFlowSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Animate Choropleth Map" Tag="AnimateChoroplethMapSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Moprh Shape Animation" Tag="MorphShapeAnimationSample" Click="NavigateToSample" />
+            </MenuBarItem>
+        </MenuBar>
+
+        <TextBlock x:Name="SampleTitle" Grid.Row="1" FontSize="22" FontWeight="Medium" Padding="5"/>
+
+        <Frame x:Name="MainFrame" Grid.Row="2"/>
+    </Grid>
+</Window>

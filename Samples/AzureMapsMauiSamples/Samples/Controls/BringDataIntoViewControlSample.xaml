@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"             
+             xmlns:atlasControl="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.BringDataIntoViewControlSample"
+             Title="Bring Data Into View Control Sample">
+
+    <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady">
+        
+        <!-- Add the control to the map. -->
+        <atlas:Map.Controls>
+            <atlasControl:BringDataIntoViewControl Position="TopRight" />
+        </atlas:Map.Controls>
+    </atlas:Map>
+</ContentPage>

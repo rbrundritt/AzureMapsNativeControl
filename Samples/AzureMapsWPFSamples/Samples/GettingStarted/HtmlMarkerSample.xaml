@@ -1,0 +1,40 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.HtmlMarkerSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Html Marker Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Margin="10">
+            <TextBlock Text="HTML Marker scenario"/>
+            <ComboBox x:Name="HtmlMarkerScenarioPicker" VerticalAlignment="Center" Width="220" Margin="5,0,10,0" 
+                      SelectionChanged="HtmlMarkerScenarioPicker_SelectedIndexChanged">
+                <ComboBoxItem>Default Marker</ComboBoxItem>
+                <ComboBoxItem>Draggable Image Marker</ComboBoxItem>
+                <ComboBoxItem>CSS Styled Marker</ComboBoxItem>
+                <ComboBoxItem>Built-in SVG Template</ComboBoxItem>
+                <ComboBoxItem>Custom SVG Template</ComboBoxItem>
+            </ComboBox>
+
+            <Button x:Name="UpdateMarkerOptionsButton" Content="Update Marker options" VerticalAlignment="Center" Click="UpdateMarkerOptionsButton_Clicked" Visibility="Collapsed"/>
+
+            <TextBlock x:Name="MarkerEventLabel" Text="Drag the marker" Visibility="Collapsed" VerticalAlignment="Center" />
+        </WrapPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Style="GrayscaleDark" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

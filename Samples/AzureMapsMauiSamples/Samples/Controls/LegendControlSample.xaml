@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"             
+             x:Class="AzureMapsMauiSamples.Samples.LegendControlSample"
+             Title="Legend Control Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Title:" VerticalOptions="Center"/>
+                <Entry Placeholder="Enter text" TextChanged="TitleEntry_Changed" VerticalOptions="Center" WidthRequest="200" Margin="10,0" />
+            </HorizontalStackLayout>
+
+            <Picker Title="Layout" SelectedIndexChanged="LayoutPicker_SelectedIndexChanged" 
+                    SelectedIndex="1" VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Accordion</x:String>
+                        <x:String>Carousel</x:String>
+                        <x:String>List</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Style" SelectedIndexChanged="StylePicker_SelectedIndexChanged" 
+                    SelectedIndex="2" VerticalOptions="Center" WidthRequest="210" Margin="5,0,10,0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Auto</x:String>
+                        <x:String>Dark</x:String>
+                        <x:String>Light</x:String>
+                        <x:String>CSS Color</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="MaxWidthLabel" Text="MaxWidth:" VerticalOptions="Center"/>
+                <Slider Maximum="1000" Minimum="1" Value="500" WidthRequest="100" VerticalOptions="Center" ValueChanged="MaxWidthSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Show toggle" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ShowToggleCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Miminized" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="MiminizedCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Visible" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="VisibleCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1" />
+    </Grid>
+</ContentPage>

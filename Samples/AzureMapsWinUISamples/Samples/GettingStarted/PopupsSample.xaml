@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.PopupsSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Popup scenario"/>
+            <ComboBox x:Name="PopupScenarioPicker" VerticalAlignment="Center" Width="250"
+                SelectionChanged="PopupScenarioPicker_SelectedIndexChanged" Margin="5,0,10,0">
+                <ComboBoxItem>Popups with multiple shapes</ComboBoxItem>
+                <ComboBoxItem>Show popup on hover</ComboBoxItem>
+                <ComboBoxItem>Custom popup style</ComboBoxItem>
+                <ComboBoxItem>Popup with media content</ComboBoxItem>
+                <ComboBoxItem>Popup templates</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+              Style="GrayscaleLight" 
+              Bounds="-122.29113,46.27582,-122.16417,46.32537" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

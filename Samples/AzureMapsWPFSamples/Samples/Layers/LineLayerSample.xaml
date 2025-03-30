@@ -1,0 +1,79 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.LineLayerSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Line Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Stroke color"/>
+                <ComboBox SelectionChanged="StrokeColorPicker_SelectedIndexChanged" Width="210">
+                    <ComboBoxItem IsSelected="True">#1E90FF</ComboBoxItem>
+                    <ComboBoxItem>#00ff0080</ComboBoxItem>
+                    <ComboBoxItem>DeepPink</ComboBoxItem>
+                    <ComboBoxItem>rgb(255, 165, 0)</ComboBoxItem>
+                    <ComboBoxItem>rgba(128, 0, 128, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>hsl(300, 76%, 72%)</ComboBoxItem>
+                    <ComboBoxItem>hsla(248, 53%, 58%, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>Data driven style</ComboBoxItem>
+                    <ComboBoxItem>Stroke Gradient</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" Width="110" Margin="10,0">
+                <TextBlock x:Name="StrokeOpacityLabel" Text="Stroke opacity: 1"/>
+                <Slider Maximum="1" Value="1" Width="100" ValueChanged="StrokeOpacitySlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" Width="110">
+                <TextBlock x:Name="StrokeWidthLabel" Text="Stroke width: 2"/>
+                <Slider Maximum="25" Value="2" Width="100" ValueChanged="StrokeWidthSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Show icons along lines"/>
+                    <CheckBox Checked="ShowIconsOnLinesCheckBox_CheckedChanged" Unchecked="ShowIconsOnLinesCheckBox_CheckedChanged" Margin="5,0,10,0" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Dash lines"/>
+                    <CheckBox Checked="DashLinesCheckBox_CheckedChanged" Unchecked="DashLinesCheckBox_CheckedChanged" Margin="5,0" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Show points" VerticalAlignment="Center"/>
+                    <CheckBox Checked="ShowLinePointsCheckBox_CheckedChanged" Unchecked="ShowLinePointsCheckBox_CheckedChanged" Margin="5,0" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Before layer"/>
+                <ComboBox SelectionChanged="BeforeLayerPicker_SelectedIndexChanged">
+                    <ComboBoxItem IsSelected="True">undefined</ComboBoxItem>
+                    <ComboBoxItem>labels</ComboBoxItem>
+                    <ComboBoxItem>roads</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                     Style="GrayscaleDark"
+                     Bounds="-122.1974,47.6153,-122.07261,47.68469" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

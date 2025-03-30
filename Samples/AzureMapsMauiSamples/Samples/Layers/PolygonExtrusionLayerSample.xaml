@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.PolygonExtrusionLayerSample"
+             Title="Polygon Extrusion Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker Title="Fill with" SelectedIndexChanged="FillPicker_SelectedIndexChanged" 
+                VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Color</x:String>
+                        <x:String>Pattern</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="HeightScaleLabel" Text="Height scale: 1" VerticalOptions="Center"/>
+                <Slider Maximum="5" Value="1" WidthRequest="100" VerticalOptions="Center" ValueChanged="HeightScaleSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="BaseLabel" Text="Base: 0m" VerticalOptions="Center"/>
+                <Slider Maximum="100000" Value="0" WidthRequest="100" VerticalOptions="Center" ValueChanged="BaseSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="FillOpacityLabel" Text="Fill opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="0.7" WidthRequest="100" VerticalOptions="Center" ValueChanged="FillOpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <Picker Title="Before layer" SelectedIndexChanged="BeforeLayerPicker_SelectedIndexChanged" VerticalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>labels</x:String>
+                        <x:String>roads</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+        
+        <atlas:Map x:Name="MyMap" Grid.Row="2" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                    Center="-94.6, 39.1"
+                    Zoom="3"                
+                    MaxPitch="85"
+                    Pitch="60"
+                    Style="GrayscaleLight" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.PolygonLayerSample"
+             Title="Polygon Layer Sample">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker Title="Fill color" SelectedIndexChanged="FillColorPicker_SelectedIndexChanged" 
+                    VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>#1E90FF</x:String>
+                        <x:String>#00ff0080</x:String>
+                        <x:String>DeepPink</x:String>
+                        <x:String>rgb(255, 165, 0)</x:String>
+                        <x:String>rgba(128, 0, 128, 0.8)</x:String>
+                        <x:String>hsl(300, 76%, 72%)</x:String>
+                        <x:String>hsla(248, 53%, 58%, 0.8)</x:String>
+                        <x:String>data_driven_style</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="FillPatternPicker" Title="Fill pattern" SelectedIndexChanged="FillPatternPicker_SelectedIndexChanged" 
+                    Margin="10,0" VerticalOptions="Center" WidthRequest="200">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>template_teal_stripes</x:String>
+                        <x:String>template_red_dots</x:String>
+                        <x:String>custom_template</x:String>
+                        <x:String>png_asset_url</x:String>
+                        <x:String>svg_asset_url</x:String>
+                        <x:String>image_from_stream</x:String>
+                        <x:String>inline_svg_string</x:String>
+                        <x:String>image_data_uri</x:String>
+                        <x:String>image_from_web</x:String>
+                        <x:String>image_from_web_no_cors</x:String>
+                        <x:String>data_driven_style</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="OpacityLabel" Text="Fill opacity: 0.5" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="0.5" WidthRequest="100" VerticalOptions="Center" ValueChanged="FillOpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Outline Polygon" VerticalOptions="Center"/>
+                <CheckBox IsChecked="True" CheckedChanged="OutlinePolygonCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Show points" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ShowPolygonPointsCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Picker Title="Before layer" SelectedIndexChanged="BeforeLayerPicker_SelectedIndexChanged" VerticalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>labels</x:String>
+                        <x:String>roads</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                    Style="GrayscaleLight"
+                    Bounds="-53,-37,37,-2" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

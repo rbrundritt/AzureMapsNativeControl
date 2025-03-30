@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"   
+             x:Class="AzureMapsMauiSamples.Samples.HtmlMarkerSample"
+             Title="Html Marker Sample">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="HtmlMarkerScenarioPicker" Title="HTML Marker scenario" VerticalOptions="Center" WidthRequest="220"
+             SelectedIndexChanged="HtmlMarkerScenarioPicker_SelectedIndexChanged" Margin="0,0,10,0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Default Marker</x:String>
+                        <x:String>Draggable Image Marker</x:String>
+                        <x:String>CSS Styled Marker</x:String>
+                        <x:String>Built-in SVG Template</x:String>
+                        <x:String>Custom SVG Template</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button x:Name="UpdateMarkerOptionsButton" Text="Update Marker options" VerticalOptions="Center" Clicked="UpdateMarkerOptionsButton_Clicked" IsVisible="True"/>
+
+            <Label x:Name="MarkerEventLabel" Text="Drag the marker" IsVisible="False" VerticalTextAlignment="Center" />
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Style="GrayscaleDark" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

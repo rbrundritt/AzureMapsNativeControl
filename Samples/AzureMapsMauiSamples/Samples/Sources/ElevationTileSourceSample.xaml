@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"             
+             xmlns:atlasControls="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.ElevationTileSourceSample"
+             Title="3D terrian - Elevation Tile Source">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="ExaggerationLabel" Text="Exaggeration: 1" VerticalOptions="Center"/>
+                <Slider Maximum="5" Value="1" WidthRequest="100" VerticalOptions="Center" ValueChanged="ExaggerationSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Disable Elevation" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="DisableElevationCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                        Style="SatelliteRoadLabels"
+                        Center="-110,45"
+                        Zoom="12" 
+                        MaxPitch="85"
+                        Pitch="75" />
+            </atlas:Map.Settings>
+        
+            <atlas:Map.Controls>
+                <atlasControls:StyleControl Position="TopRight" />
+                <atlasControls:ZoomControl Position="TopRight" />
+                <atlasControls:CompassControl Position="TopRight" />
+                <atlasControls:PitchControl Position="TopRight" />
+                <atlasControls:TrafficControl Position="TopRight" />
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

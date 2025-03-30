@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AzureMapsWinUISamples (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "AzureMapsWinUISamples (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

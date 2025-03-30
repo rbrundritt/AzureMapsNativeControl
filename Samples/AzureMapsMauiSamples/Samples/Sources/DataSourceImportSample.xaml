@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.DataSourceImportSample"
+             Title="Data Source GeoJson Import">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Label Text="Import from:" WidthRequest="100" VerticalOptions="Center" FontFamily="OpenSansSemibold" />
+            <Button Text="Feature/Shape using code" Clicked="ImportFeatureShape_Clicked" Style="{StaticResource SampleButtonStyle}" />
+            <Button Text="File stream" Clicked="ImportFromStream_Clicked" Style="{StaticResource SampleButtonStyle}" />
+            <Button Text="URL (Asset in Raw folder)" Clicked="ImportRawFolderFileUrl_Clicked" Style="{StaticResource SampleButtonStyle}"/>
+            <Button Text="URL (Web)" Clicked="ImportWebUrl_Clicked" Style="{StaticResource SampleButtonStyle}" />
+            <Button Text="File Picker" Clicked="ImportWithFilePicker_Clicked" Style="{StaticResource SampleButtonStyle}" />
+            <Button Text="Azure Maps REST GeoJson Response" WidthRequest="280" Clicked="ImportAzureMapsRestGeoJsonResponse_Clicked" Style="{StaticResource SampleButtonStyle}" />
+            <Button Text="Azure Maps REST Json Response" WidthRequest="250" Clicked="ImportGenericRestResponse_Clicked" Style="{StaticResource SampleButtonStyle}" />
+            <Button Text="Clear data source" Clicked="ClearDataSource_Clicked" Style="{StaticResource SampleButtonStyle}" />
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions AllowFileDrop="True"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

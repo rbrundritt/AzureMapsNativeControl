@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.LineLayerSample"
+             Title="Line Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker Title="Stroke color" SelectedIndexChanged="StrokeColorPicker_SelectedIndexChanged" 
+                 VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>#1E90FF</x:String>
+                        <x:String>#00ff0080</x:String>
+                        <x:String>DeepPink</x:String>
+                        <x:String>rgb(255, 165, 0)</x:String>
+                        <x:String>rgba(128, 0, 128, 0.8)</x:String>
+                        <x:String>hsl(300, 76%, 72%)</x:String>
+                        <x:String>hsla(248, 53%, 58%, 0.8)</x:String>
+                        <x:String>Data driven style</x:String>
+                        <x:String>Stroke Gradient</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="150">
+                <Label x:Name="StrokeOpacityLabel" Text="Stroke opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="1" WidthRequest="100" VerticalOptions="Center" ValueChanged="StrokeOpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="StrokeWidthLabel" Text="Stroke width: 2" VerticalOptions="Center"/>
+                <Slider Maximum="25" Value="2" WidthRequest="100" VerticalOptions="Center" ValueChanged="StrokeWidthSlider_ValueChanged" />
+            </VerticalStackLayout>
+            
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Show icons along lines" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ShowIconsOnLinesCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Dash lines" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="DashLinesCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                <Label Text="Show points" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ShowLinePointsCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Picker Title="Before layer" SelectedIndexChanged="BeforeLayerPicker_SelectedIndexChanged" VerticalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>labels</x:String>
+                        <x:String>roads</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                 Style="GrayscaleDark"
+                 Bounds="-122.1974,47.6153,-122.07261,47.68469" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,127 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.OverviewMapControlSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"   
+      xmlns:atlasControl="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Overview Map Control Sample">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Width="250" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Overlay"/>
+                <ComboBox SelectionChanged="OverlayPicker_SelectedIndexChanged" Width="150" Margin="5,0,0,0">
+                    <ComboBoxItem IsSelected="True">Area</ComboBoxItem>
+                    <ComboBoxItem>Marker</ComboBoxItem>
+                    <ComboBoxItem>None</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Map style"/>
+                <ComboBox x:Name="MapStylePicker"  SelectionChanged="MapStylePicker_SelectedIndexChanged" Width="150" Margin="5,0,0,0">
+                    <ComboBoxItem>GrayscaleDark</ComboBoxItem>
+                    <ComboBoxItem>GrayscaleLight</ComboBoxItem>
+                    <ComboBoxItem>Night</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Road</ComboBoxItem>
+                    <ComboBoxItem>RoadShadedRelief</ComboBoxItem>
+                    <ComboBoxItem>Satellite</ComboBoxItem>
+                    <ComboBoxItem>SatelliteRoadLabels</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Shape"/>
+                <ComboBox SelectionChanged="ShapePicker_SelectedIndexChanged" Width="150" Margin="5,0,0,0">
+                    <ComboBoxItem IsSelected="True">Square</ComboBoxItem>
+                <ComboBoxItem>Round</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Style"/>
+                <ComboBox SelectionChanged="StylePicker_SelectedIndexChanged" SelectedIndex="2" Width="150" Margin="5,0,0,0">
+                    <ComboBoxItem>Auto</ComboBoxItem>
+                    <ComboBoxItem>Dark</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Light</ComboBoxItem>
+                    <ComboBoxItem>CSS Color</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Width="120">
+                <TextBlock x:Name="HeightLabel" Text="Height:"/>
+                <Slider Maximum="500" Minimum="50" Value="150" Width="100" ValueChanged="HeightSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Width="120">
+                <TextBlock x:Name="WidthLabel" Text="Width: 150"/>
+                <Slider Maximum="500" Minimum="50" Value="150" Width="100" ValueChanged="WidthSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Width="120">
+                <TextBlock x:Name="ZoomOffsetLabel" Text="Zoom Offset: -5"/>
+                <Slider Maximum="10" Minimum="-10" Value="-5" Width="100" ValueChanged="ZoomOffsetSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Sync zoom"/>
+                <CheckBox Checked="SyncZoomCheckBox_CheckedChanged" Unchecked="SyncZoomCheckBox_CheckedChanged" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Sync bearing &amp; pitch"/>
+                <CheckBox Checked="SyncBearingPitchCheckBox_CheckedChanged" Unchecked="SyncBearingPitchCheckBox_CheckedChanged" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Interactive"/>
+                <CheckBox Checked="InteractiveCheckBox_CheckedChanged" Unchecked="InteractiveCheckBox_CheckedChanged" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Miminized"/>
+                <CheckBox Checked="MiminizedCheckBox_CheckedChanged" Unchecked="MiminizedCheckBox_CheckedChanged" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Show toggle"/>
+                <CheckBox Checked="ShowToggleCheckBox_CheckedChanged" Unchecked="ShowToggleCheckBox_CheckedChanged" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Visible"/>
+                <CheckBox Checked="VisibleCheckBox_CheckedChanged" Unchecked="VisibleCheckBox_CheckedChanged" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Marker options (draggable)"/>
+                <CheckBox Checked="MarkerOptionsDraggableCheckBox_CheckedChanged" Unchecked="MarkerOptionsDraggableCheckBox_CheckedChanged" />
+            </StackPanel>
+
+            <Button Content="Randomize Line Style" Click="RandomizeLineStyle_Clicked"/>
+            <Button Content="Randomize Polygon Style" Click="RandomizePolygonStyle_Clicked" Margin="0,10"/>
+            <Button Content="Randomize Marker Style" Click="RandomizeMarkerStyle_Clicked"/>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Column="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                Center="-122.338943,47.611487"
+                Zoom="12" />
+            </atlas:Map.Settings>
+
+            <atlas:Map.Controls>
+                <atlasControl:OverviewMapControl x:Name="MyOverviewMap" Position="TopRight" />
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</Page>

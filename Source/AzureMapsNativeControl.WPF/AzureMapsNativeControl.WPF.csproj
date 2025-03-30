@@ -1,0 +1,292 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>AzureMapsNativeControl</AssemblyName>
+    <RootNamespace>AzureMapsNativeControl</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants);WPF;WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants);WPF;WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Enums\Easing.cs" Link="Animations\Enums\Easing.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Enums\GroupAnimationPlayType.cs" Link="Animations\Enums\GroupAnimationPlayType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\FrameBasedAnimation.cs" Link="Animations\FrameBasedAnimation.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\GroupAnimation.cs" Link="Animations\GroupAnimation.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\IPlayableAnimation.cs" Link="Animations\IPlayableAnimation.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\MapAnimations.cs" Link="Animations\MapAnimations.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\GroupAnimationOptions.cs" Link="Animations\Options\GroupAnimationOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\MapPathAnimationOptions.cs" Link="Animations\Options\MapPathAnimationOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\MovingDashLineOptions.cs" Link="Animations\Options\MovingDashLineOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\PathAnimationOptions.cs" Link="Animations\Options\PathAnimationOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\PlayableAnimationOptions.cs" Link="Animations\Options\PlayableAnimationOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\PointPairValueInterpolation.cs" Link="Animations\Options\PointPairValueInterpolation.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\Options\RoutePathAnimationOptions.cs" Link="Animations\Options\RoutePathAnimationOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Animations\PlayableAnimation.cs" Link="Animations\PlayableAnimation.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\AtlasMath.cs" Link="AtlasMath.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\AzureMapsConfiguration.cs" Link="AzureMapsConfiguration.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\AzureMapsModules.cs" Link="AzureMapsModules.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\BaseControl.cs" Link="Control\BaseControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\BaseLegendLayerControl.cs" Link="Control\BaseLegendLayerControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\BringDataIntoViewControl.cs" Link="Control\BringDataIntoViewControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\CompassControl.cs" Link="Control\CompassControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ControlLayout.cs" Link="Control\Enums\ControlLayout.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ControlPosition.cs" Link="Control\Enums\ControlPosition.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ControlStyle.cs" Link="Control\Enums\ControlStyle.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\CssFlexDirection.cs" Link="Control\Enums\CssFlexDirection.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\LayerListLayout.cs" Link="Control\Enums\LayerListLayout.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\LegendType.cs" Link="Control\Enums\LegendType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\OverviewMapOverlay.cs" Link="Control\Enums\OverviewMapOverlay.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\OverviewMapShape.cs" Link="Control\Enums\OverviewMapShape.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ScaleControlUnits.cs" Link="Control\Enums\ScaleControlUnits.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\StyleControlLayout.cs" Link="Control\Enums\StyleControlLayout.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ZoomBehavior.cs" Link="Control\Enums\ZoomBehavior.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\IBaseControl.cs" Link="Control\IBaseControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\LayerControl.cs" Link="Control\LayerControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Layers\DynamicLayerGroup.cs" Link="Control\Layers\DynamicLayerGroup.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Layers\ILayerState.cs" Link="Control\Layers\ILayerState.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Layers\LayerGroup.cs" Link="Control\Layers\LayerGroup.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Layers\LayerState.cs" Link="Control\Layers\LayerState.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Layers\RangeLayerState.cs" Link="Control\Layers\RangeLayerState.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\LegendControl.cs" Link="Control\LegendControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\BaseLegend.cs" Link="Control\Legends\BaseLegend.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\CategoryLegend.cs" Link="Control\Legends\CategoryLegend.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\CategoryLegendDefaults.cs" Link="Control\Legends\CategoryLegendDefaults.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\CategoryLegendItem.cs" Link="Control\Legends\CategoryLegendItem.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\DynamicLegend.cs" Link="Control\Legends\DynamicLegend.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\GradientLegend.cs" Link="Control\Legends\GradientLegend.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\GradientLegendDefaults.cs" Link="Control\Legends\GradientLegendDefaults.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\GradientLegendStop.cs" Link="Control\Legends\GradientLegendStop.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\HtmlLegend.cs" Link="Control\Legends\HtmlLegend.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\ImageLegend.cs" Link="Control\Legends\ImageLegend.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Legends\ImageLegendDefaults.cs" Link="Control\Legends\ImageLegendDefaults.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\OverviewMapControl.cs" Link="Control\OverviewMapControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\PitchControl.cs" Link="Control\PitchControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\ScaleControl.cs" Link="Control\ScaleControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\StyleControl.cs" Link="Control\StyleControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\TrafficControl.cs" Link="Control\TrafficControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\TrafficLegendControl.cs" Link="Control\TrafficLegendControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\ZoomControl.cs" Link="Control\ZoomControl.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\IDeepCloneable.cs" Link="Core\IDeepCloneable.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\IMapEventTarget.cs" Link="Core\IMapEventTarget.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\IMapModule.cs" Link="Core\IMapModule.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\IMapView.cs" Link="Core\IMapView.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\BaseMapEntityCollection.cs" Link="Core\Managers\BaseMapEntityCollection.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\ControlManager.cs" Link="Core\Managers\ControlManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\HtmlMarkerManager.cs" Link="Core\Managers\HtmlMarkerManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\ImageSpriteManager.cs" Link="Core\Managers\ImageSpriteManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\LayerManager.cs" Link="Core\Managers\LayerManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\MapEventManager.cs" Link="Core\Managers\MapEventManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\PopupManager.cs" Link="Core\Managers\PopupManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\Managers\SourceManager.cs" Link="Core\Managers\SourceManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\MapEntity.cs" Link="Core\MapEntity.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\MapFileStream.cs" Link="Core\MapFileStream.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\MapViewJsInterlop.cs" Link="Core\MapViewJsInterlop.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\ObservableDictionary.cs" Link="Core\ObservableDictionary.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\ObservableKeyValuePair.cs" Link="Core\ObservableKeyValuePair.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Core\ObservableRangeCollection.cs" Link="Core\ObservableRangeCollection.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\BoundingBox.cs" Link="Data\BoundingBox.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\Enums\GeoJsonType.cs" Link="Data\Enums\GeoJsonType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\Feature.cs" Link="Data\Feature.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\FeatureCollection.cs" Link="Data\FeatureCollection.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\Geometry.cs" Link="Data\Geometry.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\IGeoJsonObject.cs" Link="Data\IGeoJsonObject.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\BaseSourceIdConverter.cs" Link="Data\JsonConverters\BaseSourceIdConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\BoundingBoxConverter.cs" Link="Data\JsonConverters\BoundingBoxConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\FeatureCollectionConverter.cs" Link="Data\JsonConverters\FeatureCollectionConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\FeatureConverter.cs" Link="Data\JsonConverters\FeatureConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\FeatureEnumerableConverter.cs" Link="Data\JsonConverters\FeatureEnumerableConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\GeometryConverter.cs" Link="Data\JsonConverters\GeometryConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\JsonStringEnumMemberConverter.cs" Link="Data\JsonConverters\JsonStringEnumMemberConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\PixelConverter.cs" Link="Data\JsonConverters\PixelConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\PopupContentEnumerableConverter.cs" Link="Data\JsonConverters\PopupContentEnumerableConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\PositionCollectionConverter.cs" Link="Data\JsonConverters\PositionCollectionConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\PositionConverter.cs" Link="Data\JsonConverters\PositionConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\PositionEnumerableConverter.cs" Link="Data\JsonConverters\PositionEnumerableConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\JsonConverters\PropertiesTableConverter.cs" Link="Data\JsonConverters\PropertiesTableConverter.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\LineString.cs" Link="Data\LineString.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\MercatorPoint.cs" Link="Data\MercatorPoint.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\MuiltiPoint.cs" Link="Data\MuiltiPoint.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\MultiLineString.cs" Link="Data\MultiLineString.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\MultiPolygon.cs" Link="Data\MultiPolygon.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\PointGeometry.cs" Link="Data\PointGeometry.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\Polygon.cs" Link="Data\Polygon.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\Position.cs" Link="Data\Position.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\PositionCollection.cs" Link="Data\PositionCollection.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Data\PropertiesTable.cs" Link="Data\PropertiesTable.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Drawing\DrawingManager.cs" Link="Drawing\DrawingManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Drawing\DrawingPointLayerOptions.cs" Link="Drawing\DrawingPointLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Drawing\DrawingToolbarOptions.cs" Link="Drawing\DrawingToolbarOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Drawing\Enums\DrawingInteractionType.cs" Link="Drawing\Enums\DrawingInteractionType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Drawing\Enums\DrawingMode.cs" Link="Drawing\Enums\DrawingMode.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Drawing\SnapGridManager.cs" Link="Drawing\SnapGridManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\AccelerationUnits.cs" Link="Enums\AccelerationUnits.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\AreaUnits.cs" Link="Enums\AreaUnits.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\AuthenticationType.cs" Link="Enums\AuthenticationType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\CameraAnimationType.cs" Link="Enums\CameraAnimationType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\DistanceUnits.cs" Link="Enums\DistanceUnits.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\ElevationEncoding.cs" Link="Enums\ElevationEncoding.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\GridType.cs" Link="Enums\GridType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\MapStyle.cs" Link="Enums\MapStyle.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\Orientation.cs" Link="Enums\Orientation.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\PitchAlignment.cs" Link="Enums\PitchAlignment.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\PositionAnchor.cs" Link="Enums\PositionAnchor.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\SpeedUnits.cs" Link="Enums\SpeedUnits.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\TrafficFlowType.cs" Link="Enums\TrafficFlowType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\WebResourceType.cs" Link="Enums\WebResourceType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\DrawingManagerEventArgs.cs" Link="Events\DrawingManagerEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\FrameBasedAnimationEvent.cs" Link="Events\FrameBasedAnimationEvent.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapErrorEventArgs.cs" Link="Events\MapErrorEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapEventArgs.cs" Link="Events\MapEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapFilesDroppedEventArgs.cs" Link="Events\MapFilesDroppedEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapKeyboardEventArgs.cs" Link="Events\MapKeyboardEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapMouseEventArgs.cs" Link="Events\MapMouseEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapStyleChangedEventArgs.cs" Link="Events\MapStyleChangedEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapTouchEventArgs.cs" Link="Events\MapTouchEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\PlayableAnimationEvent.cs" Link="Events\PlayableAnimationEvent.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Expression.cs" Link="Expression.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\HtmlMarker.cs" Link="HtmlMarker.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\BasemapLayerInfo.cs" Link="Internal\BasemapLayerInfo.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\Constants.cs" Link="Internal\Constants.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\EmbeddedResourceProvider.cs" Link="Internal\EmbeddedResourceProvider.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\HybridWebView\HybridWebView.cs" Link="Internal\HybridWebView\HybridWebView.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\HybridWebView\HybridWebViewInitializedEventArgs.cs" Link="Internal\HybridWebView\HybridWebViewInitializedEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\HybridWebView\HybridWebViewProxyEventArgs.cs" Link="Internal\HybridWebView\HybridWebViewProxyEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\HybridWebView\HybridWebViewRawMessageReceivedEventArgs.cs" Link="Internal\HybridWebView\HybridWebViewRawMessageReceivedEventArgs.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\HybridWebView\PathUtils.cs" Link="Internal\HybridWebView\PathUtils.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\HybridWebView\QueryStringHelper.cs" Link="Internal\HybridWebView\QueryStringHelper.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\MapHttpClientManager.cs" Link="Internal\MapHttpClientManager.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\RawBasemapSourceInfo.cs" Link="Internal\RawBasemapSourceInfo.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\RawMapDroppedFileInfo.cs" Link="Internal\RawMapDroppedFileInfo.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\RawMapMsg.cs" Link="Internal\RawMapMsg.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\SimplifyUtil.cs" Link="Internal\SimplifyUtil.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\UniqueId.cs" Link="Internal\UniqueId.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Internal\Utils.cs" Link="Internal\Utils.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\AnimatedTileLayer.cs" Link="Layer\AnimatedTileLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\AzureMapsLayer.cs" Link="Layer\AzureMapsLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\BaseLayer.cs" Link="Layer\BaseLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\BubbleLayer.cs" Link="Layer\BubbleLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\HeatMapLayer.cs" Link="Layer\HeatMapLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\ImageLayer.cs" Link="Layer\ImageLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\BubbleLayerOptions.cs" Link="Layer\LayerOptions\BubbleLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\Enums\LabelPlacement.cs" Link="Layer\LayerOptions\Enums\LabelPlacement.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\Enums\LineCap.cs" Link="Layer\LayerOptions\Enums\LineCap.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\Enums\LineJoin.cs" Link="Layer\LayerOptions\Enums\LineJoin.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\Enums\TextJustify.cs" Link="Layer\LayerOptions\Enums\TextJustify.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\Enums\ZOrderType.cs" Link="Layer\LayerOptions\Enums\ZOrderType.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\HeatMapLayerOptions.cs" Link="Layer\LayerOptions\HeatMapLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\IconOptions.cs" Link="Layer\LayerOptions\IconOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\ImageLayerOptions.cs" Link="Layer\LayerOptions\ImageLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\LayerOptions.cs" Link="Layer\LayerOptions\LayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\LineLayerOptions.cs" Link="Layer\LayerOptions\LineLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\MediaLayerOptions.cs" Link="Layer\LayerOptions\MediaLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\PolygonExtrusionLayerOptions.cs" Link="Layer\LayerOptions\PolygonExtrusionLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\PolygonLayerOptions.cs" Link="Layer\LayerOptions\PolygonLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\SymbolLayerOptions.cs" Link="Layer\LayerOptions\SymbolLayerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LayerOptions\TextOptions.cs" Link="Layer\LayerOptions\TextOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\LineLayer.cs" Link="Layer\LineLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\PolygonExtrusionLayer.cs" Link="Layer\PolygonExtrusionLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\PolygonLayer.cs" Link="Layer\PolygonLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\SymbolLayer.cs" Link="Layer\SymbolLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\TileLayer.cs" Link="Layer\TileLayer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Map.cs" Link="Map.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\MapSynchronizer.cs" Link="MapSynchronizer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\HtmlMarkerOptions.cs" Link="Options\HtmlMarkerOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\CameraAnimationOptions.cs" Link="Options\MapOptions\CameraAnimationOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\CameraOptions.cs" Link="Options\MapOptions\CameraOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\LightOptions.cs" Link="Options\MapOptions\LightOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\MapAuthOptions.cs" Link="Options\MapOptions\MapAuthOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\MapLoadOptions.cs" Link="Options\MapOptions\MapLoadOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\MapStyleOptions\BorderedMapElementStyles.cs" Link="Options\MapOptions\MapStyleOptions\BorderedMapElementStyles.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\MapStyleOptions\MapElementStyles.cs" Link="Options\MapOptions\MapStyleOptions\MapElementStyles.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\StyleOptions.cs" Link="Options\MapOptions\StyleOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\StyleOverrides.cs" Link="Options\MapOptions\StyleOverrides.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\TrafficOptions.cs" Link="Options\MapOptions\TrafficOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\UserInteractionOptions.cs" Link="Options\MapOptions\UserInteractionOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\PopupOptions.cs" Link="Options\PopupOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\PopupTemplate.cs" Link="Options\PopupTemplate.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\SwipeMapOptions.cs" Link="Options\SwipeMapOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Padding.cs" Link="Padding.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Pixel.cs" Link="Pixel.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Popup.cs" Link="Popup.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\AzureMapsSource.cs" Link="Source\AzureMapsSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\BaseSource.cs" Link="Source\BaseSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\DataSource.cs" Link="Source\DataSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\DataSourceLite.cs" Link="Source\DataSourceLite.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\GriddedDataSource.cs" Link="Source\GriddedDataSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\SourceOptions\BaseSourceOptions.cs" Link="Source\SourceOptions\BaseSourceOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\SourceOptions\DataSourceOptions.cs" Link="Source\SourceOptions\DataSourceOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\SourceOptions\GriddedDataSourceOptions.cs" Link="Source\SourceOptions\GriddedDataSourceOptions.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\TileSources\CustomTileSource.cs" Link="Source\TileSources\CustomTileSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\TileSources\MBTileSource.cs" Link="Source\TileSources\MBTileSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\TileSources\TileSource.cs" Link="Source\TileSources\TileSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Source\TileSources\ZipFileTileSource.cs" Link="Source\TileSources\ZipFileTileSource.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\SwipeMap.cs" Link="SwipeMap.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Tiles\TileInfo.cs" Link="Tiles\TileInfo.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Tiles\TileJson.cs" Link="Tiles\TileJson.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Tiles\TileMath.cs" Link="Tiles\TileMath.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\css\modules\azure-maps-layer-legend.min.css" Link="EmbeddedResources\css\modules\azure-maps-layer-legend.min.css" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\images\favicon.ico" Link="EmbeddedResources\images\favicon.ico" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\MapView.html" Link="EmbeddedResources\MapView.html" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\SwipeMapView.html" Link="EmbeddedResources\SwipeMapView.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Animations\Enums\" />
+    <Folder Include="Animations\Options\" />
+    <Folder Include="Control\Enums\" />
+    <Folder Include="Control\Layers\" />
+    <Folder Include="Control\Legends\" />
+    <Folder Include="Core\Managers\" />
+    <Folder Include="Data\Enums\" />
+    <Folder Include="Data\JsonConverters\" />
+    <Folder Include="Drawing\Enums\" />
+    <Folder Include="EmbeddedResources\css\modules\" />
+    <Folder Include="EmbeddedResources\images\" />
+    <Folder Include="EmbeddedResources\js\modules\" />
+    <Folder Include="EmbeddedResources\_hwv\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Events\" />
+    <Folder Include="Internal\HybridWebView\" />
+    <Folder Include="Layer\LayerOptions\Enums\" />
+    <Folder Include="Options\MapOptions\MapStyleOptions\" />
+    <Folder Include="Source\SourceOptions\" />
+    <Folder Include="Source\TileSources\" />
+    <Folder Include="Tiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\MapView.js" Link="EmbeddedResources\js\MapView.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-animations.min.js" Link="EmbeddedResources\js\modules\azure-maps-animations.min.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-bring-data-into-view-control.min.js" Link="EmbeddedResources\js\modules\azure-maps-bring-data-into-view-control.min.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-gridded-data-source.min.js" Link="EmbeddedResources\js\modules\azure-maps-gridded-data-source.min.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-layer-legend.min.js" Link="EmbeddedResources\js\modules\azure-maps-layer-legend.min.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-overview-map.min.js" Link="EmbeddedResources\js\modules\azure-maps-overview-map.min.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-swipe-map.min.js" Link="EmbeddedResources\js\modules\azure-maps-swipe-map.min.js" />
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\pmtiles_3.0.5.js" Link="EmbeddedResources\js\modules\pmtiles_3.0.5.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\_hwv\HybridWebView.js" Link="EmbeddedResources\_hwv\HybridWebView.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.45.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+  </ItemGroup>
+
+</Project>

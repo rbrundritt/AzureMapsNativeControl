@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"   
+             xmlns:atlasControl="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.OverviewMapControlSample"
+             Title="Overview Map Control Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker Title="Overlay" SelectedIndexChanged="OverlayPicker_SelectedIndexChanged" 
+                VerticalOptions="Center" WidthRequest="150">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Area</x:String>
+                        <x:String>Marker</x:String>
+                        <x:String>None</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="MapStylePicker" Title="Map style" SelectedIndexChanged="MapStylePicker_SelectedIndexChanged" 
+                Margin="10,0" VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>GrayscaleDark</x:String>
+                        <x:String>GrayscaleLight</x:String>
+                        <x:String>Night</x:String>
+                        <x:String>Road</x:String>
+                        <x:String>RoadShadedRelief</x:String>
+                        <x:String>Satellite</x:String>
+                        <x:String>SatelliteRoadLabels</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Shape" SelectedIndexChanged="ShapePicker_SelectedIndexChanged" 
+                VerticalOptions="Center" WidthRequest="150">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Square</x:String>
+                        <x:String>Round</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Style" SelectedIndexChanged="StylePicker_SelectedIndexChanged" 
+                    SelectedIndex="2" VerticalOptions="Center" WidthRequest="210" Margin="5,0,10,0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Auto</x:String>
+                        <x:String>Dark</x:String>
+                        <x:String>Light</x:String>
+                        <x:String>CSS Color</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="HeightLabel" Text="Height:" VerticalOptions="Center"/>
+                <Slider Maximum="500" Minimum="50" Value="150" WidthRequest="100" VerticalOptions="Center" ValueChanged="HeightSlider_ValueChanged" />
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="WidthLabel" Text="Width:" VerticalOptions="Center"/>
+                <Slider Maximum="500" Minimum="50" Value="150" WidthRequest="100" VerticalOptions="Center" ValueChanged="WidthSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="ZoomOffsetLabel" Text="Zoom Offset:" VerticalOptions="Center"/>
+                <Slider Maximum="10" Minimum="-10" Value="-5" WidthRequest="100" VerticalOptions="Center" ValueChanged="ZoomOffsetSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Sync zoom" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="SyncZoomCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Sync bearing &amp; pitch" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="SyncBearingPitchCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Interactive" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="InteractiveCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Miminized" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="MiminizedCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Show toggle" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ShowToggleCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Visible" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="VisibleCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Marker options (draggable)" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="MarkerOptionsDraggableCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button Text="Randomize Line Style" Clicked="RandomizeLineStyle_Clicked" VerticalOptions="Center"/>
+            <Button Text="Randomize Polygon Style" Clicked="RandomizePolygonStyle_Clicked" VerticalOptions="Center" Margin="5,0"/>
+            <Button Text="Randomize Marker Style" Clicked="RandomizeMarkerStyle_Clicked" VerticalOptions="Center"/>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                    Center="-122.338943,47.611487"
+                    Zoom="12" />
+            </atlas:Map.Settings>
+
+            <atlas:Map.Controls>
+                <atlasControl:OverviewMapControl x:Name="MyOverviewMap" Position="TopRight" />
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

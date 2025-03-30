@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.DrawingManagerOptionsSample"
+             Title="Drawing manager - Options">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker Title="Drawing mode" SelectedIndexChanged="DrawingModePicker_SelectedIndexChanged" 
+                 SelectedIndex="5" VerticalOptions="Center" WidthRequest="150">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>DrawPoint</x:String>
+                        <x:String>DrawLine</x:String>
+                        <x:String>DrawPolygon</x:String>
+                        <x:String>DrawCircle</x:String>
+                        <x:String>DrawRectangle</x:String>
+                        <x:String>Idle</x:String>
+                        <x:String>EditGeometry</x:String>
+                        <x:String>EraseGeometry</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Interaction type" SelectedIndexChanged="InteractionTypePicker_SelectedIndexChanged" 
+                    SelectedIndex="2" Margin="10,0" VerticalOptions="Center" WidthRequest="150">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Click</x:String>
+                        <x:String>Freehand</x:String>
+                        <x:String>Hybrid</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Freehand interval" SelectedIndexChanged="FreehandIntervalPicker_SelectedIndexChanged"
+                SelectedIndex="2" VerticalOptions="Center" WidthRequest="150" Margin="0,0,5,0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>10</x:String>
+                        <x:String>25</x:String>
+                        <x:String>50</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Shape Dragging Enabled" VerticalOptions="Center"/>
+                <CheckBox IsChecked="True" CheckedChanged="ShapeDraggingEnabledCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Shape Rotation Enabled" VerticalOptions="Center"/>
+                <CheckBox IsChecked="True" CheckedChanged="ShapeRotationEnabledCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Show toolbar" VerticalOptions="Center"/>
+                <CheckBox IsChecked="True" CheckedChanged="ShowToolbarCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Toolbar buttons: " VerticalOptions="Center"/>
+
+                <Border Margin="5" Padding="5,0">
+                    <ScrollView HeightRequest="100">
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <Label Text="DrawPoint" VerticalOptions="Center"/>
+                                <CheckBox x:Name="DrawPoint" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="DrawLine" VerticalOptions="Center"/>
+                                <CheckBox x:Name="DrawLine" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="DrawPolygon" VerticalOptions="Center"/>
+                                <CheckBox x:Name="DrawPolygon" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="DrawCircle" VerticalOptions="Center"/>
+                                <CheckBox x:Name="DrawCircle" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="DrawRectangle" VerticalOptions="Center"/>
+                                <CheckBox x:Name="DrawRectangle" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="EditGeometry" VerticalOptions="Center"/>
+                                <CheckBox x:Name="EditGeometry" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="EraseGeometry" VerticalOptions="Center"/>
+                                <CheckBox x:Name="EraseGeometry" IsChecked="True" CheckedChanged="ToolbarButtonItemCheckBox_CheckedChanged" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Border>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Button Text="Randomize drawing layer styles" Clicked="RandomizeLayerStyles_Clicked" HeightRequest="30"/>
+            </HorizontalStackLayout>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.33, 47.6" Zoom="12"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

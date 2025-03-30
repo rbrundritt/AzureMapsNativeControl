@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="proxy?operation=embeddedResource&resourceName=images/favicon.ico" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Give the browser a hint that we will be accessing Azure Maps domain. -->
+    <link rel="preconnect" href="https://atlas.microsoft.com" />
+    <link rel="preconnect" href="https://atlas.microsoft.com" crossorigin />
+
+    <!-- Add CSS stylesheet files -->
+    <!-- Azure Maps CSS file -->
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" rel="stylesheet" />
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #mapContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #primaryMap, #secondaryMap { 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .azure-maps-control-button {
+            -webkit-user-select: none; /* Chrome all / Safari all */
+            -moz-user-select: none; /* Firefox all */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Likely future */
+        }
+    </style>
+</head>
+<body>
+    <div id="mapContainer">
+        <div id="primaryMap" class="map"></div>
+        <div id="secondaryMap" class="map"></div>
+    </div>
+
+    <!-- Add HybridWebView.js file to create more seamless connection between JS and C#. -->
+    <script src="_hwv/HybridWebView.js"></script>
+
+    <!-- Add Azure Maps Map control JavaScript  -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+    <!-- <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script> -->
+
+    <!-- Add references to the Azure Maps Map Drawing Tools JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
+
+    <!-- Add support for PM tiles. -->
+    <script src="proxy?operation=embeddedResource&resourceName=js/modules/pmtiles_3.0.5.js"></script>
+
+    <!-- Add reference to MapView.js file. -->
+    <script src="proxy?operation=embeddedResource&resourceName=js/MapView.js"></script>
+
+    <!-- Load in the JavaScript for the swipe map module. -->
+    <script src="proxy?operation=embeddedResource&resourceName=js/modules/azure-maps-swipe-map.min.js"></script>
+</body>
+</html>

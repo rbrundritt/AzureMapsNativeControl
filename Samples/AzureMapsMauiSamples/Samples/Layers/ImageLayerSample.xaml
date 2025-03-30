@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             xmlns:atlasControls="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.ImageLayerSample"
+             Title="Image Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="ImageSourcePicker" Title="Image Source" VerticalOptions="Center" WidthRequest="210"
+                    SelectedIndexChanged="ImageSourcePicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>image_asset_url</x:String>
+                        <x:String>image_from_stream</x:String>
+                        <x:String>kml_ground_overlay</x:String>
+                        <x:String>image_data_uri</x:String>
+                        <x:String>image_from_web</x:String>
+                        <x:String>image_from_web_no_cors</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120" Margin="10,0,0,0">
+                <Label x:Name="OpacityLabel" Text="Opacity: 1" VerticalOptions="Center"/>
+                <Slider Maximum="1" Value="1" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="OpacitySlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="150">
+                <Label x:Name="HueRotationLabel" Text="Hue Rotation: 0" VerticalOptions="Center"/>
+                <Slider Maximum="360" Value="0" WidthRequest="100" VerticalOptions="Center" ValueChanged="HueRotationSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="ContrastLabel" Text="Contrast: 0" VerticalOptions="Center"/>
+                <Slider Maximum="1" Minimum="-1" Value="0" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="ContrastSlider_ValueChanged" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" WidthRequest="120">
+                <Label x:Name="SaturationLabel" Text="Saturation: 0" VerticalOptions="Center"/>
+                <Slider Maximum="1" Minimum="-1" Value="0" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Start" ValueChanged="SaturationSlider_ValueChanged" />
+            </VerticalStackLayout>
+            
+            <Picker Title="Before layer" SelectedIndexChanged="BeforeLayerPicker_SelectedIndexChanged" VerticalOptions="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>undefined</x:String>
+                        <x:String>labels</x:String>
+                        <x:String>roads</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Controls>
+                <atlasControls:StyleControl Position="TopRight" />
+                <atlasControls:ZoomControl Position="TopRight" />
+                <atlasControls:ScaleControl Position="BottomRight" />
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

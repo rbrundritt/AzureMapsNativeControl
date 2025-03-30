@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl" 
+             x:Class="AzureMapsMauiSamples.Samples.AnimatePointAlongPathSample"
+             Title="Animate Point Along Path">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Label Text="Animation scenario:" VerticalOptions="Center"/>
+
+            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="Scenario" Margin="5,0">
+                <RadioButton x:Name="PointFeatureBtn" Content="Point Feature" CheckedChanged="OnCheckedChanged"/>
+                <RadioButton Content="HTML Marker" CheckedChanged="OnCheckedChanged"/>
+            </StackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Animate map" VerticalOptions="Center"/>
+                <CheckBox x:Name="AnimateMapCbx" CheckedChanged="AnimateMap_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button Text="Play" VerticalOptions="Center" Clicked="PlayButton_Clicked"/>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.3378, 47.6129" Zoom="13"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.DataSourceImportSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Data Source GeoJson Import">
+    
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10">
+            <TextBlock Text="Import from:" />
+            <Button Content="Feature/Shape using code" Click="ImportFeatureShape_Clicked"/>
+            <Button Content="File stream" Click="ImportFromStream_Clicked" />
+            <Button Content="URL (Asset in Raw folder)" Click="ImportRawFolderFileUrl_Clicked"/>
+            <Button Content="URL (Web)" Click="ImportWebUrl_Clicked" />
+            <Button Content="File Picker" Click="ImportWithFilePicker_Clicked"/>
+            <Button Content="Azure Maps REST GeoJson Response" Click="ImportAzureMapsRestGeoJsonResponse_Clicked" />
+            <Button Content="Azure Maps REST Json Response" Click="ImportGenericRestResponse_Clicked"/>
+            <Button Content="Clear data source" Click="ClearDataSource_Clicked" />
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Column="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions AllowFileDrop="True"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

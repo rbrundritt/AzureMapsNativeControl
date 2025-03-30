@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl" 
+             x:Class="AzureMapsMauiSamples.Samples.SwipeMapSample"
+             Title="Swipe Map">
+
+    <atlas:SwipeMap x:Name="MySwipeMap" OnReady="MySwipeMap_OnReady">
+        <atlas:SwipeMap.Settings>
+            <atlas:SwipeMapOptions Orientation="Vertical">
+                
+                <atlas:SwipeMapOptions.PrimaryMapSettings>
+                    <atlas:MapLoadOptions 
+                         Style="GrayscaleDark" 
+                         Center="-100, 35"
+                         Zoom="3"/>
+                </atlas:SwipeMapOptions.PrimaryMapSettings>
+
+                <atlas:SwipeMapOptions.SecondaryMapSettings>
+                    <atlas:MapLoadOptions Style="GrayscaleDark" />
+                </atlas:SwipeMapOptions.SecondaryMapSettings>
+                
+            </atlas:SwipeMapOptions>
+        </atlas:SwipeMap.Settings>
+    </atlas:SwipeMap>
+</ContentPage>

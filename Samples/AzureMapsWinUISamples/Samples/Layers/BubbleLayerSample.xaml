@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.BubbleLayerSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Color" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="ColorPicker" VerticalAlignment="Center" Width="210" SelectionChanged="ColorPicker_SelectedIndexChanged">
+                <ComboBoxItem>data_driven_style</ComboBoxItem>
+                <ComboBoxItem>#1E90FF</ComboBoxItem>
+                <ComboBoxItem>#00ff0080</ComboBoxItem>
+                <ComboBoxItem>DeepPink</ComboBoxItem>
+                <ComboBoxItem>rgb(255, 165, 0)</ComboBoxItem>
+                <ComboBoxItem>rgba(128, 0, 128, 0.8)</ComboBoxItem>
+                <ComboBoxItem>hsl(300, 76%, 72%)</ComboBoxItem>
+                <ComboBoxItem>hsla(248, 53%, 58%, 0.8)</ComboBoxItem>
+            </ComboBox>
+
+            <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="180">
+                    <TextBlock Text="Data Driven Radius" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <CheckBox x:Name="DataDrivenRadiusCheckBox" IsChecked="True" Unchecked="UpdateRadius" Checked="UpdateRadius" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0" Width="180">
+                    <TextBlock Text="Radius:" VerticalAlignment="Center"/>
+                    <Slider x:Name="RadiusSlider" IsEnabled="False" Margin="5,0" Minimum="1" Maximum="50" Value="10" Width="100" VerticalAlignment="Center" ValueChanged="UpdateRadius" />
+                    <TextBlock x:Name="RadiusLabel" Text="10" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" Width="120">
+                <TextBlock x:Name="OpacityLabel" Text="Opacity: 1" VerticalAlignment="Center"/>
+                <Slider Maximum="1" Value="0.75" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" ValueChanged="OpacitySlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" Width="120">
+                <TextBlock x:Name="StrokeWidthLabel" Text="Stroke Width: 10" VerticalAlignment="Center"/>
+                <Slider x:Name="StrokeWidthSlider" Minimum="1" Maximum="10" Value="2" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" ValueChanged="StrokeWidthSlider_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" Width="120">
+                <TextBlock x:Name="StrokeOpacityLabel" Text="Stroke Opacity: 1" VerticalAlignment="Center"/>
+                <Slider Maximum="1" Value="1" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" ValueChanged="StrokeOpacitySlider_ValueChanged" />
+            </StackPanel>
+
+            <TextBlock Text="Pitch Alignment" VerticalAlignment="Center"/>
+            <ComboBox VerticalAlignment="Center" SelectionChanged="PitchAlignmentPicker_SelectedIndexChanged" Margin="5,0">
+                <ComboBoxItem>Auto</ComboBoxItem>
+                <ComboBoxItem>Map</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Viewport</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-180,0"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

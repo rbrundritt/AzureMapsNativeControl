@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"   
+             xmlns:atlasControl="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.PMTileSourceSample"
+             Title="PMTile Source Integration">
+
+    <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady">
+        <atlas:Map.Settings>
+            <atlas:MapLoadOptions 
+                Style="Night" 
+                Center="-73.97721, 40.76982"
+                Zoom="15"
+                Bearing="162"
+                Pitch="60"
+                MaxPitch="85"/>
+        </atlas:Map.Settings>
+
+        <atlas:Map.Controls>
+            <atlasControl:StyleControl Position="TopRight" />
+            <atlasControl:ZoomControl Position="TopRight" />
+            <atlasControl:CompassControl Position="TopRight" />
+            <atlasControl:PitchControl Position="TopRight" />
+        </atlas:Map.Controls>
+    </atlas:Map>
+</ContentPage>

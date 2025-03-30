@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.ExtrudedGriddedDataSourceSample"
+             Title="ExtrudedGriddedDataSourceSample">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker x:Name="GridTypePicker" Title="Grid type" SelectedIndexChanged="GridTypePicker_SelectedIndexChanged" VerticalOptions="Center" WidthRequest="210">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>circle</x:String>
+                        <x:String>hexagon</x:String>
+                        <x:String>hexCircle</x:String>
+                        <x:String>pointyHexagon</x:String>
+                        <x:String>square</x:String>
+                        <x:String>triangle</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="2" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                Center="-105.03, 40.54"
+                Zoom="11"                
+                MaxPitch="85"
+                Pitch="45"
+                Style="GrayscaleDark" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.BasicMapInXaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"
+    xmlns:atlasControl="using:AzureMapsNativeControl.Control"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- Create a map instance. -->
+    <atlas:Map x:Name="MyMap">
+        <!-- Pass in some settings for the map to use when loading. -->
+        <atlas:Map.Settings>
+            <atlas:MapLoadOptions 
+              Style="Night" 
+              Center="-110,45"
+              Zoom="5" 
+              View="Auto" 
+              Language="en-US" 
+              ShowFeedbackLink="False" 
+              ShowLogo="False"/>
+        </atlas:Map.Settings>
+
+        <!-- Optionally add some controls to the map. -->
+        <atlas:Map.Controls>
+            <atlasControl:StyleControl Position="TopRight" />
+            <atlasControl:ZoomControl Position="TopRight" />
+            <atlasControl:CompassControl Position="TopRight" />
+            <atlasControl:PitchControl Position="TopRight" />
+            <atlasControl:TrafficControl Position="TopRight" />
+            <atlasControl:ScaleControl Position="BottomRight" />
+            <atlasControl:TrafficLegendControl Position="BottomLeft" />
+        </atlas:Map.Controls>
+    </atlas:Map>
+
+</Page>

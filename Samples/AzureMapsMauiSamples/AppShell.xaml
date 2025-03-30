@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AzureMapsMauiSamples.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AzureMapsMauiSamples"
+    xmlns:samples="clr-namespace:AzureMapsMauiSamples.Samples"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="Azure Maps Maui Samples"
+    Shell.FlyoutBehavior="Flyout">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Getting Started">
+            <ShellContent Title="Welcome" ContentTemplate="{DataTemplate local:MainPage}" />
+            <ShellContent Title="Basic Map in XAML" ContentTemplate="{DataTemplate samples:BasicMapInXaml}" />
+            <ShellContent Title="Popups" ContentTemplate="{DataTemplate samples:PopupsSample}" />
+            <ShellContent Title="HTML Markers" ContentTemplate="{DataTemplate samples:HtmlMarkerSample}" />
+            <ShellContent Title="Swipe Map" ContentTemplate="{DataTemplate samples:SwipeMapSample}" />
+            <ShellContent Title="Synchronize Maps" ContentTemplate="{DataTemplate samples:SynchronizeMapsSample}" />
+            <ShellContent Title="MVVM Map" ContentTemplate="{DataTemplate samples:MapMVVMSample}" />
+        </Tab>
+
+        <Tab Title="Sources">
+            <ShellContent Title="Data Source GeoJson Import" ContentTemplate="{DataTemplate samples:DataSourceImportSample}" />
+            <ShellContent Title="Data Source Lite GeoJson Import" ContentTemplate="{DataTemplate samples:DataSourceLiteSample}" />
+            <ShellContent Title="Vector Tile Source Integration" ContentTemplate="{DataTemplate samples:VectorTileSourceSample}" />
+            <ShellContent Title="PM Tile Source Integration" ContentTemplate="{DataTemplate samples:PMTileSourceSample}" />
+            <ShellContent Title="3D terrian - Elevation Tile Source" ContentTemplate="{DataTemplate samples:ElevationTileSourceSample}" />
+            <ShellContent Title="Extruded Gridded Data Source" ContentTemplate="{DataTemplate samples:ExtrudedGriddedDataSourceSample}" />
+        </Tab>
+
+        <Tab Title="Layers">
+            <ShellContent Title="Bubble Layer" ContentTemplate="{DataTemplate samples:BubbleLayerSample}" />
+            <ShellContent Title="Heat Map Layer" ContentTemplate="{DataTemplate samples:HeatMapLayerSample}" />
+            <ShellContent Title="Image Layer" ContentTemplate="{DataTemplate samples:ImageLayerSample}" />
+            <ShellContent Title="Line Layer" ContentTemplate="{DataTemplate samples:LineLayerSample}" />
+            <ShellContent Title="Polygon Layer" ContentTemplate="{DataTemplate samples:PolygonLayerSample}" />
+            <ShellContent Title="Polygon Extrusion Layer" ContentTemplate="{DataTemplate samples:PolygonExtrusionLayerSample}" />
+            <ShellContent Title="Symbol Layer" ContentTemplate="{DataTemplate samples:SymbolLayerSample}" />
+            <ShellContent Title="Tile Layer" ContentTemplate="{DataTemplate samples:TileLayerSample}" />
+            <ShellContent Title="Clustering - Points in Data Source" ContentTemplate="{DataTemplate samples:ClusteredLayer}" />
+            <ShellContent Title="Cluster Aggregates" ContentTemplate="{DataTemplate samples:ClusterAggregates}" />
+            <ShellContent Title="Animated Tile Layer" ContentTemplate="{DataTemplate samples:AnimatedTileLayerSample}" />
+        </Tab>
+
+        <Tab Title="Controls">
+            <ShellContent Title="Bring Data Into View control" ContentTemplate="{DataTemplate samples:BringDataIntoViewControlSample}" />
+            <ShellContent Title="Layer control" ContentTemplate="{DataTemplate samples:LayerControlSample}" />
+            <ShellContent Title="Legend control" ContentTemplate="{DataTemplate samples:LegendControlSample}" />
+            <ShellContent Title="Overview Map control" ContentTemplate="{DataTemplate samples:OverviewMapControlSample}" />
+        </Tab>
+
+        <Tab Title="Drawing tools">
+            <ShellContent Title="Drawing tools - Getting started" ContentTemplate="{DataTemplate samples:DrawingToolsSample}" />
+            <ShellContent Title="Drawing manager - Options" ContentTemplate="{DataTemplate samples:DrawingManagerOptionsSample}" />
+            <ShellContent Title="Drawing tools - Data access" ContentTemplate="{DataTemplate samples:DrawingToolsDataAccessSample}" />
+            <ShellContent Title="Measuring tool" ContentTemplate="{DataTemplate samples:MeasuringToolSample}" />
+            <ShellContent Title="Snapping grid" ContentTemplate="{DataTemplate samples:SnappingGridSample}" />
+        </Tab>
+
+        <Tab Title="Animations">
+            <ShellContent Title="Animate new Point Position" ContentTemplate="{DataTemplate samples:AnimateNewPointPositionSample}" />
+            <ShellContent Title="Animate Multiple Points" ContentTemplate="{DataTemplate samples:AnimateMultiplePointsSample}" />
+            <ShellContent Title="Drop animations" ContentTemplate="{DataTemplate samples:DropAnimationSample}" />
+            <ShellContent Title="Simple Point animations" ContentTemplate="{DataTemplate samples:SimplePointAnimationSample}" />
+            <ShellContent Title="Simple Line animation" ContentTemplate="{DataTemplate samples:SimpleLineAnimationSample}" />
+            <ShellContent Title="Snakeline animation" ContentTemplate="{DataTemplate samples:SnakelineAnimationSample}" />
+            <ShellContent Title="HTML Marker Pulse Animation" ContentTemplate="{DataTemplate samples:HtmlMarkerPulseAnimationSample}" />
+            <ShellContent Title="Bubble Layer Pulse Animation" ContentTemplate="{DataTemplate samples:BubbleLayerPulseAnimationSample}" />
+            <ShellContent Title="Animate Point Along Path" ContentTemplate="{DataTemplate samples:AnimatePointAlongPathSample}" />
+            <ShellContent Title="Animate Point Along Route" ContentTemplate="{DataTemplate samples:AnimatePointAlongRouteSample}" />
+            <ShellContent Title="Animate GPS Trace" ContentTemplate="{DataTemplate samples:AnimateGPSTraceSample}" />
+            <ShellContent Title="Flowing Dashed Line Animation" ContentTemplate="{DataTemplate samples:FlowingDashedLineAnimationSample}" />
+            <ShellContent Title="Animate Traffic Flow" ContentTemplate="{DataTemplate samples:AnimateTrafficFlowSample}" />
+            <ShellContent Title="Animate Choropleth Map" ContentTemplate="{DataTemplate samples:AnimateChoroplethMapSample}" />
+            <ShellContent Title="Moprh Shape Animation" ContentTemplate="{DataTemplate samples:MorphShapeAnimationSample}" />
+        </Tab>
+    </FlyoutItem>
+</Shell>

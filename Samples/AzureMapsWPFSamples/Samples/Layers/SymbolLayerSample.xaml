@@ -1,0 +1,91 @@
+﻿<Page x:Class="AzureMapsWPFSamples.Samples.SymbolLayerSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AzureMapsWPFSamples.Samples"
+      xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Symbol Layer Sample">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Icon image"/>
+                <ComboBox x:Name="IconPicker" Width="210"
+                    SelectionChanged="IconPicker_SelectedIndexChanged">
+                    <ComboBoxItem IsSelected="True">undefined</ComboBoxItem>
+                    <ComboBoxItem>built_in_marker-yellow</ComboBoxItem>
+                    <ComboBoxItem>built_in_pin-darkblue</ComboBoxItem>
+                    <ComboBoxItem>built_in_pin-red</ComboBoxItem>
+                    <ComboBoxItem>template_marker_arrow</ComboBoxItem>
+                    <ComboBoxItem>template_built_in_marker_purple</ComboBoxItem>
+                    <ComboBoxItem>custom_template</ComboBoxItem>
+                    <ComboBoxItem>png_asset_url</ComboBoxItem>
+                    <ComboBoxItem>svg_asset_url</ComboBoxItem>
+                    <ComboBoxItem>image_from_stream</ComboBoxItem>
+                    <ComboBoxItem>inline_svg_string</ComboBoxItem>
+                    <ComboBoxItem>image_data_uri</ComboBoxItem>
+                    <ComboBoxItem>image_from_web</ComboBoxItem>
+                    <ComboBoxItem>image_from_web_no_cors</ComboBoxItem>
+                    <ComboBoxItem>data_driven_style</ComboBoxItem>
+                    <ComboBoxItem>none</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Width="110" Margin="10,0,0,0">
+                <TextBlock x:Name="IconOpacityLabel" Text="Icon Opacity: 1"/>
+                <Slider Maximum="1" Value="1" Width="100" ValueChanged="IconOpacitySlider_ValueChanged" HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel Width="110">
+                <TextBlock x:Name="IconSizeLabel" Text="Icon size: 1"/>
+                <Slider x:Name="IconSizeSlider" Minimum="0" Maximum="2" Value="1" Width="100" ValueChanged="IconSizeSlider_ValueChanged" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Width="110">
+                <TextBlock x:Name="IconRotationLabel" Text="Icon rotation: 0"/>
+                <Slider x:Name="IconRotationSlider" Minimum="0" Maximum="359" Value="0" Width="100" ValueChanged="IconRotationSlider_ValueChanged" HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Show text labels"/>
+                <CheckBox IsChecked="True" Checked="ShowTextCheckBox_CheckedChanged" Unchecked="ShowTextCheckBox_CheckedChanged" />
+            </StackPanel>
+
+            <StackPanel Margin="10,0">
+                <TextBlock Text="Text color"/>
+                <ComboBox x:Name="TextColorPicker" SelectionChanged="TextColorPicker_SelectedIndexChanged" Width="210">
+                    <ComboBoxItem IsSelected="True">undefined</ComboBoxItem>
+                    <ComboBoxItem>#1E90FF</ComboBoxItem>
+                    <ComboBoxItem>#00ff0080</ComboBoxItem>
+                    <ComboBoxItem>DeepPink</ComboBoxItem>
+                    <ComboBoxItem>rgb(255, 165, 0)</ComboBoxItem>
+                    <ComboBoxItem>rgba(128, 0, 128, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>hsl(300, 76%, 72%)</ComboBoxItem>
+                    <ComboBoxItem>hsla(248, 53%, 58%, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>data_driven_style</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Width="110">
+                <TextBlock x:Name="TextSizeLabel" Text="Text size: 16" Margin="3,0,0,0"/>
+                <Slider x:Name="TextSizeSlider" Minimum="8" Maximum="25" Value="16" Width="100" ValueChanged="TextSizeSlider_ValueChanged" HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                Style="GrayscaleLight"
+                Bounds="-105.2463,40.4935,-104.9084,40.7234" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

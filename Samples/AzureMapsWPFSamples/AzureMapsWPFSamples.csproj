@@ -1,0 +1,164 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\azure_maps_shadow_logo.png" />
+    <None Remove="Images\us_county_population_legend.jpg" />
+    <None Remove="map_resources\data\geojson\address.json" />
+    <None Remove="map_resources\data\geojson\BridleTrailsStatePark_Footpaths.geojson" />
+    <None Remove="map_resources\data\geojson\fort_collins_schools.json" />
+    <None Remove="map_resources\data\geojson\GPS_Trace.json" />
+    <None Remove="map_resources\data\geojson\MtStHelensNorthTrails.json" />
+    <None Remove="map_resources\data\geojson\randomFeatures.json" />
+    <None Remove="map_resources\data\geojson\SamplePoiDataSet.json" />
+    <None Remove="map_resources\data\geojson\south_africa_mainland.json" />
+    <None Remove="map_resources\data\geojson\US_County_2000_Annual_Population_Change.json" />
+    <None Remove="map_resources\data\geojson\US_County_Boundaries.geojson" />
+    <None Remove="map_resources\data\geojson\US_County_Unemployment_2017.geojson" />
+    <None Remove="map_resources\data\geojson\US_States_Population_Density.json" />
+    <None Remove="map_resources\data\rasterTiles\countries-raster.mbtiles" />
+    <None Remove="map_resources\data\rasterTiles\katrina.zip" />
+    <None Remove="map_resources\data\rasterTiles\toril-leaflet.zip" />
+    <None Remove="map_resources\images\CoffeeIcon.png" />
+    <None Remove="map_resources\images\dog_park_pattern.png" />
+    <None Remove="map_resources\images\image-overlays\1600px-Chartres.svg.png" />
+    <None Remove="map_resources\images\image-overlays\Chicago_1872_Map.jpg" />
+    <None Remove="map_resources\images\image-overlays\Foto_aérea_de_Unaí_detalhando_o_córrego_Canabrava_3.jpg" />
+    <None Remove="map_resources\images\orchard_banana_pattern.svg" />
+    <None Remove="map_resources\images\Pike_Market.jpg" />
+    <None Remove="map_resources\images\pin.png" />
+    <None Remove="map_resources\images\red_svg_marker.svg" />
+    <None Remove="map_resources\images\rough_grass_texture.jpg" />
+    <None Remove="map_resources\images\sky_stars_sunset.jpg" />
+    <None Remove="map_resources\styles\BounceAndPulsatePin.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\AzureMapsNativeControl.WPF\AzureMapsNativeControl.WPF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\azure_maps_shadow_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\us_county_population_legend.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\address.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\BridleTrailsStatePark_Footpaths.geojson">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\fort_collins_schools.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\GPS_Trace.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\MtStHelensNorthTrails.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\randomFeatures.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\SamplePoiDataSet.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\south_africa_mainland.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\US_County_2000_Annual_Population_Change.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\US_County_Boundaries.geojson">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\US_County_Unemployment_2017.geojson">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\geojson\US_States_Population_Density.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\rasterTiles\countries-raster.mbtiles">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\rasterTiles\katrina.zip">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\data\rasterTiles\toril-leaflet.zip">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\CoffeeIcon.png">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\dog_park_pattern.png">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\image-overlays\1600px-Chartres.svg.png">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\image-overlays\Chicago_1872_Map.jpg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\image-overlays\Foto_aérea_de_Unaí_detalhando_o_córrego_Canabrava_3.jpg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\orchard_banana_pattern.svg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\Pike_Market.jpg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\pin.png">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\red_svg_marker.svg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\rough_grass_texture.jpg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\images\sky_stars_sunset.jpg">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="map_resources\styles\BounceAndPulsatePin.css">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

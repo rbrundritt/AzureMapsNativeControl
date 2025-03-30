@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"
+             x:Class="AzureMapsMauiSamples.Samples.DrawingToolsDataAccessSample"
+             Title="Drawing tools - Data access">
+
+    <FlexLayout x:Name="MyLayout" Direction="Row">
+        <Grid x:Name="MyTextPanel" MinimumWidthRequest="300">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <HorizontalStackLayout Margin="5">
+                <Button Text="Get drawn features" Clicked="GetDrawnFeaturesButton_Clicked"/>
+                <Button Text="Edit feature with id" Clicked="EditFeatureWithIdButton_Clicked" Margin="5,0"/>
+                <Button Text="Edit last feature" Clicked="EditLastFeaturesButton_Clicked"/>
+            </HorizontalStackLayout>
+
+            <Editor x:Name="GeoJsonTextWindow" Grid.Row="1" IsReadOnly="True" MinimumWidthRequest="300"/>
+        </Grid>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1" Margin="5,0,0,0">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.185135, 47.611487" Zoom="10"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </FlexLayout>
+</ContentPage>
