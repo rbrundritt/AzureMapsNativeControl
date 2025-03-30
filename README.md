@@ -1,7 +1,7 @@
 # Azure Maps .NET Map Control
 
 > [!WARNING]  
-> This is not an official Microsoft project. This was originally created as a hackathon projectas an experiment. Unless others are interested in contributing, I may not maintain this project long term. 
+> This is not an official Microsoft project. This was originally created as a hackathon project as an experiment. Unless others are interested in contributing, I may not maintain this project long term. 
 
 This project is a .NET wrapper for the Azure Maps Web SDK. It is designed to be used in .NET MAUI, WinUI, and WPF applications. 
 The goal of this project is to provide a .NET map control that has nearly all the same features and capabilities of the Azure Maps Web SDK with a similar API interface. 
@@ -47,7 +47,7 @@ Well over 95% of the core Azure Maps capabilities and many modules are exposed i
 ## TODO
 
 - Port rest of samples to WinUI (WPF to WinUI is the easiest path).
-- See **Features & Modules under consideration** in the **API coverage document**.
+- See [Features & Modules under consideration](Docs/APICoverage.md#features--modules-under-consideration).
 - Create and publish NuGet packages once project is stable.
 
 ## Bing Maps WPF Migration Tip
