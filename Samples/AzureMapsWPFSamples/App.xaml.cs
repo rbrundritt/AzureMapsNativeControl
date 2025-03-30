@@ -14,7 +14,7 @@ namespace AzureMapsWPFSamples
             AzureMapsConfiguration.Configure(new AzureMapsConfiguration
             {
                 // Set the subscription key
-                SubscriptionKey = "<Your_Azure_Maps_Key"
+                SubscriptionKey = "<Your_Azure_Maps_Key>"
             });
 
             base.OnStartup(e);
