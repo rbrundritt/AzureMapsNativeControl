@@ -145,7 +145,7 @@ namespace AzureMapsWPFSamples.Samples
             }
         }
 
-        private void UpdateMarkerOptionsButton_Clicked(object sender, EventArgs e)
+        private void UpdateMarkerOptionsButton_Clicked(object sender, RoutedEventArgs e)
         {
             if (currentMarker != null)
             {

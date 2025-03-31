@@ -270,7 +270,7 @@ namespace AzureMapsWPFSamples.Samples
             dataSource.Clear();
 
             //Get the GeoJson file.
-            using (var stream = new FileInfo("map_resources/data/geojson/SamplePoiDataSet.json").OpenRead())
+            using (var stream = new FileInfo("Assets/map_resources/data/geojson/SamplePoiDataSet.json").OpenRead())
             {
                 await dataSource.ImportDataFromStreamAsync(stream);
             }

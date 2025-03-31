@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.SnakelineAnimationSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"             
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Animate map" VerticalAlignment="Center"/>
+            <CheckBox x:Name="AnimateMapCbx" Checked="AnimateMap_CheckedChanged" Margin="3,0,5,0" />
+            <Button Content="Play" Click="PlayButton_Clicked"/>
+            <Button Content="Pause" Click="Pause_Clicked" Margin="5,0"/>
+            <Button Content="Stop" Click="StopButton_Clicked"/>
+            <Button Content="Reset" Click="ResetButton_Clicked" Margin="5,0"/>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-121.69281, 47.019588" Zoom="7" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

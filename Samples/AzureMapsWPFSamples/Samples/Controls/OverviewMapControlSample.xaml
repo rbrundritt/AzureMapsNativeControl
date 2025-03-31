@@ -43,7 +43,7 @@
                 <TextBlock Text="Shape"/>
                 <ComboBox SelectionChanged="ShapePicker_SelectedIndexChanged" Width="150" Margin="5,0,0,0">
                     <ComboBoxItem IsSelected="True">Square</ComboBoxItem>
-                <ComboBoxItem>Round</ComboBoxItem>
+                    <ComboBoxItem>Round</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
@@ -59,7 +59,7 @@
 
             <StackPanel Width="120">
                 <TextBlock x:Name="HeightLabel" Text="Height:"/>
-                <Slider Maximum="500" Minimum="50" Value="150" Width="100" ValueChanged="HeightSlider_ValueChanged" />
+                <Slider Maximum="500" Minimum="50" Value="150" Width="100" ValueChanged="HeightSlider_ValueChanged"/>
             </StackPanel>
 
             <StackPanel Width="120">
@@ -73,38 +73,38 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <TextBlock Text="Sync zoom"/>
-                <CheckBox Checked="SyncZoomCheckBox_CheckedChanged" Unchecked="SyncZoomCheckBox_CheckedChanged" IsChecked="True" />
+                <TextBlock Text="Sync zoom" VerticalAlignment="Center"/>
+                <CheckBox Checked="SyncZoomCheckBox_CheckedChanged" Unchecked="SyncZoomCheckBox_CheckedChanged" IsChecked="True" Margin="3,0"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Sync bearing &amp; pitch"/>
-                <CheckBox Checked="SyncBearingPitchCheckBox_CheckedChanged" Unchecked="SyncBearingPitchCheckBox_CheckedChanged" IsChecked="True" />
+                <TextBlock Text="Sync bearing &amp; pitch" VerticalAlignment="Center"/>
+                <CheckBox Checked="SyncBearingPitchCheckBox_CheckedChanged" Unchecked="SyncBearingPitchCheckBox_CheckedChanged" IsChecked="True" Margin="3,0"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <TextBlock Text="Interactive"/>
-                <CheckBox Checked="InteractiveCheckBox_CheckedChanged" Unchecked="InteractiveCheckBox_CheckedChanged" IsChecked="True" />
+                <TextBlock Text="Interactive" VerticalAlignment="Center"/>
+                <CheckBox Checked="InteractiveCheckBox_CheckedChanged" Unchecked="InteractiveCheckBox_CheckedChanged" IsChecked="True" Margin="3,0"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Miminized"/>
-                <CheckBox Checked="MiminizedCheckBox_CheckedChanged" Unchecked="MiminizedCheckBox_CheckedChanged" />
+                <TextBlock Text="Miminized" VerticalAlignment="Center"/>
+                <CheckBox Checked="MiminizedCheckBox_CheckedChanged" Unchecked="MiminizedCheckBox_CheckedChanged" Margin="3,0"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <TextBlock Text="Show toggle"/>
-                <CheckBox Checked="ShowToggleCheckBox_CheckedChanged" Unchecked="ShowToggleCheckBox_CheckedChanged" IsChecked="True" />
+                <TextBlock Text="Show toggle" VerticalAlignment="Center"/>
+                <CheckBox Checked="ShowToggleCheckBox_CheckedChanged" Unchecked="ShowToggleCheckBox_CheckedChanged" IsChecked="True" Margin="3,0"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Visible"/>
-                <CheckBox Checked="VisibleCheckBox_CheckedChanged" Unchecked="VisibleCheckBox_CheckedChanged" IsChecked="True" />
+                <TextBlock Text="Visible" VerticalAlignment="Center"/>
+                <CheckBox Checked="VisibleCheckBox_CheckedChanged" Unchecked="VisibleCheckBox_CheckedChanged" IsChecked="True" Margin="3,0"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <TextBlock Text="Marker options (draggable)"/>
-                <CheckBox Checked="MarkerOptionsDraggableCheckBox_CheckedChanged" Unchecked="MarkerOptionsDraggableCheckBox_CheckedChanged" />
+                <TextBlock Text="Marker options (draggable)" VerticalAlignment="Center"/>
+                <CheckBox Checked="MarkerOptionsDraggableCheckBox_CheckedChanged" Unchecked="MarkerOptionsDraggableCheckBox_CheckedChanged" Margin="3,0"  />
             </StackPanel>
 
             <Button Content="Randomize Line Style" Click="RandomizeLineStyle_Clicked"/>

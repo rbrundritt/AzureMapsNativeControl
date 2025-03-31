@@ -235,7 +235,7 @@ namespace AzureMapsWPFSamples.Samples
             StrokeOpacityLabel.Text = $"Stroke Opacity: {Math.Round(slider.Value, 2)}";
         }
 
-        private void PitchAlignmentPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private void PitchAlignmentPicker_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             if (bubbleLayer == null)
             {

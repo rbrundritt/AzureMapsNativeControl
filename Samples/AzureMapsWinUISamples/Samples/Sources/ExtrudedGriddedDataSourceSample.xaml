@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.ExtrudedGriddedDataSourceSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Grid type" VerticalAlignment="Center"/>
+            <ComboBox x:Name="GridTypePicker" SelectionChanged="GridTypePicker_SelectedIndexChanged" Width="210" Margin="5,0">
+                <ComboBoxItem>circle</ComboBoxItem>
+                <ComboBoxItem>hexagon</ComboBoxItem>
+                <ComboBoxItem>hexCircle</ComboBoxItem>
+                <ComboBoxItem>pointyHexagon</ComboBoxItem>
+                <ComboBoxItem>square</ComboBoxItem>
+                <ComboBoxItem>triangle</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" Grid.Row="2" OnReady="MyMap_OnReady">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                    Center="-105.03, 40.54"
+                    Zoom="11"                
+                    MaxPitch="85"
+                    Pitch="45"
+                    Style="GrayscaleDark" />
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

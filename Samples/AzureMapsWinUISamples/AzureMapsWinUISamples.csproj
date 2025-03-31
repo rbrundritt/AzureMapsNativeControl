@@ -13,11 +13,34 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\us_county_population_legend.jpg" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Remove="Assets\us_county_population_legend.jpg" />
+    <None Remove="Samples\Animations\AnimateChoroplethMapSample.xaml" />
+    <None Remove="Samples\Animations\AnimateGPSTraceSample.xaml" />
+    <None Remove="Samples\Animations\AnimateMultiplePointsSample.xaml" />
+    <None Remove="Samples\Animations\AnimateNewPointPositionSample.xaml" />
+    <None Remove="Samples\Animations\AnimatePointAlongPathSample.xaml" />
+    <None Remove="Samples\Animations\AnimatePointAlongRouteSample.xaml" />
+    <None Remove="Samples\Animations\AnimateTrafficFlowSample.xaml" />
+    <None Remove="Samples\Animations\BubbleLayerPulseAnimationSample.xaml" />
+    <None Remove="Samples\Animations\DropAnimationSample.xaml" />
+    <None Remove="Samples\Animations\FlowingDashedLineAnimationSample.xaml" />
+    <None Remove="Samples\Animations\HtmlMarkerPulseAnimationSample.xaml" />
+    <None Remove="Samples\Animations\MorphShapeAnimationSample.xaml" />
+    <None Remove="Samples\Animations\SimpleLineAnimationSample.xaml" />
+    <None Remove="Samples\Animations\SimplePointAnimationSample.xaml" />
+    <None Remove="Samples\Animations\SnakelineAnimationSample.xaml" />
+    <None Remove="Samples\Controls\BringDataIntoViewControlSample.xaml" />
+    <None Remove="Samples\Controls\LayerControlSample.xaml" />
+    <None Remove="Samples\Controls\LegendControlSample.xaml" />
+    <None Remove="Samples\Controls\OverviewMapControlSample.xaml" />
+    <None Remove="Samples\Drawing\DrawingManagerOptionsSample.xaml" />
+    <None Remove="Samples\Drawing\DrawingToolsDataAccessSample.xaml" />
+    <None Remove="Samples\Drawing\DrawingToolsSample.xaml" />
+    <None Remove="Samples\Drawing\MeasuringToolSample.xaml" />
+    <None Remove="Samples\Drawing\SnappingGridSample.xaml" />
     <None Remove="Samples\GettingStarted\BasicMapInXaml.xaml" />
     <None Remove="Samples\GettingStarted\HtmlMarkerSample.xaml" />
+    <None Remove="Samples\GettingStarted\MVVM\MapMVVMSample.xaml" />
     <None Remove="Samples\GettingStarted\PopupsSample.xaml" />
     <None Remove="Samples\GettingStarted\SwipeMapSample.xaml" />
     <None Remove="Samples\GettingStarted\SynchronizeMapsSample.xaml" />
@@ -32,6 +55,12 @@
     <None Remove="Samples\Layers\PolygonLayerSample.xaml" />
     <None Remove="Samples\Layers\SymbolLayerSample.xaml" />
     <None Remove="Samples\Layers\TileLayerSample.xaml" />
+    <None Remove="Samples\Sources\DataSourceImportSample.xaml" />
+    <None Remove="Samples\Sources\DataSourceLiteSample.xaml" />
+    <None Remove="Samples\Sources\ElevationTileSourceSample.xaml" />
+    <None Remove="Samples\Sources\ExtrudedGriddedDataSourceSample.xaml" />
+    <None Remove="Samples\Sources\PMTileSourceSample.xaml" />
+    <None Remove="Samples\Sources\VectorTileSourceSample.xaml" />
     <None Remove="Samples\Welcome.xaml" />
   </ItemGroup>
 
@@ -176,6 +205,79 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </Content>
+    <Content Update="Assets\us_county_population_legend.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\MorphShapeAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\AnimateChoroplethMapSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\AnimateTrafficFlowSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\FlowingDashedLineAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\AnimateGPSTraceSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\AnimatePointAlongRouteSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\AnimatePointAlongPathSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\BubbleLayerPulseAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\HtmlMarkerPulseAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\SnakelineAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\SimpleLineAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\SimplePointAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\DropAnimationSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Animations\AnimateMultiplePointsSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Samples\Layers\TileLayerSample.xaml">
@@ -263,11 +365,89 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Samples\Animations\" />
-    <Folder Include="Samples\Controls\" />
-    <Folder Include="Samples\Drawing\" />
-    <Folder Include="Samples\GettingStarted\MVVM\" />
-    <Folder Include="Samples\Sources\" />
+    <Page Update="Samples\Animations\AnimateNewPointPositionSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Drawing\SnappingGridSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Drawing\MeasuringToolSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Drawing\DrawingToolsDataAccessSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Drawing\DrawingManagerOptionsSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Drawing\DrawingToolsSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Controls\OverviewMapControlSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Controls\LegendControlSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Controls\LayerControlSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Controls\BringDataIntoViewControlSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Sources\ExtrudedGriddedDataSourceSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Sources\ElevationTileSourceSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Sources\PMTileSourceSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Sources\VectorTileSourceSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Sources\DataSourceLiteSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Sources\DataSourceImportSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\GettingStarted\MVVM\MapMVVMSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <!--

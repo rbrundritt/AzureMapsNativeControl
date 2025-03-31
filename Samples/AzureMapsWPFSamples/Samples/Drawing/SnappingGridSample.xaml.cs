@@ -26,7 +26,7 @@ namespace AzureMapsWPFSamples.Samples
             InitializeComponent();
         }
 
-        private async void MyMap_OnReady(object sender, MapEventArgs e)
+        private void MyMap_OnReady(object sender, MapEventArgs e)
         {
             //Create an instance of the Snap grid manager.
             snapGrid = new SnapGridManager(MyMap)

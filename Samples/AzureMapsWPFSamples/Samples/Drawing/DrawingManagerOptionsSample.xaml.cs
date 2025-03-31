@@ -144,7 +144,7 @@ namespace AzureMapsWPFSamples.Samples
 
         private string[] symbolIcons = ["marker-blue", "marker-black", "marker-darkblue", "marker-red", "marker-yellow", "pin-blue", "pin-darkblue", "pin-red"];
 
-        private void RandomizeLayerStyles_Clicked(object sender, EventArgs e)
+        private void RandomizeLayerStyles_Clicked(object sender, RoutedEventArgs e)
         {
             if (drawingManager != null)
             {

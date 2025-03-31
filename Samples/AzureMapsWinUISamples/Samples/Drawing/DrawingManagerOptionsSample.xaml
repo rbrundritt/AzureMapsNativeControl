@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.DrawingManagerOptionsSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"             
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10" Width="250">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Drawing mode"/>
+                <ComboBox SelectionChanged="DrawingModePicker_SelectedIndexChanged" Width="150" Margin="5,0">
+                    <ComboBoxItem>DrawPoint</ComboBoxItem>
+                    <ComboBoxItem>DrawLine</ComboBoxItem>
+                    <ComboBoxItem>DrawPolygon</ComboBoxItem>
+                    <ComboBoxItem>DrawCircle</ComboBoxItem>
+                    <ComboBoxItem>DrawRectangle</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Idle</ComboBoxItem>
+                    <ComboBoxItem>EditGeometry</ComboBoxItem>
+                    <ComboBoxItem>EraseGeometry</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Interaction type"/>
+                <ComboBox SelectionChanged="InteractionTypePicker_SelectedIndexChanged" Width="150" Margin="5,0">
+                    <ComboBoxItem>Click</ComboBoxItem>
+                    <ComboBoxItem>Freehand</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Hybrid</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Freehand interval"/>
+                <ComboBox SelectionChanged="FreehandIntervalPicker_SelectedIndexChanged" Width="150" Margin="5,0">
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                    <ComboBoxItem>50</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Shape Dragging Enabled"/>
+                <CheckBox IsChecked="True" Checked="ShapeDraggingEnabledCheckBox_CheckedChanged" Unchecked="ShapeDraggingEnabledCheckBox_CheckedChanged" Margin="3,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Shape Rotation Enabled"/>
+                <CheckBox IsChecked="True" Checked="ShapeRotationEnabledCheckBox_CheckedChanged" Unchecked="ShapeRotationEnabledCheckBox_CheckedChanged" Margin="3,0,0,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <TextBlock Text="Show toolbar"/>
+                <CheckBox IsChecked="True" Checked="ShowToolbarCheckBox_CheckedChanged" Unchecked="ShowToolbarCheckBox_CheckedChanged" Margin="3,0,0,0" />
+            </StackPanel>
+
+            <TextBlock Text="Toolbar buttons: "/>
+
+            <Border Margin="5" Padding="5,0" BorderBrush="Gray" BorderThickness="1">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="DrawPoint"/>
+                        <CheckBox x:Name="DrawPoint" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="DrawLine"/>
+                        <CheckBox x:Name="DrawLine" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="DrawPolygon"/>
+                        <CheckBox x:Name="DrawPolygon" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="DrawCircle"/>
+                        <CheckBox x:Name="DrawCircle" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="DrawRectangle"/>
+                        <CheckBox x:Name="DrawRectangle" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="EditGeometry"/>
+                        <CheckBox x:Name="EditGeometry" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="EraseGeometry"/>
+                        <CheckBox x:Name="EraseGeometry" IsChecked="True" Checked="ToolbarButtonItemCheckBox_CheckedChanged" Unchecked="ToolbarButtonItemCheckBox_CheckedChanged" Margin="3,0,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Button Content="Randomize drawing layer styles" Click="RandomizeLayerStyles_Clicked" Margin="0,10"/>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Column="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.33, 47.6" Zoom="12"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>
+

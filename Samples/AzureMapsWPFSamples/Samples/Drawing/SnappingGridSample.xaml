@@ -17,22 +17,34 @@
 
         <StackPanel Orientation="Horizontal" Margin="10">
 
-            <TextBlock Text="Enabled"/>
-            <CheckBox IsChecked="True" Checked="EnabledCheckBox_CheckedChanged" Unchecked="EnabledCheckBox_CheckedChanged" Margin="3,0,10,0" />
+            <StackPanel Width="150">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Enabled" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="True" Checked="EnabledCheckBox_CheckedChanged" Unchecked="EnabledCheckBox_CheckedChanged" Margin="3,0,10,0" />
+                </StackPanel>
 
-            <TextBlock Text="Remove Duplicates"/>
-            <CheckBox IsChecked="True" Checked="RemoveDuplicatesCheckBox_CheckedChanged" Unchecked="RemoveDuplicatesCheckBox_CheckedChanged" Margin="3,0,10,0" />
-
-            <StackPanel>
-                <TextBlock x:Name="Resolution" Text="Resolution: 15"/>
-                <Slider Maximum="100" Minimum="1" Value="15" Width="100" ValueChanged="ResolutionSlider_ValueChanged" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Remove Duplicates" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="True" Checked="RemoveDuplicatesCheckBox_CheckedChanged" Unchecked="RemoveDuplicatesCheckBox_CheckedChanged" Margin="3,0,10,0" />
+                </StackPanel>
             </StackPanel>
 
-            <TextBlock Text="Show grid"/>
-            <CheckBox IsChecked="True" Checked="ShowGridCheckBox_CheckedChanged" Unchecked="ShowGridCheckBox_CheckedChanged" Margin="3,0,10,0" />
+            <StackPanel Width="100">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Show grid" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="True" Checked="ShowGridCheckBox_CheckedChanged" Unchecked="ShowGridCheckBox_CheckedChanged" Margin="3,0,10,0" />
+                </StackPanel>
 
-            <TextBlock Text="Simplify"/>
-            <CheckBox IsChecked="True" Checked="SimplifyCheckBox_CheckedChanged" Unchecked="SimplifyCheckBox_CheckedChanged" Margin="3,0,10,0" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Simplify" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="True" Checked="SimplifyCheckBox_CheckedChanged" Unchecked="SimplifyCheckBox_CheckedChanged" Margin="3,0,10,0" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Width="120" Margin="10,0">
+                <TextBlock x:Name="Resolution" Text="Resolution: 15" VerticalAlignment="Center"/>
+                <Slider Maximum="100" Minimum="1" Value="15" ValueChanged="ResolutionSlider_ValueChanged" />
+            </StackPanel>
 
             <StackPanel>
                 <TextBlock  Text="Grid color"/>
@@ -47,7 +59,7 @@
                 </ComboBox>
             </StackPanel>
 
-            <TextBlock Text="Drag the marker or draw a shape" Margin="5" />
+            <TextBlock Text="Drag the marker or draw a shape" Margin="5,0,0,0" VerticalAlignment="Center" />
         </StackPanel>
 
         <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">

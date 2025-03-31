@@ -19,7 +19,7 @@
             <Button Content="Pause" Width="80" Click="PauseButton_Clicked" Margin="5,0"/>
             <Button Content="Stop" Width="80" Click="StopButton_Clicked"/>
             <Button Content="Reset" Width="80" Click="ResetButton_Clicked" Margin="5,0"/>
-            <TextBlock x:Name="InfoLabel"/>
+            <TextBlock x:Name="InfoLabel" VerticalAlignment="Center"/>
         </StackPanel>
 
         <atlas:Map x:Name="MyMap" Grid.Row="1" OnReady="MyMap_OnReady"/>

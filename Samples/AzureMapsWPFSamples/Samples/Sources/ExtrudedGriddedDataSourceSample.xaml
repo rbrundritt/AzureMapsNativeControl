@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="10">
-            <TextBlock Text="Grid type"/>
+            <TextBlock Text="Grid type" VerticalAlignment="Center"/>
             <ComboBox x:Name="GridTypePicker" SelectionChanged="GridTypePicker_SelectedIndexChanged" Width="210" Margin="5,0">
                 <ComboBoxItem>circle</ComboBoxItem>
                 <ComboBoxItem>hexagon</ComboBoxItem>

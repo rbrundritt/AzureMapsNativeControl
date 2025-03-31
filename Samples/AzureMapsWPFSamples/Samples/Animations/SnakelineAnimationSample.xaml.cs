@@ -92,24 +92,24 @@ namespace AzureMapsWPFSamples.Samples
             PlayAnimation();
         }
 
-        private void PlayButton_Clicked(object sender, EventArgs e)
+        private void PlayButton_Clicked(object sender, RoutedEventArgs e)
         {
             PlayAnimation();
         }
 
-        private void StopButton_Clicked(object sender, EventArgs e)
+        private void StopButton_Clicked(object sender, RoutedEventArgs e)
         {
             //Stop the animation.
             animation?.Stop();
         }
 
-        private void ResetButton_Clicked(object sender, EventArgs e)
+        private void ResetButton_Clicked(object sender, RoutedEventArgs e)
         {
             //Reset the animation.
             animation?.Reset();
         }
 
-        private void Pause_Clicked(object sender, EventArgs e)
+        private void Pause_Clicked(object sender, RoutedEventArgs e)
         {
             animation?.Pause();
         }

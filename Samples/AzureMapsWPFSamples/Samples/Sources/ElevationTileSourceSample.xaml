@@ -23,7 +23,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
-                <TextBlock Text="Disable Elevation"/>
+                <TextBlock Text="Disable Elevation" VerticalAlignment="Center"/>
                 <CheckBox Checked="DisableElevationCheckBox_CheckedChanged" Unchecked="DisableElevationCheckBox_CheckedChanged" Margin="5,0" />
             </StackPanel>
         </StackPanel>

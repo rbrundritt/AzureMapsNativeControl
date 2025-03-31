@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="10">
-            <TextBlock Text="Import from:" Width="100" />
+            <TextBlock Text="Import from:" />
             <Button Content="Feature/Shape using code" Click="ImportFeatureShape_Clicked" />
             <Button Content="File stream" Click="ImportFromStream_Clicked" />
             <Button Content="URL (Asset in Raw folder)" Click="ImportRawFolderFileUrl_Clicked"/>

@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="10">
-            <TextBlock Text="Animation scenario:"/>
+            <TextBlock Text="Animation scenario:" VerticalAlignment="Center"/>
 
             <RadioButton x:Name="PointFeatureBtn" Content="Point Feature" GroupName="Scenario" Checked="OnCheckedChanged" Margin="5,0"/>
             <RadioButton Content="HTML Marker" GroupName="Scenario" Checked="OnCheckedChanged"/>

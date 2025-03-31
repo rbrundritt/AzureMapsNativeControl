@@ -3,6 +3,7 @@ using AzureMapsNativeControl.Core;
 using AzureMapsNativeControl.Data;
 using AzureMapsNativeControl.Layer;
 using AzureMapsNativeControl.Source;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace AzureMapsWPFSamples.Samples
@@ -70,7 +71,7 @@ namespace AzureMapsWPFSamples.Samples
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void PopupScenarioPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void PopupScenarioPicker_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             //Remove existing popups and layers.
             MyMap.Popups.Clear();

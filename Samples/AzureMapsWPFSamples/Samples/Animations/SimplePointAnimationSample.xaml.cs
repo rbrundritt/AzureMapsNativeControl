@@ -110,7 +110,7 @@ namespace AzureMapsWPFSamples.Samples
             timer.Start();
         }
 
-        private async void UpdateAnimation()
+        private void UpdateAnimation()
         {
             //Calculate animation progress as a ratio of the duration between 0 and 1.
             var progress = ((double)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)) % duration / duration;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.DrawingToolsDataAccessSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"             
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="5">
+            <Button Content="Get drawn features" Click="GetDrawnFeaturesButton_Clicked"/>
+            <Button Content="Edit feature with id" Click="EditFeatureWithIdButton_Clicked" Margin="0,10"/>
+            <Button Content="Edit last feature" Click="EditLastFeaturesButton_Clicked"/>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="280" MinHeight="100" MaxHeight="400" Margin="0,20,0,0">
+                <TextBox x:Name="GeoJsonTextWindow" IsReadOnly="True" AcceptsReturn="True"/>
+            </ScrollViewer>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Column="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions Center="-122.185135, 47.611487" Zoom="10"/>
+            </atlas:Map.Settings>
+        </atlas:Map>
+    </Grid>
+</Page>

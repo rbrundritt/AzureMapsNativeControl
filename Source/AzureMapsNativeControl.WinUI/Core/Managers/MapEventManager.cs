@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 #if MAUI 
 using Microsoft.Maui.ApplicationModel;
@@ -17,7 +18,7 @@ namespace AzureMapsNativeControl.Core
         private readonly Map _map;
 
         //Structure: Target -> EventName -> Handlers -> { AddOnce, PreventDefault } (when true, will remove after first invocation)
-        private Dictionary<IMapEventTarget, Dictionary<string, Dictionary<EventHandler<MapEventArgs>, Tuple<bool, bool>>>> _handlers = new Dictionary<IMapEventTarget, Dictionary<string, Dictionary<EventHandler<MapEventArgs>, Tuple<bool, bool>>>>();
+        private ConcurrentDictionary<IMapEventTarget, Dictionary<string, Dictionary<EventHandler<MapEventArgs>, Tuple<bool, bool>>>> _handlers = new ConcurrentDictionary<IMapEventTarget, Dictionary<string, Dictionary<EventHandler<MapEventArgs>, Tuple<bool, bool>>>>();
 
         #endregion
 
@@ -208,7 +209,7 @@ namespace AzureMapsNativeControl.Core
 
             if (!_handlers.ContainsKey(target))
             {
-                _handlers.Add(target, new Dictionary<string, Dictionary<EventHandler<MapEventArgs>, Tuple<bool, bool>>>());
+                _handlers.TryAdd(target, new Dictionary<string, Dictionary<EventHandler<MapEventArgs>, Tuple<bool, bool>>>());
             }
 
             if (!_handlers[target].ContainsKey(eventName))
@@ -527,16 +528,20 @@ namespace AzureMapsNativeControl.Core
         {
             foreach(var entityId in entityIds)
             {
-                foreach(var h in _handlers)
-                {
-                    if (h.Key.Id.Equals(entityId))
+                //try
+                //{
+                    foreach (var h in _handlers)
                     {
-                        //Remove the JS events.
-                        await _map.JsInterlop.InvokeJsMethodAsync(_map, "removeAllEvents", h.Key.Id);
+                        if (h.Key.Id.Equals(entityId))
+                        {
+                            //Remove the JS events.
+                            await _map.JsInterlop.InvokeJsMethodAsync(_map, "removeAllEvents", h.Key.Id);
 
-                        h.Value.Clear();
+                            h.Value.Clear();
+                        }
                     }
-                }
+                //}
+                //catch (Exception ex) { }//In rare situations, when adding/removing multiple events rapidly, a lock might occur.
             }
         }
 

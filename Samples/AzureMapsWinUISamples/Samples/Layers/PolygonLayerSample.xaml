@@ -1,15 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="AzureMapsWinUISamples.Samples.Layers.PolygonLayerSample"
+    x:Class="AzureMapsWinUISamples.Samples.PolygonLayerSample"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:AzureMapsWinUISamples.Samples.Layers"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Fill color"/>
+                <ComboBox SelectionChanged="FillColorPicker_SelectedIndexChanged" Width="210">
+                    <ComboBoxItem IsSelected="True">#1E90FF</ComboBoxItem>
+                    <ComboBoxItem>#00ff0080</ComboBoxItem>
+                    <ComboBoxItem>DeepPink</ComboBoxItem>
+                    <ComboBoxItem>rgb(255, 165, 0)</ComboBoxItem>
+                    <ComboBoxItem>rgba(128, 0, 128, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>hsl(300, 76%, 72%)</ComboBoxItem>
+                    <ComboBoxItem>hsla(248, 53%, 58%, 0.8)</ComboBoxItem>
+                    <ComboBoxItem>data_driven_style</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Margin="10,0" >
+                <TextBlock Text="Fill pattern"/>
+                <ComboBox x:Name="FillPatternPicker" SelectionChanged="FillPatternPicker_SelectedIndexChanged" Width="200">
+                    <ComboBoxItem IsSelected="True">undefined</ComboBoxItem>
+                    <ComboBoxItem>template_teal_stripes</ComboBoxItem>
+                    <ComboBoxItem>template_red_dots</ComboBoxItem>
+                    <ComboBoxItem>custom_template</ComboBoxItem>
+                    <ComboBoxItem>png_asset_url</ComboBoxItem>
+                    <ComboBoxItem>svg_asset_url</ComboBoxItem>
+                    <ComboBoxItem>image_from_stream</ComboBoxItem>
+                    <ComboBoxItem>inline_svg_string</ComboBoxItem>
+                    <ComboBoxItem>image_data_uri</ComboBoxItem>
+                    <ComboBoxItem>image_from_web</ComboBoxItem>
+                    <ComboBoxItem>image_from_web_no_cors</ComboBoxItem>
+                    <ComboBoxItem>data_driven_style</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Width="120">
+                <TextBlock x:Name="OpacityLabel" Text="Fill opacity: 0.5"/>
+                <Slider Maximum="1" Value="0.5" Width="100" ValueChanged="FillOpacitySlider_ValueChanged" HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel Margin="10,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Outline Polygon"/>
+                    <CheckBox IsChecked="True" Checked="OutlinePolygonCheckBox_CheckedChanged" Unchecked="OutlinePolygonCheckBox_CheckedChanged" Margin="5,0,0,0" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Show points"/>
+                    <CheckBox Checked="ShowPolygonPointsCheckBox_CheckedChanged" Unchecked="ShowPolygonPointsCheckBox_CheckedChanged" Margin="5,0,0,0" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Before layer"/>
+                <ComboBox SelectionChanged="BeforeLayerPicker_SelectedIndexChanged">
+                    <ComboBoxItem IsSelected="True">undefined</ComboBoxItem>
+                    <ComboBoxItem>labels</ComboBoxItem>
+                    <ComboBoxItem>roads</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Settings>
+                <atlas:MapLoadOptions 
+                Style="GrayscaleLight"
+                Bounds="-53,-37,37,-2" />
+            </atlas:Map.Settings>
+        </atlas:Map>
     </Grid>
 </Page>

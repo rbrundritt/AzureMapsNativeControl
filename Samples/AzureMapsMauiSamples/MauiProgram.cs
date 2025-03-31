@@ -24,7 +24,16 @@ namespace AzureMapsMauiSamples
 
             //Attach Azure Maps to services. Pass the auth information into the configuration callback.
             builder.Services.AddAzureMaps(configuration => {
-                configuration.SubscriptionKey = "<Your_Azure_Maps_Key>";// builder.Configuration["AzureMaps:SubscriptionKey"];
+                configuration.SubscriptionKey = "<Your_Azure_Maps_Key>";
+
+                //Alternatively use anonymous authentication
+                //configuration.ClientId = "<Your_Azure_Maps_Client_Id>",
+                //configuration.GetTokenAsync = async (config) =>
+                //{
+                //    // Use the Azure Maps client ID to get a token
+                //    var msg = await new HttpClient().GetAsync("https://example.com/gettoken");
+                //    return await msg.Content.ReadAsStringAsync();
+                //}
             });
 
             return builder.Build();

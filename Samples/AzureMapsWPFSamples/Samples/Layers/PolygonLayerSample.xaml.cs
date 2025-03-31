@@ -1,11 +1,10 @@
-﻿using System.Windows.Controls;
-using AzureMapsNativeControl;
+﻿using AzureMapsNativeControl;
 using AzureMapsNativeControl.Data;
 using AzureMapsNativeControl.Layer;
 using AzureMapsNativeControl.Source;
-using System.Threading.Tasks;
-using System.Windows;
 using System.IO;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace AzureMapsWPFSamples.Samples
 {
@@ -254,7 +253,7 @@ namespace AzureMapsWPFSamples.Samples
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BeforeLayerPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private void BeforeLayerPicker_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             if (polygonLayer == null)
             {

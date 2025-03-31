@@ -184,7 +184,7 @@ namespace AzureMapsWPFSamples.Samples
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ImportFeatureShape_Clicked(object sender, EventArgs e)
+        private void ImportFeatureShape_Clicked(object sender, RoutedEventArgs e)
         {
             //Close the popup.
             popup.Close();

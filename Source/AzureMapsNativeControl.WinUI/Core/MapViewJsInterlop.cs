@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.IO;
 using System;
+using System.Collections.Concurrent;
 
 #if MAUI
 #elif WPF
@@ -36,7 +37,7 @@ namespace AzureMapsNativeControl.Core
 
         internal readonly HybridWebView.HybridWebView _webView;
 
-        private Dictionary<string, TaskCompletionSource<string>> asyncTaskCallbacks = new Dictionary<string, TaskCompletionSource<string>>();
+        private ConcurrentDictionary<string, TaskCompletionSource<string>> asyncTaskCallbacks = new ConcurrentDictionary<string, TaskCompletionSource<string>>();
 
         private List<string> _loadedWebResources = new List<string>();
 
@@ -258,7 +259,7 @@ namespace AzureMapsNativeControl.Core
                 callback.SetResult(result);
 
                 //Remove the callback.
-                asyncTaskCallbacks.Remove(taskId);
+                asyncTaskCallbacks.TryRemove(taskId, out TaskCompletionSource<string> tcs);
             }
         }
 
@@ -323,7 +324,7 @@ namespace AzureMapsNativeControl.Core
 
                 var taskId = UniqueId.Get("asyncMapTask");
 
-                asyncTaskCallbacks.Add(taskId, callback);
+                asyncTaskCallbacks.TryAdd(taskId, callback);
 
                 string paramJson = string.Empty;
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.BringDataIntoViewControlSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"             
+    xmlns:atlasControl="using:AzureMapsNativeControl.Control"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady">
+
+        <!-- Add the control to the map. -->
+        <atlas:Map.Controls>
+            <atlasControl:BringDataIntoViewControl Position="TopRight" />
+        </atlas:Map.Controls>
+    </atlas:Map>
+</Page>

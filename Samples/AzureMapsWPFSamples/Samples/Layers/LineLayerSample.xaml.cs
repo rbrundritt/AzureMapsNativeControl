@@ -9,19 +9,19 @@ namespace AzureMapsWPFSamples.Samples
 {
     public partial class LineLayerSample : Page
     {
-    /*********************************************************************************************************
-    * This sample shows the different ways to display lines.
-    * 
-    * This sample is based on these Azure Maps Web SDK samples: 
-    * 
-    * https://samples.azuremaps.com/?sample=line-layer-options
-    * https://samples.azuremaps.com/?sample=line-with-stroke-gradient
-    * https://samples.azuremaps.com/?sample=line-layer-with-built-in-icon-template
-    *********************************************************************************************************/
+        /*********************************************************************************************************
+        * This sample shows the different ways to display lines.
+        * 
+        * This sample is based on these Azure Maps Web SDK samples: 
+        * 
+        * https://samples.azuremaps.com/?sample=line-layer-options
+        * https://samples.azuremaps.com/?sample=line-with-stroke-gradient
+        * https://samples.azuremaps.com/?sample=line-layer-with-built-in-icon-template
+        *********************************************************************************************************/
 
-    #region Private Properties
+        #region Private Properties
 
-    private DataSource dataSource;
+        private DataSource dataSource;
 
         private LineLayer lineLayer;
         private BubbleLayer linePointLayer;

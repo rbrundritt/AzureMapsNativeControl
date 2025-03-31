@@ -47,9 +47,8 @@ Well over 95% of the core Azure Maps capabilities and many modules are exposed i
 - Vector and Elevation tiles can be specified using the `TileSource` class or it's variants; `CustomTileSource`, `MBTileSource`, and `ZipTileSource`.
 - Group animations are created using `MapAnimation.GroupAnimation` static method rather than by creating a new `GroupAnimation` object.
 
-## TODO
+## Possible Roadmap
 
-- Port rest of samples to WinUI (WPF to WinUI is the easiest path).
 - See [Features & Modules under consideration](Docs/APICoverage.md#features--modules-under-consideration).
 - Create and publish NuGet packages once project is stable.
 

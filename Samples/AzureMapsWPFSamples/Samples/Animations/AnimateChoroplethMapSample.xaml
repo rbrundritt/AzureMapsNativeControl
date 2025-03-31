@@ -17,7 +17,7 @@
         <StackPanel Orientation="Horizontal" Margin="10">
             <Image Source="/Images/us_county_population_legend.jpg" Height="50"/>
 
-            <Button Content="Play/Pause" Width="80" Height="30" Margin="30,0" Click="PlayPauseToggleButton_Clicked"/>
+            <Button Content="Play/Pause" Width="100" Height="30" Margin="30,0" Click="PlayPauseToggleButton_Clicked"/>
 
             <TextBlock x:Name="YearLabel" VerticalAlignment="Center"/>
         </StackPanel>

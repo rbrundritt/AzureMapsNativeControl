@@ -36,14 +36,6 @@
             <TextBox Text="{Binding MapBearing, Mode=TwoWay}" Width="100" />
         </StackPanel>
 
-        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReadyCommand="{Binding OnMapReadyCommand}">
-            <!-- Bind the maps OnReady event. -->
-            <!--<atlas:Map.Behaviors>
-                <toolkit:EventToCommandBehavior
-                    x:TypeArguments="atlas:MapEventArgs"
-                    EventName="OnReady"
-                    Command="{Binding OnMapReadyCommand}" />
-            </atlas:Map.Behaviors>-->
-        </atlas:Map>
+        <atlas:Map x:Name="MyMap" Grid.Row="1" OnReadyCommand="{Binding OnMapReadyCommand}"/>
     </Grid>
 </Page>

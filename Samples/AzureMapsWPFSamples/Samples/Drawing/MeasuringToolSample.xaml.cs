@@ -10,11 +10,11 @@ namespace AzureMapsWPFSamples.Samples
     public partial class MeasuringToolSample : Page
     {
         /*********************************************************************************************************
-    * This sample shows how to use the drawing tools to create a measuring tool.
-    * 
-    * This sample is based on: 
-    * https://samples.azuremaps.com/?sample=create-a-measuring-tool
-    *********************************************************************************************************/
+        * This sample shows how to use the drawing tools to create a measuring tool.
+        * 
+        * This sample is based on: 
+        * https://samples.azuremaps.com/?sample=create-a-measuring-tool
+        *********************************************************************************************************/
 
         private DrawingManager drawingManager;
 

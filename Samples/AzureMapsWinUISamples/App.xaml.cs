@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -36,6 +37,8 @@ namespace AzureMapsWinUISamples
             this.InitializeComponent();
         }
 
+        public static Window? Window { get; private set; }
+
         /// <summary>
         /// Invoked when the application is launched.
         /// </summary>
@@ -46,12 +49,19 @@ namespace AzureMapsWinUISamples
             {
                 // Set the subscription key
                 SubscriptionKey = "<Your_Azure_Maps_Key>"
+
+                //Alternatively use anonymous authentication
+                //ClientId = "<Your_Azure_Maps_Client_Id>",
+                //GetTokenAsync = async (config) =>
+                //{
+                //    // Use the Azure Maps client ID to get a token
+                //    var msg = await new HttpClient().GetAsync("https://example.com/gettoken");
+                //    return await msg.Content.ReadAsStringAsync();
+                //}
             });
 
-            m_window = new MainWindow();
-            m_window.Activate();
+            Window = new MainWindow();
+            Window.Activate();
         }
-
-        private Window? m_window;
     }
 }
