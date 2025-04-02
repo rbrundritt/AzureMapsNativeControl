@@ -7,14 +7,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>AzureMapsNativeControl</AssemblyName>
     <RootNamespace>AzureMapsNativeControl</RootNamespace>
+    <PackageId>AzureMapsNativeControl.WPF</PackageId>
+    <Title>AzureMapsNativeControl.WPF</Title>
+    <Authors />
+    <Company />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>$(DefineConstants);WPF;WINDOWS</DefineConstants>
+    <NoWarn>1701;1702;CS8602</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>$(DefineConstants);WPF;WINDOWS</DefineConstants>
+    <NoWarn>1701;1702;CS8602</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

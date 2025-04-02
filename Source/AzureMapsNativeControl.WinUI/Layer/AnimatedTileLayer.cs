@@ -64,7 +64,7 @@ namespace AzureMapsNativeControl.Layer
         /// Gets the underlying frame based animation instance.
         /// </summary>
         /// <returns></returns>
-        public async Task<FrameBasedAnimation?> GetPlayableAnimation() 
+        public FrameBasedAnimation? GetPlayableAnimation() 
         {
             return _animation;
         }

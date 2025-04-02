@@ -67,7 +67,7 @@ namespace AzureMapsNativeControl.Layer
         /// Set the base options of the layer.
         /// </summary>
         /// <param name="options">Options to set.</param>
-        public async void SetOptions(LayerOptions options)
+        public async new void SetOptions(LayerOptions options)
         {
             if (options != null && Map != null)
             {

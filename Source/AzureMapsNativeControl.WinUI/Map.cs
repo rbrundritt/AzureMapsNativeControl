@@ -20,11 +20,6 @@ using AzureMapsNativeControl.Platforms;
 #if WINDOWS
 using Microsoft.UI.Xaml.Controls;
 using Windows.Storage.Streams;
-
-#endif
-
-#if WINDOWS || MACCATALYST
-using AzureMapsNativeControl.Platforms;
 #endif
 
 #elif WINUI
@@ -431,7 +426,7 @@ namespace AzureMapsNativeControl
             {
                 return await MapScreenshotHelper.CaptureAsync(JsInterlop._webView);
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
@@ -446,7 +441,7 @@ namespace AzureMapsNativeControl
                 ms.Position = 0;
                 return ms;
             }
-            catch (Exception ex)
+            catch
             {
             }
 
@@ -462,7 +457,7 @@ namespace AzureMapsNativeControl
                 ms.Position = 0;
                 return ms;
             }
-            catch (Exception ex)
+            catch
             {
             }
 

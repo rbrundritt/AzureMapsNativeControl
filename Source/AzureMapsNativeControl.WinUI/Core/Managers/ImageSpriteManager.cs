@@ -223,7 +223,7 @@ namespace AzureMapsNativeControl.Core
                 //template is base64 string, convert to UTF8 string.
                 return Encoding.UTF8.GetString(Convert.FromBase64String(template));
             }
-            catch (Exception ex) { }
+            catch { }
 
             return null;
         }

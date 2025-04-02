@@ -22,34 +22,42 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
 	  <DefineConstants>$(DefineConstants);MAUI</DefineConstants>
+	  <NoWarn>1701;1702;CS8602</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
