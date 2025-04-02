@@ -31,9 +31,9 @@ The following modules are being considered for future implementation.
 
 - Expose Simple Data Layer option (part of spatial io module, most of which is likely better done using native libraries)
 - Custom WebGL Layers
-- Hybrid geolocation control that ties into the native geolocation API rather than the browser version.
 - Offline support - Requires using the NPM version of the Azure Maps Web SDK. Likely requires some modifications to the Azure Maps Web SDK to work with this library.
 - If/When Upgrading to .NET 9 - For Maui, investigate moving to new built in HybridWebView control (may be lacking key features).
+- Hybrid geolocation control that ties into the native geolocation API rather than the browser version.
 
 ### Features & Modules not planned
 

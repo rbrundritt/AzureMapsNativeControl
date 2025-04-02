@@ -75,5 +75,9 @@
             <ShellContent Title="Animate Choropleth Map" ContentTemplate="{DataTemplate samples:AnimateChoroplethMapSample}" />
             <ShellContent Title="Moprh Shape Animation" ContentTemplate="{DataTemplate samples:MorphShapeAnimationSample}" />
         </Tab>
+
+        <Tab Title="Other">
+            <ShellContent Title="Capture map screenshot" ContentTemplate="{DataTemplate samples:ScreenshotSample}" />
+        </Tab>
     </FlyoutItem>
 </Shell>

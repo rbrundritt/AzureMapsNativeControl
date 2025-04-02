@@ -78,7 +78,7 @@ namespace AzureMapsWPFSamples.Samples
                         {
                             Label = "label1",
                             Color = "DodgerBlue",
-                            Shape = "images/CoffeeIcon.png" //A url to an image that's in the Raw/map_resources/images folder. The Raw/map_resources folder is where the map looks for resources with relative paths.
+                            Shape = "images/coffee_icon.png" //A url to an image that's in the Raw/map_resources/images folder. The Raw/map_resources folder is where the map looks for resources with relative paths.
                         },
                         new CategoryLegendItem()
                         {

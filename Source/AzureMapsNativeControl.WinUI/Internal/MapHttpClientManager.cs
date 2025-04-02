@@ -40,9 +40,9 @@ namespace AzureMapsNativeControl.Internal
                 {
                     using(var s= response.Content.ReadAsStreamAsync())
                     {
-                        var stream = new MemoryStream();
-                        await s.Result.CopyToAsync(stream);
-                        stream.Position = 0;
+                        var ms = new MemoryStream();
+                        await s.Result.CopyToAsync(ms);
+                        ms.Position = 0;
 
                         string? mimeType = response.Content.Headers.ContentType?.MediaType;
 
@@ -59,7 +59,7 @@ namespace AzureMapsNativeControl.Internal
                             expires = DateTime.Now + maxAge;
                         }
 
-                        return new MapFileStream(stream, mimeType, maxAge, expires);
+                        return new MapFileStream(ms, mimeType, maxAge, expires);
                     }
                 }
             } 

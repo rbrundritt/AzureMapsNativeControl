@@ -81,6 +81,11 @@
                     <MenuItem Header="Animate Choropleth Map" Tag="AnimateChoroplethMapSample" Click="NavigateToSample" />
                     <MenuItem Header="Moprh Shape Animation" Tag="MorphShapeAnimationSample" Click="NavigateToSample" />
                 </MenuItem>
+
+                <MenuItem Header="Other">
+                    <MenuItem Header="Capture map screenshot" Tag="ScreenshotSample" Click="NavigateToSample" />
+                    <MenuItem Header="Show users location" Tag="GeolocationSample" Click="NavigateToSample" />
+                </MenuItem>
             </Menu>
         </DockPanel>
 

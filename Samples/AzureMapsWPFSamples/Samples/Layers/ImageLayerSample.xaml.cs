@@ -76,7 +76,7 @@ namespace AzureMapsWPFSamples.Samples
 
             _imageLayerOptionsInfo.Add("image_asset_url", new ImageLayerOptionsInfo(
                 new ImageLayerOptions(
-                    "images/image-overlays/Foto_aérea_de_Unaí_detalhando_o_córrego_Canabrava_3.jpg",
+                    "images/image-overlays/foto_aerea_detalhando_canabrava.jpg",
                     [
                         new Position(-46.896948, -16.367295),   //Top Left Corner
                         new Position(-46.895306, -16.364333),   //Top Right Corner

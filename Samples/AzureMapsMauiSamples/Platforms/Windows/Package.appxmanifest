@@ -41,6 +41,8 @@
 
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
+    <uap:Capability Name="picturesLibrary"/>
+    <DeviceCapability Name="location"/>
   </Capabilities>
 
 </Package>

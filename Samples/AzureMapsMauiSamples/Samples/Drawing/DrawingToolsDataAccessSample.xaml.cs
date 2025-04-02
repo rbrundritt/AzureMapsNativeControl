@@ -23,9 +23,6 @@ public partial class DrawingToolsDataAccessSample : ContentPage
     public DrawingToolsDataAccessSample()
 	{
 		InitializeComponent();
-
-        //This is for the responsive layout of the sample and not specific to the use of the Azure Maps control.
-        SizeChanged += ContentPage_SizeChanged;
     }
 
     private void MyMap_OnReady(object sender, MapEventArgs e)
@@ -103,38 +100,4 @@ public partial class DrawingToolsDataAccessSample : ContentPage
             GeoJsonTextWindow.Text = $"Putting Feature with ID \"{feature.Id}\" into edit mode.";
         }
     }
-
-    #region Sample helper methods
-
-    /// <summary>
-    /// Helper method to adjust the layout of the page based on the size of the page. 
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void ContentPage_SizeChanged(object? sender, EventArgs e)
-    {
-        if (sender is Page page)
-        {
-            double height = page.Height;
-
-            //If the page is less than 600 pixels wide or is wider than it is tall, show the text panel and map side by side, otherwise show the text panel above the map.
-            if (page.Width < 600 || page.Width > page.Height)
-            {
-                MyLayout.Direction = Microsoft.Maui.Layouts.FlexDirection.Row;
-                MyMap.WidthRequest = page.Width - MyTextPanel.Width - 5; //The 5 is to account for the margin between the map and text panel.
-            }
-            else
-            {
-                MyLayout.Direction = Microsoft.Maui.Layouts.FlexDirection.Column;
-                MyMap.WidthRequest = page.Width;
-                height = page.Height / 2;
-            }
-
-            MyMap.HeightRequest = height;
-            MyTextPanel.HeightRequest = height;
-            GeoJsonTextWindow.HeightRequest = height - 50; //50 is to account for the height of the button.
-        }
-    }
-
-    #endregion
 }

@@ -55,6 +55,7 @@
     <None Remove="Samples\Layers\PolygonLayerSample.xaml" />
     <None Remove="Samples\Layers\SymbolLayerSample.xaml" />
     <None Remove="Samples\Layers\TileLayerSample.xaml" />
+    <None Remove="Samples\Other\ScreenshotSample.xaml" />
     <None Remove="Samples\Sources\DataSourceImportSample.xaml" />
     <None Remove="Samples\Sources\DataSourceLiteSample.xaml" />
     <None Remove="Samples\Sources\ElevationTileSourceSample.xaml" />
@@ -157,7 +158,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </Content>
-    <Content Update="Assets\map_resources\images\CoffeeIcon.png">
+    <Content Update="Assets\map_resources\images\coffee_icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </Content>
@@ -173,7 +174,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </Content>
-    <Content Update="Assets\map_resources\images\image-overlays\Foto_aérea_de_Unaí_detalhando_o_córrego_Canabrava_3.jpg">
+    <Content Update="Assets\map_resources\images\image-overlays\foto_aerea_detalhando_canabrava.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </Content>
@@ -446,6 +447,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Samples\GettingStarted\MVVM\MapMVVMSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Other\ScreenshotSample.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -215,10 +215,12 @@ namespace HybridWebView
 #if WINUI
             async Task<IRandomAccessStream> CopyContentToRandomAccessStreamAsync(Stream content)
             {
-                using var memStream = new MemoryStream();
-                await content.CopyToAsync(memStream);
                 var randomAccessStream = new InMemoryRandomAccessStream();
-                await randomAccessStream.WriteAsync(memStream.GetWindowsRuntimeBuffer());
+
+                using(var ms = new MemoryStream()){
+                    await content.CopyToAsync(ms);
+                    await randomAccessStream.WriteAsync(ms.GetWindowsRuntimeBuffer());
+                }
                 return randomAccessStream;
             }
 #endif

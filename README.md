@@ -28,6 +28,8 @@ Well over 95% of the core Azure Maps capabilities and many modules are exposed i
 | WinUI | Windows | :white_check_mark: |
 | WPF | Windows | :white_check_mark: |
 
+The versions running on Windows use WebView2, while the .NET Maui versions for other OS versions use the native WebView for that platform.
+
 > [!NOTE]
 > If developing a .NET Maui Blazor app, consider using the [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) project.
 

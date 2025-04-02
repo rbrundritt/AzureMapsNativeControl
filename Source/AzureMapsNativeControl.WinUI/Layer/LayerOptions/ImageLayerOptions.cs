@@ -32,14 +32,6 @@ namespace AzureMapsNativeControl.Layer
         /// <param name="coordinates">An array of positions for the corners of the image listed in clockwise order: [top left, top right, bottom right, bottom left].</param>
         public ImageLayerOptions(string filePathOrUrl, IList<Position>? coordinates = null) : base()
         {
-            //Check to see if a proxy should be used.
-            //if (useProxy == true && !filePathOrUrl.StartsWith("data:") && !filePathOrUrl.StartsWith("/proxy?"))
-            //{
-            //    filePathOrUrl = Utils.GetUrlProxy(filePathOrUrl);
-
-            //    //Need to decode placeholders for the tile requests.
-            //    filePathOrUrl = filePathOrUrl.Replace("%7B", "{").Replace("%7D", "}");
-            //}
             Coordinates = coordinates;
             Url = filePathOrUrl;
         }

@@ -433,7 +433,7 @@ public partial class SymbolLayerSample : ContentPage
             MyMap.ImageSprite.CreateFromTemplateAsync("custom_template", "my_custom_icon_template", "red", "white"),
 
             //Create a icon from an image in raw/map_resources folder.
-            MyMap.ImageSprite.AddImageFromUrl("png_asset_url", "images/CoffeeIcon.png"),
+            MyMap.ImageSprite.AddImageFromUrl("png_asset_url", "images/coffee_icon.png"),
 
             //Create a icon from SVG file in raw/map_resources folder.
             MyMap.ImageSprite.AddImageFromUrl("svg_asset_url", "images/red_svg_marker.svg"),

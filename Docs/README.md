@@ -105,11 +105,37 @@ See the [API Coverage](APICoverage.md) document in depth details of the API cove
 > [!TIP]
 > If running a project in Debug mode, you can press F12 when the map is in focus to open the browser developer tools.
 
+## Web Root
+
+Since this library hosts the Azure Maps Web SDK inside of a web view control, there is a default folder called `map_resources` that is used as a web root. Files in this folder can be access from the web view using relative paths from within the web view. You can add this folder to your project at the following locations.
+
+| Platform | Web Root Path | Description |
+| -------- | ------------- | ----------- |
+| .NET Maui | `Resources/Raw/map_resources` | Set `Build Action` of files to `MauiAsset`. |
+| WPF | `map_resources` | Add this to the project root directory. Set `Build Action` of files to `Content`, and set `Copy to Output Directory` to `Copy if newer`. |
+| WinUI | `Assets/map_resources` | Add a `map_resources` folder in the `Assets` folder of the project. |
+
+You can use subfolders and paths to organize your files.
+
+As an example, assume there is a file called `mapdata.json` in the `map_resources` folder. You can import this data into `DataSource` with the following code without having the specify the root directory of the project:
+
+```csharp
+var dataSource = new DataSource();
+await dataSource.ImportDataFromUrlAsync("mapdata.json");
+```
+
+Similarly, images can be added to the maps imager sprite in the same way. For example, if there is a file called `myimage.png` in the `map_resources` folder, you can add it to the map sprite with the following code:
+
+```csharp
+MyMap.ImageSprite.AddImageFromUrl("myImageId", "myimage.png");
+```
+
 ## Added Features
 
 In addition to the core capabilities of the Azure Maps Web SDK, several modules with additional capabilities have been added and are documented in the  [API Coverage](APICoverage.md) document. In additional to these, here are a few other capabilities that have been added to the Azure Maps Native Control:
 
 - Map background style option - Easily set the maps background style using a CSS style string with the `BackgroundStyle` property of the `MapLoadOptions` and `setStyle`.
+- Map screenshot capability via `CaptureScreenshotAsync` method.
 - File drag and drop support 
 
 ## Drag and Drop support

@@ -72,7 +72,6 @@
 	  <None Remove="Resources\Raw\map_resources\data\geojson\US_States_Population_Density.json" />
 	  <None Remove="Resources\Raw\map_resources\data\rasterTiles\katrina.zip" />
 	  <None Remove="Resources\Raw\map_resources\data\rasterTiles\toril-leaflet.zip" />
-	  <None Remove="Resources\Raw\map_resources\images\CoffeeIcon.png" />
 	  <None Remove="Resources\Raw\map_resources\images\dog_park_pattern.png" />
 	  <None Remove="Resources\Raw\map_resources\images\image-overlays\Chicago_1872_Map.png" />
 	  <None Remove="Resources\Raw\map_resources\images\orchard_banana_pattern.svg" />
@@ -220,6 +219,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Samples\Layers\AnimatedTileLayerSample.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Samples\Other\ScreenshotSample.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Samples\Sources\DataSourceImportSample.xaml">

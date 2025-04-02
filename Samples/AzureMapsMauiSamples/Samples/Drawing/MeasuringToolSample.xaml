@@ -16,8 +16,8 @@
         <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
             <atlas:Map.Settings>
                 <atlas:MapLoadOptions 
-                 Center="-122.33, 47.6"
-                 Zoom="12" />
+                     Center="-122.33, 47.6"
+                     Zoom="12" />
             </atlas:Map.Settings>
         </atlas:Map>
     </Grid>

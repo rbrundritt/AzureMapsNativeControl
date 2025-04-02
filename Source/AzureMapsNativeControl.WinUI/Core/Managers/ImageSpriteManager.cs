@@ -5,6 +5,10 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
+#if MAUI && ANDROID 
+using Android.Renderscripts;
+#endif
+
 namespace AzureMapsNativeControl.Core
 {
     /// <summary>
@@ -194,10 +198,22 @@ namespace AzureMapsNativeControl.Core
         /// <returns></returns>
         public async Task<string?> GetImageTemplateAsync(string templateName, double? scale = 1)
         {
-            //atlas.getImageTemplate(templateName: string, scale?: number)
-            var template = await _map.JsInterlop._webView.EvaluateJavaScriptAsync($"btoa(atlas.getImageTemplate('{templateName}', {scale ?? 1}))");
+            //atlas.getImageTemplate(templateName: string, scale?: number)           
 
-            if(template == null || template.Equals("null"))
+            string script = $"btoa(atlas.getImageTemplate('{templateName}', {scale ?? 1}))";
+
+#if MAUI && ANDROID
+            Func<Task<string>> scriptFunc = async () =>
+            {
+                return await _map.JsInterlop._webView.EvaluateJavaScriptAsync(script);
+            };
+
+            var template = await MainThread.InvokeOnMainThreadAsync(scriptFunc);
+#else
+            var template = await _map.JsInterlop._webView.EvaluateJavaScriptAsync(script);
+#endif
+
+            if (template == null || template.Equals("null"))
             {
                 return null;
             }

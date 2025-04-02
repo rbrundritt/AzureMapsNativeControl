@@ -1,4 +1,6 @@
-﻿namespace AzureMapsMauiSamples
+﻿using System.Reflection;
+
+namespace AzureMapsMauiSamples
 {
     public partial class AppShell : Shell
     {

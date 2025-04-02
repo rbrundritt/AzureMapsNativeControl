@@ -22,7 +22,7 @@ public partial class DropAnimationSample : ContentPage
 
     #region Private Properties
 
-    DataSourceLite _source;
+    DataSourceLite? _source = null;
     IPlayableAnimation? _animation;
 
     PointGeometry singleSamplePoint = new PointGeometry(-122.335167, 47.608013);
@@ -89,6 +89,10 @@ public partial class DropAnimationSample : ContentPage
 
     private async void AnimationScenarioPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
+        if (_source == null) {
+            return;
+        }
+
         //Dispose the existing animation.
         if (_animation != null)
         {

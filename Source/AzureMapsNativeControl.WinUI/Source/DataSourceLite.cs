@@ -12,6 +12,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+#if (MAUI && WINDOWS) || WINUI
+using Windows.Storage.Streams;
+#endif
+
 namespace AzureMapsNativeControl.Source
 {
     /// <summary>
@@ -795,11 +799,11 @@ namespace AzureMapsNativeControl.Source
         /// of the data within the map (WebView).
         /// </summary>
         /// <typeparam name="T">The GeoJSON object type the stream contains (FeatureCollection, Feature, Point, LineString, Polygon,  MultiPoint, MultiLineString, MultiPolygon</typeparam>
-        /// <param name="utf8Json"></param>
+        /// <param name="utf8JsonStream"></param>
         /// <returns></returns>
-        public async void ImportDataFromStream(Stream utf8Json)
+        public async void ImportDataFromStream(Stream utf8JsonStream)
         {
-            var fc = FeatureCollection.Parse(utf8Json);
+            var fc = FeatureCollection.Parse(utf8JsonStream);
             await AddShapesAsync(fc.Features);
         }
 
@@ -811,11 +815,11 @@ namespace AzureMapsNativeControl.Source
         /// of the data within the map (WebView).
         /// </summary>
         /// <typeparam name="T">The GeoJSON object type the stream contains (FeatureCollection, Feature, Point, LineString, Polygon,  MultiPoint, MultiLineString, MultiPolygon</typeparam>
-        /// <param name="utf8Json"></param>
+        /// <param name="utf8JsonStream"></param>
         /// <returns></returns>
-        public async Task ImportDataFromStreamAsync(Stream utf8Json)
+        public async Task ImportDataFromStreamAsync(Stream utf8JsonStream)
         {
-            var fc = FeatureCollection.Parse(utf8Json);
+            var fc = FeatureCollection.Parse(utf8JsonStream);
             await AddShapesAsync(fc.Features);
         }
 
@@ -847,6 +851,37 @@ namespace AzureMapsNativeControl.Source
         {
             await AddShapesAsync(FeatureCollection.Parse(mapFile.Stream).Features);
         }
+
+#if (MAUI && WINDOWS) || WINUI
+        /// <summary>
+        /// Imports a stream of GeoJSON data directly into the data source.
+        /// </summary>
+        /// <param name="utf8JsonStream"></param>
+        /// <returns></returns>
+        public async Task ImportDataFromStreamAsync(IRandomAccessStreamReference utf8JsonStream)
+        {
+            using (var s1 = await utf8JsonStream.OpenReadAsync())
+            {
+                using (var s2 = s1.AsStreamForRead())
+                {
+                    await ImportDataFromStreamAsync(s2);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Imports a stream of GeoJSON data directly into the data source.
+        /// </summary>
+        /// <param name="utf8JsonStream"></param>
+        /// <returns></returns>
+        public async Task ImportDataFromStreamAsync(IRandomAccessStream utf8JsonStream)
+        {
+            using (var s = utf8JsonStream.AsStreamForRead())
+            {
+                await ImportDataFromStreamAsync(s);
+            }
+        }
+#endif
 
         /// <summary>
         /// Retrieves the children of the given cluster on the next zoom level. 

@@ -347,6 +347,7 @@ namespace AzureMapsNativeControl.Animations
 
                 //async dropAnimation(animationId, pointFeatures, sourceId, height, options) 
                 await map.JsInterlop.InvokeJsMethodAsync(map, "dropAnimation", animation.Id, points, sourceId, height, options);
+
                 return animation;
             }
 

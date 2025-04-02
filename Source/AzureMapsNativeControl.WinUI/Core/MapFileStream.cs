@@ -64,7 +64,7 @@ namespace AzureMapsNativeControl.Core
         {
             var s = new MemoryStream();
             await stream.CopyToAsync(s);
-            stream.Position = 0;
+            s.Position = 0;
             return new MapFileStream(s, mimeType, maxAge, expires);
         }
 

@@ -414,32 +414,39 @@ namespace AzureMapsNativeControl.Core
             //Add new entities.
             if (newEntities != null && newEntities.Count > 0)
             {
-                foreach (var e in newEntities)
+#if MAUI && ANDROID
+                await MainThread.InvokeOnMainThreadAsync(async () =>
                 {
-                    //Make sure the entity is not null.
-                    if (e != null)
+#endif
+                    foreach (var e in newEntities)
                     {
-                        //Ensure the entity is not already in this collection.
-                        if (e.Map == null || e.Map != _map)
+                        //Make sure the entity is not null.
+                        if (e != null)
                         {
-                            e.Map = null;
-
-                            //Add the collection.
-                            _collection.Add(e);
-
-                            //Add to the map.
-                            await _map.JsInterlop.InvokeJsMethodAsync(_map, _addMethodName, e.Id, e.GetOptions());
-
-                            //Set the map property.
-                            e.Map = _map;
-
-                            if (e is IMapEventTarget el)
+                            //Ensure the entity is not already in this collection.
+                            if (e.Map == null || e.Map != _map)
                             {
-                                _map.Events.ReAddEvents(el);
+                                e.Map = null;
+
+                                //Add the collection.
+                                _collection.Add(e);
+
+                                //Add to the map.
+                                await _map.JsInterlop.InvokeJsMethodAsync(_map, _addMethodName, e.Id, e.GetOptions());
+
+                                //Set the map property.
+                                e.Map = _map;
+
+                                if (e is IMapEventTarget el)
+                                {
+                                    _map.Events.ReAddEvents(el);
+                                }
                             }
                         }
                     }
-                }
+#if MAUI && ANDROID
+                });
+#endif
             }
         }
 
@@ -485,14 +492,22 @@ namespace AzureMapsNativeControl.Core
 
             if (removeIds.Count > 0)
             {
-                //Remove any events attached to these entities.
-                await _map.Events.BulkRemoveEvents(removeIds);
 
-                //Remove entities by id.
-                await _map.JsInterlop.InvokeJsMethodAsync(_map, _removeManyByIdMethodName, removeIds);
+#if MAUI && ANDROID
+                await MainThread.InvokeOnMainThreadAsync(async () =>
+                {
+#endif
+                    //Remove any events attached to these entities.
+                    await _map.Events.BulkRemoveEvents(removeIds);
+
+                    //Remove entities by id.
+                    await _map.JsInterlop.InvokeJsMethodAsync(_map, _removeManyByIdMethodName, removeIds);
+#if MAUI && ANDROID
+                });
+#endif
             }
         }
 
-        #endregion
-    }
+    #endregion
+}
 }

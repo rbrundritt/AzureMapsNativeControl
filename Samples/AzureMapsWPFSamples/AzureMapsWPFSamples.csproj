@@ -26,11 +26,9 @@
     <None Remove="map_resources\data\rasterTiles\countries-raster.mbtiles" />
     <None Remove="map_resources\data\rasterTiles\katrina.zip" />
     <None Remove="map_resources\data\rasterTiles\toril-leaflet.zip" />
-    <None Remove="map_resources\images\CoffeeIcon.png" />
     <None Remove="map_resources\images\dog_park_pattern.png" />
     <None Remove="map_resources\images\image-overlays\1600px-Chartres.svg.png" />
     <None Remove="map_resources\images\image-overlays\Chicago_1872_Map.jpg" />
-    <None Remove="map_resources\images\image-overlays\Foto_aérea_de_Unaí_detalhando_o_córrego_Canabrava_3.jpg" />
     <None Remove="map_resources\images\orchard_banana_pattern.svg" />
     <None Remove="map_resources\images\Pike_Market.jpg" />
     <None Remove="map_resources\images\pin.png" />
@@ -111,10 +109,6 @@
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="map_resources\images\CoffeeIcon.png">
-      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="map_resources\images\dog_park_pattern.png">
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -124,10 +118,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="map_resources\images\image-overlays\Chicago_1872_Map.jpg">
-      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="map_resources\images\image-overlays\Foto_aérea_de_Unaí_detalhando_o_córrego_Canabrava_3.jpg">
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

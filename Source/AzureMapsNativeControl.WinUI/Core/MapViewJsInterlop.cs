@@ -1,14 +1,14 @@
 ﻿using AzureMapsNativeControl.Internal;
 using AzureMapsNativeControl.Source;
-using System.Diagnostics;
-using System.Text;
-using System.Text.Json;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
-using System.IO;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 #if MAUI
 #elif WPF
@@ -340,9 +340,25 @@ namespace AzureMapsNativeControl.Core
                     paramJson = Convert.ToBase64String(Encoding.UTF8.GetBytes(paramJson));
                 }
 
-                await _webView.EvaluateJavaScriptAsync($"(async () => {{ var result; try {{ var paramJson = JSON.parse('[' + atob('{paramJson}') + ']'); result = ({methodName}[Symbol.toStringTag] === 'AsyncFunction') ? await {methodName}(...paramJson) : {methodName}(...paramJson); }} catch(e) {{ console.error(e) }} MapUtils.triggerAsyncCallback('{taskId}', result); }})()");
-
+                string script = $"(async () => {{ var result; try {{ var paramJson = JSON.parse('[' + atob('{paramJson}') + ']'); result = ({methodName}[Symbol.toStringTag] === 'AsyncFunction') ? await {methodName}(...paramJson) : {methodName}(...paramJson); }} catch(e) {{ console.error(e) }} MapUtils.triggerAsyncCallback('{taskId}', result); }})()";
+#if MAUI && ANDROID
+                return await MainThread.InvokeOnMainThreadAsync<string>(async () =>
+                {
+                    try
+                    {
+                        await _webView.EvaluateJavaScriptAsync(script);
+                        return await callback.Task;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Error invoking JS method: {ex.Message}");
+                        return string.Empty;
+                    }
+                });
+#else
+                await _webView.EvaluateJavaScriptAsync(script);
                 return await callback.Task;
+#endif
             }
             catch (Exception ex)
             {
@@ -430,7 +446,7 @@ namespace AzureMapsNativeControl.Core
             return await InvokeJsMethodAsync<TReturnType>(methodName, paramValues);
         }
 
-        #endregion
+#endregion
 
         #region Private Methods
 

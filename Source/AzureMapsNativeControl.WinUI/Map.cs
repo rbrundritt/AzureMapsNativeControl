@@ -10,9 +10,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.IO;
+
 
 #if MAUI
 using Microsoft.Maui.Platform;
+using AzureMapsNativeControl.Platforms;
+
+#if WINDOWS
+using Microsoft.UI.Xaml.Controls;
+using Windows.Storage.Streams;
+
+#endif
 
 #if WINDOWS || MACCATALYST
 using AzureMapsNativeControl.Platforms;
@@ -22,10 +31,12 @@ using AzureMapsNativeControl.Platforms;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Windows.Input;
+using Windows.Storage.Streams;
 #elif WPF
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Microsoft.Web.WebView2.Wpf;
 #endif
 
 
@@ -408,6 +419,56 @@ namespace AzureMapsNativeControl
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Captures a screenshot of the map and saves it to the specified stream.
+        /// </summary>
+        /// <returns>A stream containing the PNG image data, or null if unsuccessful in generating screenshot.</returns>
+#if MAUI
+        public async Task<Stream?> CaptureScreenshotAsync()
+        {
+            try
+            {
+                return await MapScreenshotHelper.CaptureAsync(JsInterlop._webView);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+#elif WINUI
+        public async Task<Stream?> CaptureScreenshotAsync()
+        {
+            try
+            {
+                var ms = new MemoryStream();
+                await (JsInterlop._webView as WebView2).CoreWebView2.CapturePreviewAsync(Microsoft.Web.WebView2.Core.CoreWebView2CapturePreviewImageFormat.Png, ms.AsRandomAccessStream());
+                ms.Position = 0;
+                return ms;
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return null;
+        }
+#elif WPF
+        public async Task<Stream?> CaptureScreenshotAsync()
+        {
+            try
+            {
+                var ms = new MemoryStream();
+                await (JsInterlop._webView as WebView2).CoreWebView2.CapturePreviewAsync(Microsoft.Web.WebView2.Core.CoreWebView2CapturePreviewImageFormat.Png, ms);
+                ms.Position = 0;
+                return ms;
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return null;
+        }
+#endif
 
         /// <summary>
         /// Makes a GET request to an Azure Maps REST service that returns a JSON response.

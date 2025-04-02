@@ -333,25 +333,32 @@ namespace AzureMapsNativeControl.Core
 
                     var toRemove = new List<EventHandler<MapEventArgs>>();
 
-                    foreach (var handler in targetEventHandlers)
+#if MAUI && ANDROID
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        if (handler.Key != null)
+#endif
+                        foreach (var handler in targetEventHandlers)
                         {
-                            handler.Key.Invoke(target, args);
-
-                            //Check to see if the handler should be removed after first invocation.
-                            if (handler.Value.Item1)
+                            if (handler.Key != null)
                             {
-                                toRemove.Add(handler.Key);
+                                handler.Key.Invoke(target, args);
+
+                                //Check to see if the handler should be removed after first invocation.
+                                if (handler.Value.Item1)
+                                {
+                                    toRemove.Add(handler.Key);
+                                }
                             }
                         }
-                    }
 
-                    //Remove the handlers that should only be invoked once.
-                    foreach (var handler in toRemove)
-                    {
-                        targetEventHandlers.Remove(handler);
-                    }
+                        //Remove the handlers that should only be invoked once.
+                        foreach (var handler in toRemove)
+                        {
+                            targetEventHandlers.Remove(handler);
+                        }
+#if MAUI && ANDROID
+                    });
+#endif
 
 #if WINUI || WPF
                     if (target == _map)
@@ -370,7 +377,7 @@ namespace AzureMapsNativeControl.Core
                         }
                     }
 #endif
-                }
+                    }
             }
         }
 

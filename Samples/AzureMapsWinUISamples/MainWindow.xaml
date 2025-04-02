@@ -84,6 +84,10 @@
                 <MenuFlyoutItem Text="Animate Choropleth Map" Tag="AnimateChoroplethMapSample" Click="NavigateToSample" />
                 <MenuFlyoutItem Text="Moprh Shape Animation" Tag="MorphShapeAnimationSample" Click="NavigateToSample" />
             </MenuBarItem>
+
+            <MenuBarItem Title="Other">
+                <MenuFlyoutItem Text="Capture map screenshot" Tag="ScreenshotSample" Click="NavigateToSample" />
+            </MenuBarItem>
         </MenuBar>
 
         <TextBlock x:Name="SampleTitle" Grid.Row="1" FontSize="22" FontWeight="Medium" Padding="5"/>

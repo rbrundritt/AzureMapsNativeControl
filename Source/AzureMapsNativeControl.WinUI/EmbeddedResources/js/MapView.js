@@ -447,6 +447,11 @@ class MapInterface {
                 mapId: id,
                 camera: self.getCamera()
             });
+
+            //navigator.geolocation.getCurrentPosition((position) => {
+            //    alert("Latitude: " + position.coords.latitude +
+            //        "<br>Longitude: " + position.coords.longitude)
+            //});
         });
 
         self.map.events.add('load', () => {

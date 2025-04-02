@@ -13,6 +13,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+#if (MAUI && WINDOWS) || WINUI
+using Windows.Storage.Streams;
+#endif
+
 namespace AzureMapsNativeControl.Source
 {
     /// <summary>
@@ -754,12 +758,11 @@ namespace AzureMapsNativeControl.Source
         /// interaction is needed, consider using the DataSourceLite class which only maintains a single copy 
         /// of the data within the map (WebView).
         /// </summary>
-        /// <typeparam name="T">The GeoJSON object type the stream contains (FeatureCollection, Feature, Point, LineString, Polygon,  MultiPoint, MultiLineString, MultiPolygon</typeparam>
-        /// <param name="utf8Json"></param>
+        /// <param name="utf8JsonStream"></param>
         /// <returns></returns>
-        public void ImportDataFromStream(Stream utf8Json)
+        public void ImportDataFromStream(Stream utf8JsonStream)
         {
-            AddRange(FeatureCollection.Parse(utf8Json));
+            AddRange(FeatureCollection.Parse(utf8JsonStream));
         }
 
         /// <summary>
@@ -769,12 +772,43 @@ namespace AzureMapsNativeControl.Source
         /// interaction is needed, consider using the DataSourceLite class which only maintains a single copy 
         /// of the data within the map (WebView).
         /// </summary>
-        /// <param name="utf8Json"></param>
+        /// <param name="utf8JsonStream"></param>
         /// <returns></returns>
-        public async Task ImportDataFromStreamAsync(Stream utf8Json)
+        public async Task ImportDataFromStreamAsync(Stream utf8JsonStream)
         {
-            await AddShapesAsync(FeatureCollection.Parse(utf8Json).Features);
+            await AddShapesAsync(FeatureCollection.Parse(utf8JsonStream).Features);
         }
+
+#if (MAUI && WINDOWS) || WINUI
+        /// <summary>
+        /// Imports a stream of GeoJSON data directly into the data source.
+        /// </summary>
+        /// <param name="utf8JsonStream"></param>
+        /// <returns></returns>
+        public async Task ImportDataFromStreamAsync(IRandomAccessStreamReference utf8JsonStream)
+        {
+            using (var s1 = await utf8JsonStream.OpenReadAsync())
+            {
+                using(var s2 = s1.AsStreamForRead())
+                {
+                    await ImportDataFromStreamAsync(s2);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Imports a stream of GeoJSON data directly into the data source.
+        /// </summary>
+        /// <param name="utf8JsonStream"></param>
+        /// <returns></returns>
+        public async Task ImportDataFromStreamAsync(IRandomAccessStream utf8JsonStream)
+        {
+            using (var s = utf8JsonStream.AsStreamForRead())
+            {
+                await ImportDataFromStreamAsync(s);
+            }
+        }        
+#endif
 
         /// <summary>
         /// Imports a stream of GeoJSON data directly into the data source. 
@@ -863,7 +897,7 @@ namespace AzureMapsNativeControl.Source
             return new List<Feature>();
         }
 
-        #endregion
+#endregion
 
         #region Feature Update Methods
 

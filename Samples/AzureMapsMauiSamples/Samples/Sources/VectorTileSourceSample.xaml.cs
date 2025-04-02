@@ -44,7 +44,7 @@ public partial class VectorTileSourceSample : ContentPage
 		InitializeComponent();
 	}
 
-    private void MyMap_OnReady(object sender, AzureMapsNativeControl.MapEventArgs e)
+    private void MyMap_OnReady(object sender, MapEventArgs e)
     {
         //Create a reusable popup.
         popup = new Popup();
