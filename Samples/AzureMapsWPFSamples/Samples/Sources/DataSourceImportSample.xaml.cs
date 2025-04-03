@@ -44,18 +44,19 @@ namespace AzureMapsWPFSamples.Samples
             };
         }
 
-        private async void FileDroppedOnMap(object sender, MapEventArgs e)
+        private async void FileDroppedOnMap(object sender, MapFilesDroppedEventArgs e)
         {
-            if(e is MapFilesDroppedEventArgs evt && evt.Files != null && evt.Files.Count > 0)
+            if (e.Files != null && e.Files.Count > 0)
             {
                 //Clear the data source and close the popup.
                 dataSource.Clear();
                 popup.Close();
 
-                foreach (var f in evt.Files)
+                //Load the files into the data source.
+                foreach (var f in e.Files)
                 {
                     //Only allow files that the data source supports to be imported.
-                    if (DataSource.IsSupportedFileType(f.Name, f.MimeType))
+                    if (DataSourceLite.IsSupportedFileType(f.Name, f.MimeType))
                     {
                         await dataSource.ImportDataFromStreamAsync(f.Stream);
                     }

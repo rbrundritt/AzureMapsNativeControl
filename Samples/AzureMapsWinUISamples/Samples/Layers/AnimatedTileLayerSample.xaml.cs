@@ -110,7 +110,7 @@ namespace AzureMapsWinUISamples.Samples
             //Add the layer to the map asyncronously as we will want to attach an event to it and want to ensure it is loaded before we do this.
             await MyMap.Layers.AddAsync(layer);
 
-            animation = await layer.GetPlayableAnimation();
+            animation = layer.GetPlayableAnimation();
 
             if (animation != null)
             {

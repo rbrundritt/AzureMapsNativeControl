@@ -62,7 +62,7 @@ namespace AzureMapsNativeControl
 
         private event EventHandler<MapEventArgs>? OnReadyHandler;
         private event EventHandler<MapEventArgs>? OnLoadedHandler;
-        private event EventHandler<MapEventArgs>? OnFilesDroppedHandler;
+        private event EventHandler<MapFilesDroppedEventArgs>? OnFilesDroppedHandler;
 
         internal Dictionary<string, DrawingManager> DrawingManagers = new Dictionary<string, DrawingManager>();
         internal Dictionary<string, IPlayableAnimation> Animations = new Dictionary<string, IPlayableAnimation>();
@@ -102,6 +102,11 @@ namespace AzureMapsNativeControl
 
             //Add event manager.
             Events = new MapEventManager(this);
+
+            Events.Add("drop", (s, e) =>
+            {
+                OnFilesDroppedHandler?.Invoke(s, (MapFilesDroppedEventArgs)e);
+            });
 
             //Add content managers.
 #if MAUI
@@ -337,17 +342,17 @@ namespace AzureMapsNativeControl
         /// <summary>
         /// Event handler for when a files is dropped on the map.
         /// </summary>
-        public event EventHandler<MapEventArgs> OnFilesDropped
+        public event EventHandler<MapFilesDroppedEventArgs> OnFilesDropped
         {
             add
             {
                 OnFilesDroppedHandler += value;
-                Events.Add("drop", value);
+                //Events.Add("drop", value);
             }
             remove
             {
                 OnFilesDroppedHandler -= value;
-                Events.Remove("drop", value);
+                //Events.Remove("drop", value);
             }
         }
 
@@ -791,6 +796,17 @@ namespace AzureMapsNativeControl
                 _config = config;
             }
 
+            if (Settings == null)
+            {
+                Settings = new MapLoadOptions();
+            }
+#if WINUI
+            if (Settings.AllowFileDrop == true)
+            {
+                JsInterlop._webView.AllowDrop = true;
+            }
+#endif
+
             //Web page is loaded and ready. Initialize the map and pass in initial load options and auth.
             await JsInterlop.InvokeJsMethodAsync("loadMap", Id, Settings, _config);
         }
@@ -816,6 +832,6 @@ namespace AzureMapsNativeControl
             _elevationSource = null;
         }
 
-        #endregion
+#endregion
     }
 }

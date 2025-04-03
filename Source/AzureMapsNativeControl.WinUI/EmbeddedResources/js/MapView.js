@@ -1,5 +1,14 @@
 ﻿var map, swipeMap;
 
+//Increase workers for performance.
+const halfCpuCount = Math.round(navigator.hardwareConcurrency / 2);
+if (halfCpuCount > atlas.getWorkerCount()) {
+    atlas.setWorkerCount(halfCpuCount);
+}
+
+//Prewarm Azure Maps resources to improve performance.
+atlas.prewarm();
+
 const protocol = new pmtiles.Protocol();
 atlas.addProtocol("pmtiles", (request) => {
     return new Promise((resolve, reject) => {
@@ -426,6 +435,7 @@ class MapInterface {
 
         mapOptions = mapOptions || {};
         self.allowFileDrop = mapOptions.allowFileDrop;
+        self.platform = mapOptions.platform;
 
         //Add token callback to auth options if needed.
         if (mapOptions.authOptions && (mapOptions.authOptions.authType === 'anonymous' || mapOptions.authOptions.authType === 'sas')) {
@@ -442,6 +452,9 @@ class MapInterface {
         }
 
         this.map.events.add('ready', () => {
+            //Remove fade duration for faster transitions.
+            map.map._fadeDuration = 0;
+
             MapUtils.triggerEvent({
                 type: 'ready',
                 mapId: id,
@@ -462,23 +475,21 @@ class MapInterface {
             });
         });
 
-        //Add events for handling file drops.
-        mapDiv.addEventListener('dragover', (e) => {
-            //Stop the browser from performing its default behavior when a file is dragged and dropped.
-            e.stopPropagation();
-            e.preventDefault();
+        if (self.allowFileDrop) {
+            //Add events for handling file drops.
+            mapDiv.addEventListener('dragover', (e) => {
+                //Stop the browser from performing its default behavior when a file is dragged and dropped.
+                e.stopPropagation();
+                e.preventDefault();
 
-            if (self.allowFileDrop) {
                 e.dataTransfer.dropEffect = 'copy';
-            }
-        }, false);
+            }, false);
 
-        mapDiv.addEventListener('drop', async (e) => {
-            //Stop the browser from performing its default behavior when a file is dragged and dropped.
-            e.stopPropagation();
-            e.preventDefault();
+            mapDiv.addEventListener('drop', async (e) => {
+                //Stop the browser from performing its default behavior when a file is dragged and dropped.
+                e.stopPropagation();
+                e.preventDefault();
 
-            if (self.allowFileDrop) {
                 //Capture the file information and pass it to the .NET code via the event framework.
                 const files = e.dataTransfer.files;
                 const fileReadTasks = [];
@@ -495,8 +506,8 @@ class MapInterface {
                     mapId: id,
                     files: filesInfo
                 });
-            }
-        }, false);
+            }, false);
+        }
 
         //For debugging purposes, make a reference to the main or left map (swipe map), easily available.
         if (id === 'mainMap' || id === 'primaryMap') {

@@ -2,6 +2,7 @@
 using AzureMapsNativeControl.Data;
 using System.Text.Json.Serialization;
 
+
 #if WINUI
 using Microsoft.UI.Xaml;
 #elif WPF
@@ -412,5 +413,21 @@ namespace AzureMapsNativeControl
         public bool? AllowFileDrop { get; set; }
 
         #endregion
+
+        [JsonInclude]
+        [JsonPropertyName("platform")]
+        internal string? Platform
+        {
+            get
+            {
+#if MAUI
+                return "MAUI";
+#elif WINUI
+                return "WINUI";
+#else
+                return "WPF";
+#endif
+            }
+        }
     }
 }

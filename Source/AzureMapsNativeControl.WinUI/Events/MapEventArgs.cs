@@ -4,10 +4,14 @@ using System.Text.Json.Serialization;
 
 namespace AzureMapsNativeControl
 {
+    public interface IMapEventArgs
+    {
+    }
+
     /// <summary>
     /// Event object returned by the maps when a basic event occurs.
     /// </summary>
-    public class MapEventArgs
+    public class MapEventArgs: IMapEventArgs
     {
         //https://learn.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.mapevent?view=azure-maps-typescript-latest
         //Excludes: originalEvent
