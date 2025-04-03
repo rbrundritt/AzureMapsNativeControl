@@ -57,6 +57,7 @@ The versions running on Windows use WebView2, while the .NET Maui versions for o
 ## Contributing
 
 We welcome contributions. Feel free to submit code samples, file issues and pull requests on the repo and we'll address them as we can. 
+Learn more about how you can help on our [Contribution Rules & Guidelines](CONTRIBUTING.md). 
 
 You can reach out to us anytime with questions and suggestions using our communities below:
 * [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-maps.html)
