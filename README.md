@@ -62,9 +62,7 @@ Learn more about how you can help on our [Contribution Rules & Guidelines](CONTR
 You can reach out to us anytime with questions and suggestions using our communities below:
 * [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-maps.html)
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
-For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or 
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
