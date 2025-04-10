@@ -19,7 +19,7 @@ Well over 95% of the core Azure Maps capabilities and many modules are exposed i
 
 ## Platform support
 
-| Platform | OS | Support |
+| Platform | OS | Supported |
 | --- | --- | --- |
 | .NET Maui | Windows | :white_check_mark: |
 | .NET Maui | Android | :white_check_mark: |

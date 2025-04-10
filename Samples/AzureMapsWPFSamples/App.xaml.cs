@@ -13,7 +13,7 @@ namespace AzureMapsWPFSamples
             AzureMapsConfiguration.Configure(new AzureMapsConfiguration
             {
                 // Set the subscription key
-                SubscriptionKey = " < Your_Azure_Maps_Key>"
+                SubscriptionKey = "<Your_Azure_Maps_Key>"
 
                 //Alternatively use anonymous authentication
                 //ClientId = "<Your_Azure_Maps_Client_Id>",
