@@ -99,13 +99,7 @@ namespace AzureMapsNativeControl
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Map SecondaryMap { get; internal set; }
 
-        /// <summary>
-        /// Manages the communication between the JavaScript Map API and the .NET wrapper.
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public MapViewJsInterlop JsInterlop { get; private set; }
-
-#endregion
+        #endregion
 
         #region Module methods
 

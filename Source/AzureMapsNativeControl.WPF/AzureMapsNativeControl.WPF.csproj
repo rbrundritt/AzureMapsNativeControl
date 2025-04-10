@@ -56,6 +56,7 @@
     <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ScaleControlUnits.cs" Link="Control\Enums\ScaleControlUnits.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\StyleControlLayout.cs" Link="Control\Enums\StyleControlLayout.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Enums\ZoomBehavior.cs" Link="Control\Enums\ZoomBehavior.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Control\GeolocationControl.cs" Link="Control\GeolocationControl.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Control\IBaseControl.cs" Link="Control\IBaseControl.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Control\LayerControl.cs" Link="Control\LayerControl.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Control\Layers\DynamicLayerGroup.cs" Link="Control\Layers\DynamicLayerGroup.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="..\AzureMapsNativeControl.WinUI\Enums\WebResourceType.cs" Link="Enums\WebResourceType.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Events\DrawingManagerEventArgs.cs" Link="Events\DrawingManagerEventArgs.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Events\FrameBasedAnimationEvent.cs" Link="Events\FrameBasedAnimationEvent.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Events\GeolocationControlEventArgs.cs" Link="Events\GeolocationControlEventArgs.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapErrorEventArgs.cs" Link="Events\MapErrorEventArgs.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapEventArgs.cs" Link="Events\MapEventArgs.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Events\MapFilesDroppedEventArgs.cs" Link="Events\MapFilesDroppedEventArgs.cs" />
@@ -206,6 +208,8 @@
     <Compile Include="..\AzureMapsNativeControl.WinUI\Layer\TileLayer.cs" Link="Layer\TileLayer.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Map.cs" Link="Map.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\MapSynchronizer.cs" Link="MapSynchronizer.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\GeolocationPositionError.cs" Link="Options\GeolocationPositionError.cs" />
+    <Compile Include="..\AzureMapsNativeControl.WinUI\Options\GeolocationPositionOptions.cs" Link="Options\GeolocationPositionOptions.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Options\HtmlMarkerOptions.cs" Link="Options\HtmlMarkerOptions.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\CameraAnimationOptions.cs" Link="Options\MapOptions\CameraAnimationOptions.cs" />
     <Compile Include="..\AzureMapsNativeControl.WinUI\Options\MapOptions\CameraOptions.cs" Link="Options\MapOptions\CameraOptions.cs" />
@@ -286,6 +290,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\_hwv\HybridWebView.js" Link="EmbeddedResources\_hwv\HybridWebView.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\AzureMapsNativeControl.WinUI\EmbeddedResources\js\modules\azure-maps-geolocation-control.min.js" Link="EmbeddedResources\js\modules\azure-maps-geolocation-control.min.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -51,6 +51,7 @@
 
                 <MenuItem Header="Controls">
                     <MenuItem Header="Bring Data Into View control" Tag="BringDataIntoViewControlSample" Click="NavigateToSample" />
+                    <MenuItem Header="Geolocation Control" Tag="GeolocationControlSample" Click="NavigateToSample" />
                     <MenuItem Header="Layer control" Tag="LayerControlSample" Click="NavigateToSample" />
                     <MenuItem Header="Legend control" Tag="LegendControlSample" Click="NavigateToSample" />
                     <MenuItem Header="Overview Map control" Tag="OverviewMapControlSample" Click="NavigateToSample" />
@@ -84,7 +85,6 @@
 
                 <MenuItem Header="Other">
                     <MenuItem Header="Capture map screenshot" Tag="ScreenshotSample" Click="NavigateToSample" />
-                    <MenuItem Header="Show users location" Tag="GeolocationSample" Click="NavigateToSample" />
                 </MenuItem>
             </Menu>
         </DockPanel>

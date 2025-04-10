@@ -30,6 +30,7 @@
     <None Remove="Samples\Animations\SimplePointAnimationSample.xaml" />
     <None Remove="Samples\Animations\SnakelineAnimationSample.xaml" />
     <None Remove="Samples\Controls\BringDataIntoViewControlSample.xaml" />
+    <None Remove="Samples\Controls\GeolocationControlSample.xaml" />
     <None Remove="Samples\Controls\LayerControlSample.xaml" />
     <None Remove="Samples\Controls\LegendControlSample.xaml" />
     <None Remove="Samples\Controls\OverviewMapControlSample.xaml" />
@@ -209,6 +210,11 @@
     <Content Update="Assets\us_county_population_legend.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Samples\Controls\GeolocationControlSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Samples\Animations\MorphShapeAnimationSample.xaml">

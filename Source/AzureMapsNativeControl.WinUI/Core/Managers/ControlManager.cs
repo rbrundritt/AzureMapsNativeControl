@@ -19,14 +19,40 @@ namespace AzureMapsNativeControl.Core
         public ControlManager(Map map)
         {
             _map = map;
+            this.CollectionChanged += ControlManager_CollectionChanged;
+        }
 
-            if (map != null)
+        /// <summary>
+        /// Asynchronously add a control to the map.
+        /// </summary>
+        /// <param name="control"></param>
+        /// <returns></returns>
+        public async Task AddAsync(IBaseControl control)
+        {
+            var controls = new IBaseControl[] { control };
+
+            //Silently add the control to the collection.
+            this.AddRangeCore(controls);
+
+            //Asynchronously add the control to the map.
+            await AddControls(controls);
+        }
+
+        /// <summary>
+        /// Asynchronously add a collection of controls to the map.
+        /// </summary>
+        /// <param name="controls"></param>
+        /// <returns></returns>
+        public async Task AddRangeAsync(IEnumerable controls)
+        {
+            //Silently add the control to the collection.
+            foreach(IBaseControl c in controls)
             {
-                // Add controls when the map is ready.
-                map.OnReady += Map_OnReady;
+                this.AddRangeCore(new IBaseControl[] { c });
             }
 
-            this.CollectionChanged += ControlManager_CollectionChanged;
+            //Asynchronously add the control to the map.
+            await AddControls(controls);
         }
 
         #region Private Methods
@@ -98,9 +124,7 @@ namespace AzureMapsNativeControl.Core
         /// <summary>
         /// Event handler for when the map is ready. Add controls that have been waiting.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void Map_OnReady(object? sender, MapEventArgs e)
+        internal async Task Map_OnReady()
         {
             await AddControls(this);
         }

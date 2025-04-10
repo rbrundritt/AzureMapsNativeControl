@@ -13,6 +13,7 @@ namespace AzureMapsNativeControl
     /// </summary>
     [JsonDerivedType(typeof(BringDataIntoViewControl))]
     [JsonDerivedType(typeof(CompassControl))]
+    [JsonDerivedType(typeof(GeolocationControl))]
     [JsonDerivedType(typeof(OverviewMapControl))]
     [JsonDerivedType(typeof(PitchControl))]
     [JsonDerivedType(typeof(ScaleControl))]
@@ -73,7 +74,7 @@ namespace AzureMapsNativeControl
         /// </summary>
         [JsonInclude]
         [JsonPropertyName("jsNamespace")]
-        internal string JsNamespace { get; private set; }
+        public string JsNamespace { get; private set; }
 
         /// <summary>
         /// A unique ID for the source.

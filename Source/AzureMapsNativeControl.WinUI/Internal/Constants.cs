@@ -27,7 +27,10 @@ namespace AzureMapsNativeControl.Internal
         /// </summary>
         internal static JsonSerializerOptions MapJsonSerializerOptions = new JsonSerializerOptions
         {
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+
+            //Allow support for NaN, Infinity, and -Infinity
+            NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals
         };
 
         #region Atlas class namespaces

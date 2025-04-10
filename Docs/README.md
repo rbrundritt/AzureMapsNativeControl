@@ -138,6 +138,19 @@ In addition to the core capabilities of the Azure Maps Web SDK, several modules 
 - Map screenshot capability via `CaptureScreenshotAsync` method.
 - File drag and drop support 
 
+## Geolocation support
+
+```xml
+//<uses-permission android:name="android.permission.ACCESS_GPS" />
+//<uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+<//uses-permission android:name="android.permission.ACCESS_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+https://learn.microsoft.com/en-us/answers/questions/1460336/maui-webview-access-geolocation
+https://stackoverflow.com/questions/5329662/android-webview-geolocation
+
 ## Drag and Drop support
 
 The Azure Maps Native Control supports dragging and dropping files on the map that are supported by the `DataSource` class (currently just GeoJSON). This functionallity works in all versions of this library with the exception of Android and iOS where no such capability exists in the underlying platform.

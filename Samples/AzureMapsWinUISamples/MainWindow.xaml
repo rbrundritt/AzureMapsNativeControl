@@ -54,6 +54,7 @@
 
             <MenuBarItem Title="Controls">
                 <MenuFlyoutItem Text="Bring Data Into View control" Tag="BringDataIntoViewControlSample" Click="NavigateToSample" />
+                <MenuFlyoutItem Text="Geolocation Control" Tag="GeolocationControlSample" Click="NavigateToSample" />
                 <MenuFlyoutItem Text="Layer control" Tag="LayerControlSample" Click="NavigateToSample" />
                 <MenuFlyoutItem Text="Legend control" Tag="LegendControlSample" Click="NavigateToSample" />
                 <MenuFlyoutItem Text="Overview Map control" Tag="OverviewMapControlSample" Click="NavigateToSample" />

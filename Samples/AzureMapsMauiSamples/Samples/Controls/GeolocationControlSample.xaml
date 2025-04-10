@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AzureMapsMauiSamples.Samples.GeolocationControlSample"
+             xmlns:atlas="clr-namespace:AzureMapsNativeControl;assembly=AzureMapsNativeControl"   
+             xmlns:atlasControl="clr-namespace:AzureMapsNativeControl.Control;assembly=AzureMapsNativeControl"
+             Title="Geolocation Control">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <FlexLayout Direction="Row" Margin="10" Wrap="Wrap">
+            <Picker Title="Style" SelectedIndexChanged="StylePicker_SelectedIndexChanged" VerticalOptions="Center" WidthRequest="150">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Auto</x:String>
+                        <x:String>Dark</x:String>
+                        <x:String>Light</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Marker Color" SelectedIndexChanged="MarkerColorPicker_SelectedIndexChanged" VerticalOptions="Center" WidthRequest="150" Margin="5,0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>DogerBlue</x:String>
+                        <x:String>#FF0000</x:String>
+                        <x:String>rgb(255, 165, 0)</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Show user location" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="ShowUserLocationCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Track user location" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="TrackUserLocationCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Calculate missing values" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="CalculateMissingValuesCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Update map camera" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="UpdateMapCameraCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Enable compass" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="EnableCompassCheckBox_CheckedChanged" IsChecked="True" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Sync map compass heading" VerticalOptions="Center"/>
+                <CheckBox CheckedChanged="SyncMapCompassHeadingCheckBox_CheckedChanged" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label x:Name="GeolocationLabel" Margin="10,0"/>
+            <Label x:Name="CompassHeadingLabel"/>
+        </FlexLayout>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Row="1">
+            <atlas:Map.Controls>
+                <atlasControl:GeolocationControl x:Name="MyGeolocationControl" Position="TopRight"/>
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</ContentPage>

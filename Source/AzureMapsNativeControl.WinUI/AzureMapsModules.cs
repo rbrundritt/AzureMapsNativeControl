@@ -56,6 +56,15 @@ namespace AzureMapsNativeControl
             }
         }
 
+        public static MapModuleInfo GeolocationControlModule
+        {
+            get
+            {
+                return new MapModuleInfo("azure-maps-geolocation-control",
+                    new List<string>() { "proxy?operation=embeddedResource&resourceName=js/modules/azure-maps-geolocation-control.min.js" });
+            }
+        }
+
         /// <summary>
         /// An Azure Maps Web SDK module that provides UI controls for dynamically styling layers and displaying legends on the map. https://github.com/Azure-Samples/azure-maps-layer-legend/
         /// </summary>

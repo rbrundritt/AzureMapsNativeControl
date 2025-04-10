@@ -6,15 +6,8 @@ namespace AzureMapsNativeControl.Control
     /// <summary>
     /// Interface for all controls.
     /// </summary>
-    public interface IBaseControl
+    public interface IBaseControl : IMapEventTarget
     {
         Map? _map { get; internal set; }
-
-        /// <summary>
-        /// A unique ID for the entity.
-        /// </summary>
-        [JsonInclude]
-        [JsonPropertyName("id")]
-        string Id { get; }
     }
 }

@@ -160,12 +160,6 @@ namespace AzureMapsNativeControl
         #region Managers
 
         /// <summary>
-        /// Manages the communication between the JavaScript Map API and the .NET wrapper.
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public MapViewJsInterlop JsInterlop { get; private set; }
-
-        /// <summary>
         /// Used to add, remove, and invoke events in the map and map elements (layers, sources, markers, popups...).
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -253,7 +247,7 @@ namespace AzureMapsNativeControl
         }
 #endif
 
-#endregion
+        #endregion
 
         #region Module methods
 
@@ -347,12 +341,10 @@ namespace AzureMapsNativeControl
             add
             {
                 OnFilesDroppedHandler += value;
-                //Events.Add("drop", value);
             }
             remove
             {
                 OnFilesDroppedHandler -= value;
-                //Events.Remove("drop", value);
             }
         }
 
@@ -832,6 +824,16 @@ namespace AzureMapsNativeControl
             _elevationSource = null;
         }
 
-#endregion
+        /// <summary>
+        /// Tasks to run before the initial ready event is invoked.
+        /// </summary>
+        /// <returns></returns>
+        internal async Task PreReadyEventTasks()
+        {
+            await Controls.Map_OnReady();
+
+        }
+
+        #endregion
     }
 }

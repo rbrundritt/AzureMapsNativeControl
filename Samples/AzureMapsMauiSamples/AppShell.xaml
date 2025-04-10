@@ -45,6 +45,7 @@
 
         <Tab Title="Controls">
             <ShellContent Title="Bring Data Into View control" ContentTemplate="{DataTemplate samples:BringDataIntoViewControlSample}" />
+            <ShellContent Title="Geolocation control" ContentTemplate="{DataTemplate samples:GeolocationControlSample}" />
             <ShellContent Title="Layer control" ContentTemplate="{DataTemplate samples:LayerControlSample}" />
             <ShellContent Title="Legend control" ContentTemplate="{DataTemplate samples:LegendControlSample}" />
             <ShellContent Title="Overview Map control" ContentTemplate="{DataTemplate samples:OverviewMapControlSample}" />

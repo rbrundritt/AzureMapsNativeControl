@@ -22,6 +22,7 @@
     <None Remove="EmbeddedResources\js\MapView.js" />
     <None Remove="EmbeddedResources\js\modules\azure-maps-animations.min.js" />
     <None Remove="EmbeddedResources\js\modules\azure-maps-bring-data-into-view-control.min.js" />
+    <None Remove="EmbeddedResources\js\modules\azure-maps-geolocation-control.min.js" />
     <None Remove="EmbeddedResources\js\modules\azure-maps-gridded-data-source.min.js" />
     <None Remove="EmbeddedResources\js\modules\azure-maps-layer-legend.min.js" />
     <None Remove="EmbeddedResources\js\modules\azure-maps-overview-map.min.js" />
@@ -37,6 +38,7 @@
     <EmbeddedResource Include="EmbeddedResources\js\MapView.js" />
     <EmbeddedResource Include="EmbeddedResources\js\modules\azure-maps-animations.min.js" />
     <EmbeddedResource Include="EmbeddedResources\js\modules\azure-maps-bring-data-into-view-control.min.js" />
+    <EmbeddedResource Include="EmbeddedResources\js\modules\azure-maps-geolocation-control.min.js" />
     <EmbeddedResource Include="EmbeddedResources\js\modules\azure-maps-gridded-data-source.min.js" />
     <EmbeddedResource Include="EmbeddedResources\js\modules\azure-maps-layer-legend.min.js" />
     <EmbeddedResource Include="EmbeddedResources\js\modules\azure-maps-overview-map.min.js" />

@@ -509,5 +509,5 @@ namespace AzureMapsNativeControl.Core
         }
 
     #endregion
-}
+    }
 }

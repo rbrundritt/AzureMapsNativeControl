@@ -11,6 +11,7 @@ Status legend: :white_check_mark: Implemented | :hammer_and_wrench: In progress 
 | :white_check_mark: | [Animations](https://github.com/Azure-Samples/azure-maps-animations) | Adds animation capabilties. |
 | :white_check_mark: | [Bring data into view control](https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control) | Adds a simple button that analyizes all data added to the map, and repositions the map so it's all within the map view. |
 | :white_check_mark: | [Drawing Tools](https://learn.microsoft.com/en-us/azure/azure-maps/set-drawing-options) | Drawing capabilites for the map. **Investigate possible extensions. There has been discussions in the dev community about adding more advance capabilities, Azure Maps dev team may also have plans** |
+| :white_check_mark: | [Geolocation control](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Integrates a web browsers geolocation API with the map. |
 | :white_check_mark: | [Layer & Legend controls](https://github.com/Azure-Samples/azure-maps-layer-legend) | A control that provides UI controls for dynamically styling layers and displaying legends on the map. |
 | :white_check_mark: | [Overview Map](https://github.com/Azure-Samples/azure-maps-overview-map) | A control that displays an overview map of the area the main map is focused on. |
 | :white_check_mark: | [PMTiles](https://github.com/protomaps/PMTiles) support | Easily load PMTile data as a vector tile source. |
@@ -23,26 +24,22 @@ The following modules are being considered for future implementation.
 
 |  Module | Description & Notes |
 | --- | --- |
-| [HTML Marker Layer](https://github.com/Azure-Samples/azure-maps-html-marker-layer) | A layer that renders point data from a data source as HTML elements on the map. **Will consider based on demand.** |
+| [HTML Marker Layer](https://github.com/Azure-Samples/azure-maps-html-marker-layer) | A layer that renders point data from a data source as HTML elements on the map. **Will consider based on demand.** Note: using a lot of HTML markers can create performance issues. |
 | [Image Exporter](https://github.com/Azure-Samples/azure-maps-image-exporter) | Generates screenshots of the map. **Investigate native options before deciding on this.** |
 | [Spider Clusters](https://github.com/Azure-Samples/azure-maps-spider-clusters) | Adds a visualization to the map that expands clusters into a spiral spider layout.|
-| [Spyglass Control](https://github.com/Azure-Samples/azure-maps-spyglass-control) | A window that displays a data set inside of a spyglass on the map. **Will consider based on demand.**  |
-| [Selection Control](https://github.com/Azure-Samples/azure-maps-selection-control) | A controls for selecting data in a data source using drawing tools or by requesting a route range polygon. **Need to determine best option for integrating with REST services in this library** |
+| [Spyglass Control](https://github.com/Azure-Samples/azure-maps-spyglass-control) | A window that displays a data set inside of a spyglass on the map. **Will consider based on demand. Likely similar to the overview map.**  |
+| [Selection Control](https://github.com/Azure-Samples/azure-maps-selection-control) | A control for selecting data in a data source using drawing tools or by requesting a route range polygon. **Need to determine best option for integrating with REST services in this library. Library currently uses older versions of the REST services.** |
 
 - Expose Simple Data Layer option (part of spatial io module, most of which is likely better done using native libraries)
 - Custom WebGL Layers
 - Offline support - Requires using the NPM version of the Azure Maps Web SDK. Likely requires some modifications to the Azure Maps Web SDK to work with this library.
 - If/When Upgrading to .NET 9 - For Maui, investigate moving to new built in HybridWebView control (may be lacking key features).
-- Hybrid geolocation control that ties into the native geolocation API rather than the browser version.
 
 ### Features & Modules not planned
 
 |  Module | Description & Notes |
 | --- | --- |
-| Fullscreen control | There are two Fullscreen controls for Azure Maps, a [newer built in one](https://learn.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.control.fullscreencontrol?view=azure-maps-typescript-latest), and an [older open source one](https://github.com/azure-samples/azure-maps-fullscreen-control/tree/main/). However, .MAUI does not support fullscreen mode, and WPF and WinUI require using native methods to put the app into fullscreen mode, this this web based control does not work. |
-| [Geolocation control](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Integrates a web browsers geolocation API with the map. **Likely better to use native geolocation APIs. Will add sample(s) that provide similar capabilities.** |
-| [Scale Bar Control](https://github.com/Azure-Samples/azure-maps-scale-bar-control) | This capability is now built into Azure Maps and exposed through this library. |
-| [Services UI](https://github.com/Azure-Samples/azure-maps-services-ui) | A set of web UI controls wrapping the Azure Maps REST services. **Most would likely prefer to do this in native UI** |
+| Fullscreen control | There are two Fullscreen controls for Azure Maps, a [newer built in one](https://learn.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.control.fullscreencontrol?view=azure-maps-typescript-latest), and an [older open source one](https://github.com/azure-samples/azure-maps-fullscreen-control/tree/main/). However, .MAUI does not support fullscreen mode, and WPF and WinUI require using native methods to put the app into fullscreen mode, thus this web based control does not work well here. |
 | [Spatial IO](https://learn.microsoft.com/azure/azure-maps/how-to-use-spatial-io-module) | Adds support for several spatial data formats, OGC layers, simple data layer. **Not planned as it is more efficient to use native libraries for this.** |
 | [Sync Map](https://github.com/Azure-Samples/azure-maps-sync-maps) | Synchronizes the cameras of two or more maps. **Added a native implementation of this instead.**  |
 | [Indoor Maps (Azure Maps Creator)](https://learn.microsoft.com/azure/azure-maps/) | Custom indoor maps via Azure Maps Creator platform. **Azure Maps Creator platform being retired. May consider alternatives in the future.** |

@@ -235,7 +235,7 @@ namespace AzureMapsNativeControl.Core
         /// Method called from JS to raise/invoke the .NET event handlers.
         /// </summary>
         /// <param name="eventArgs"></param>
-        internal void EventTriggered(RawMapMsg eventArgs)
+        internal async void EventTriggered(RawMapMsg eventArgs)
         {
             if (eventArgs != null && !string.IsNullOrWhiteSpace(eventArgs.Type))
             {
@@ -295,6 +295,17 @@ namespace AzureMapsNativeControl.Core
                         }
                     }
                 }
+                else if (!string.IsNullOrEmpty(eventArgs.ControlId))
+                {
+                    foreach(var c in _map.Controls)
+                    {
+                        if(c.Id.Equals(eventArgs.ControlId))
+                        {
+                            target = c;
+                            break;
+                        }
+                    }
+                }
                 else if (!string.IsNullOrEmpty(eventArgs.AnimationId))
                 {
                     if(_map.Animations.ContainsKey(eventArgs.AnimationId))
@@ -318,10 +329,20 @@ namespace AzureMapsNativeControl.Core
                             _map._pageReloaded = false;
                         }
 
-                        _map._isReady = true;
+                        if (!_map._isReady)
+                        {
+                            _map._isReady = true;
+                            await _map.PreReadyEventTasks();
+                        }
                     }
                     else if (eventName.Equals("load"))
                     {
+                        if (!_map._isReady)
+                        {
+                            //Add a slight delay to wait for the ready event to complete.
+                            await Task.Delay(50);
+                        }
+                        
                         _map._isMapLoaded = true;
                     }
                 }
@@ -425,6 +446,10 @@ namespace AzureMapsNativeControl.Core
                     return new FrameBasedAnimationEvent(_map, eventArgs);
                 case "drop":
                     return new MapFilesDroppedEventArgs(_map, eventArgs);
+                case "geolocationerror":
+                case "geolocationsuccess":
+                case "compassheadingchanged":
+                    return new GeolocationControlEventArgs(_map, eventArgs);
 
                 //case "data":
                 //case "sourcedata":

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AzureMapsWinUISamples.Samples.GeolocationControlSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMapsWinUISamples.Samples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:atlas="using:AzureMapsNativeControl"             
+    xmlns:atlasControl="using:AzureMapsNativeControl.Control"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10" Width="240">
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Style"/>
+                <ComboBox SelectionChanged="StylePicker_SelectedIndexChanged" Margin="5,0" Width="150">
+                    <ComboBoxItem>Auto</ComboBoxItem>
+                    <ComboBoxItem>Dark</ComboBoxItem>
+                    <ComboBoxItem>Light</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Marker Color"/>
+                <ComboBox SelectionChanged="MarkerColorPicker_SelectedIndexChanged" Margin="5,0" Width="150">
+                    <ComboBoxItem>DogerBlue</ComboBoxItem>
+                    <ComboBoxItem>#FF0000</ComboBoxItem>
+                    <ComboBoxItem>rgb(255, 165, 0)</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Show user location" VerticalAlignment="Center"/>
+                <CheckBox Checked="ShowUserLocationCheckBox_CheckedChanged" Unchecked="ShowUserLocationCheckBox_CheckedChanged" Margin="5,0,0,0" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Track user location" VerticalAlignment="Center"/>
+                <CheckBox Checked="TrackUserLocationCheckBox_CheckedChanged" Unchecked="TrackUserLocationCheckBox_CheckedChanged" Margin="5,0,0,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Calculate missing values" VerticalAlignment="Center"/>
+                <CheckBox Checked="CalculateMissingValuesCheckBox_CheckedChanged" Unchecked="CalculateMissingValuesCheckBox_CheckedChanged" Margin="5,0,0,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Update map camera" VerticalAlignment="Center"/>
+                <CheckBox Checked="UpdateMapCameraCheckBox_CheckedChanged" Unchecked="UpdateMapCameraCheckBox_CheckedChanged" Margin="5,0,0,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Enable compass" VerticalAlignment="Center"/>
+                <CheckBox Checked="EnableCompassCheckBox_CheckedChanged" Unchecked="EnableCompassCheckBox_CheckedChanged" IsChecked="True" Margin="5,0" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Sync map compass heading" VerticalAlignment="Center"/>
+                <CheckBox Checked="SyncMapCompassHeadingCheckBox_CheckedChanged" Unchecked="SyncMapCompassHeadingCheckBox_CheckedChanged" Margin="5,0"/>
+            </StackPanel>
+
+            <TextBlock x:Name="GeolocationLabel"  Margin="10,0"/>
+            <TextBlock x:Name="CompassHeadingLabel"/>
+        </StackPanel>
+
+        <atlas:Map x:Name="MyMap" OnReady="MyMap_OnReady" Grid.Column="1">
+            <atlas:Map.Controls>
+                <atlasControl:GeolocationControl x:Name="MyGeolocationControl" Position="TopRight"/>
+            </atlas:Map.Controls>
+        </atlas:Map>
+    </Grid>
+</Page>

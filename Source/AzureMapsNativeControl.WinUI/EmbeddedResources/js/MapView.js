@@ -257,6 +257,11 @@ class MapUtils
                     delete eventArgs.shapes;
                 }
 
+                if (eventArgs.feature) {
+                    eventArgs.features = MapUtils.sanitizeShapefeatures([eventArgs.feature]).features;
+                    delete eventArgs.feature;
+                }
+
                 //Capture shape change event info.
                 if (eventArgs.shapechanged) {
                     eventArgs.shapeIds = [eventArgs.shapechanged.getId()];
@@ -272,6 +277,14 @@ class MapUtils
                     eventArgs.shiftKey = orgEvent.shiftKey;
                     eventArgs.code = orgEvent.code;
                     eventArgs.key = orgEvent.key;
+                }
+
+                if (eventArgs.type === 'geolocationerror') {
+                    eventArgs.geolocationError = {
+                        code: eventArgs.error.code,
+                        message: eventArgs.error.message
+                    };
+                    delete eventArgs.error;
                 }
 
                 delete eventArgs.preventDefault;
@@ -409,6 +422,62 @@ class MapUtils
     }
 
     //#endregion
+
+    //#region Geolocation API wraper
+
+    static async getCurrentPosition(options) {
+        options = options || { enableHighAccuracy: false, timeout: 6000 };
+
+        var task = new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                resolve(position);
+            }, (error) => {
+                reject(error);
+            }, options);
+        });
+
+        try {
+            var position = await task;
+
+            if (position != null) {
+                return {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [position.coords.longitude, position.coords.latitude]
+                    },
+                    properties: {
+                        altitude: position.coords.altitude,
+                        heading: position.coords.heading,
+                        speed: position.coords.speed,
+                        timestamp: position.timestamp,
+                        accuracy: position.coords.accuracy,
+                        altitudeAccuracy: position.coords.altitudeAccuracy
+                    }
+                };
+            }
+        } catch (e) {
+            //switch (error.code) {
+            //    case error.PERMISSION_DENIED:
+            //        alert('User denied the request for Geolocation.');
+            //        break;
+            //    case error.POSITION_UNAVAILABLE:
+            //        alert('Position information is unavailable.');
+            //        break;
+            //    case error.TIMEOUT:
+            //        alert('The request to get user position timed out.');
+            //        break;
+            //    case error.UNKNOWN_ERROR:
+            //        alert('An unknown error occurred.');
+            //        break;
+            //}
+            console.log(e);
+        }
+
+        return null;
+    }
+
+    //#endif
 }
 
 /**
@@ -460,11 +529,6 @@ class MapInterface {
                 mapId: id,
                 camera: self.getCamera()
             });
-
-            //navigator.geolocation.getCurrentPosition((position) => {
-            //    alert("Latitude: " + position.coords.latitude +
-            //        "<br>Longitude: " + position.coords.longitude)
-            //});
         });
 
         self.map.events.add('load', () => {
@@ -1716,7 +1780,6 @@ class MapInterface {
             let control = controls[options.id];
 
             if (control) {
-
                 if (options.childControl && options.childControl.id && options.childControlName) {
                     //If there is a child control, try and get it's instance.
                     const childControl = this.controls[options.childControl.id];
@@ -1739,7 +1802,7 @@ class MapInterface {
                     this.map.controls.controlContainer.childNodes.forEach(c => {
                         if (c.contains(control._container)) {
                             c.classList.forEach(className => {
-                                if (controlPositions.indexOf(classList) > -1) {
+                                if (controlPositions.indexOf(className) > -1) {
                                     originalPosition = className;
                                 }
                             });
@@ -1771,11 +1834,12 @@ class MapInterface {
     }
 
     addControl(controlInfo) {
-        let control = this.controls[controlInfo.id];
+        const self = this;
+        let control = self.controls[controlInfo.id];
 
         if (controlInfo.childControl && controlInfo.childControl.id && controlInfo.childControlName) {
             //If there is a child control, try and get it's instance.
-            const childControl = this.controls[controlInfo.childControl.id];
+            const childControl = self.controls[controlInfo.childControl.id];
             if (childControl) {
                 controlInfo[controlInfo.childControlName] = childControl;
             }
@@ -1792,11 +1856,11 @@ class MapInterface {
                 control = new controlClass(controlInfo);
 
                 if (control) {
-                    this.map.controls.add(control, {
+                    self.map.controls.add(control, {
                         position: controlInfo.position
                     });
 
-                    this.controls[controlInfo.id] = control;
+                    self.controls[controlInfo.id] = control;
                 }
             }
         }
@@ -2289,6 +2353,8 @@ class MapInterface {
                     if (dm) {
                         e.drawingManagerId = targetId;
                     }
+                } else if (targetType.startsWith('atlas.control.')) {
+                    e.controlId = targetId;
                 }
 
                 e.mapId = self.id;
@@ -2429,7 +2495,7 @@ class MapInterface {
             return self.popups[targetId];
         } else if (targetType.startsWith('atlas.source.')) {
             return map.sources.getById(targetId);
-        } else if (targetType === 'atlas.controls.') {
+        } else if (targetType.startsWith('atlas.control.')) {
             return self.controls[targetId];
         } else if (targetType.startsWith('atlas.animations.')) {
             return self.animations[targetId];

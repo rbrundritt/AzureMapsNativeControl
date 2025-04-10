@@ -86,12 +86,22 @@ namespace AzureMapsNativeControl.Core
             _webView.JSInvokeTarget = this;
             _webView.ProxyRequestReceived += WebView_ProxyRequestReceived;
 
+
 #if WINDOWS || WPF || WINUI
             //In Windows, disable manual user zooming of web pages. 
             _webView.HybridWebViewInitialized += (s, e) =>
             {
                 //Disable the user manually zooming. Don't want the user accidentally zooming the HTML page.
                 e.WebView.CoreWebView2.Settings.IsZoomControlEnabled = false;
+                //e.WebView.CoreWebView2.OpenDevToolsWindow();
+            };
+#endif
+
+
+#if ANDROID
+            _webView.HybridWebViewInitialized += (s, e) =>
+            {
+                Platforms.GeolocationServicesHelper.EnableWebViewGeolocation(_webView);
             };
 #endif
 

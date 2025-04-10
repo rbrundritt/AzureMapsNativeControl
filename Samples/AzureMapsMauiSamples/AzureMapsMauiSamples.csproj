@@ -194,6 +194,9 @@
 	  <MauiXaml Update="Samples\Controls\BringDataIntoViewControlSample.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Samples\Controls\GeolocationControlSample.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Samples\Controls\LayerControlSample.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

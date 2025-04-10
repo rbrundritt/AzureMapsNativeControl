@@ -31,6 +31,18 @@ namespace AzureMapsNativeControl.Internal
         public string? Error { get; set; }
 
         /// <summary>
+        /// Error information from the Geolocation API.
+        /// </summary>
+        [JsonPropertyName("geolocationError")]
+        public GeolocationPositionError? GeolocationError { get; set; }
+
+        /// <summary>
+        /// The compass heading. Set when the compass heading changes or when there is a last known compass heading when there is a geolocation success.
+        /// </summary>
+        [JsonPropertyName("compassHeading")]
+        public double? CompassHeading { get; set; }
+
+        /// <summary>
         /// The map camera options when the event occurred.
         /// </summary>
         [JsonPropertyName("camera")]
@@ -233,6 +245,11 @@ namespace AzureMapsNativeControl.Internal
 
         #endregion
 
+        /// <summary>
+        /// The id of the control that the event occurred on.
+        /// </summary>
+        [JsonPropertyName("controlId")]
+        public string? ControlId { get; set; }
 
         /// <summary>
         /// The array of dropped file information.
